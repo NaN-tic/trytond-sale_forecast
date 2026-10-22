@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook" position="inside">
+        <page string="Planning" id="sales_forecast_planning" col="4">
+            <label name="sales_forecast_method"/>
+            <field name="sales_forecast_method"/>
+            <label name="sales_forecast_package"/>
+            <field name="sales_forecast_package"/>
+            <label name="sales_forecast_boxes_per_pallet"/>
+            <field name="sales_forecast_boxes_per_pallet"/>
+            <label name="sales_forecast_new_product_source"/>
+            <field name="sales_forecast_new_product_source"/>
+            <label name="sales_forecast_new_product_increase_percentage"/>
+            <field name="sales_forecast_new_product_increase_percentage" factor="100"/>
+            <label name="sales_forecast_key_account_source"/>
+            <field name="sales_forecast_key_account_source"/>
+            <label name="sales_forecast_customer_trucks_per_week"/>
+            <field name="sales_forecast_customer_trucks_per_week"/>
+            <label name="sales_forecast_customer_pallets_per_truck"/>
+            <field name="sales_forecast_customer_pallets_per_truck"/>
+            <newline/>
+            <field name="sales_forecast_distribution_lines" colspan="4"
+                view_ids="sales_forecast.view_sales_forecast_distribution_tree"/>
+            <newline/>
+            <field name="sales_forecast_manual_lines" colspan="4"
+                view_ids="sales_forecast.view_sales_forecast_manual_line_tree"/>
+            <button name="duplicate_last_manual_forecast" colspan="4"/>
+            <label name="sales_forecast_manual_updated_at"/>
+            <field name="sales_forecast_manual_updated_at"/>
+            <newline/>
+            <label name="sales_forecast_last_calculated_at"/>
+            <field name="sales_forecast_last_calculated_at"/>
+            <field name="sales_forecast_lines" colspan="4"/>
+        </page>
+    </xpath>
+</data>

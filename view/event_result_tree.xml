@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="company"/>
+    <field name="calendar_day"/>
+    <field name="date"/>
+    <field name="product_template"/>
+    <field name="origin"/>
+    <field name="package"/>
+    <field name="units"/>
+    <field name="boxes"/>
+    <field name="pallets"/>
+</tree>

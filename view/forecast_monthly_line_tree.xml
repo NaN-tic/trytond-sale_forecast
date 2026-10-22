@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="product_template"/>
+    <field name="product" optional="0"/>
+    <field name="package"/>
+    <field name="month_start"/>
+    <field name="month_end"/>
+    <field name="method"/>
+    <field name="quantity" optional="0"/>
+    <field name="current_year_quantity"/>
+    <field name="previous_year_1_quantity" optional="0"/>
+    <field name="previous_year_2_quantity" optional="0"/>
+    <field name="previous_year_3_quantity" optional="0"/>
+    <field name="units"/>
+    <field name="boxes"/>
+    <field name="pallets"/>
+</tree>

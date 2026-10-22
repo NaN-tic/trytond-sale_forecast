@@ -1,0 +1,58 @@
+Sales Forecast
+==============
+
+Sales forecasts for salable goods only, excluding services, based on confirmed,
+processing and completed sales. Quantities are converted to the product's default
+unit; sale lines with incompatible unit categories are omitted and reported to
+the user.
+
+Calculate forecasts from the main calculation screen. Choose the company,
+calendar, date range and optional products, then calculate the desired method.
+Calculated results are read-only. Week labels use ISO WW/YY. Historical weekly
+comparisons use the same ISO week in the previous year, falling back to week 52
+when the previous year has no week 53.
+
+Percentages are entered as percentages in the client (20 means 20%). Existing
+stored ratios remain unchanged. A product-specific increase takes precedence
+over category increases. Contradictory category increases are rejected. Set the
+product family root to limit the suggested categories to your family hierarchy.
+
+Existing historical parameters are reused by default. Select "Refresh Forecast
+Parameters" to refresh sales history, distributions and calendar event results.
+Missing parameters are initialized automatically, and calendar edits invalidate
+the affected cached parameters. Product days are excluded from the weekday
+distribution only for the products involved. Special-sale exclusions follow
+their product or customer scope.
+
+Weekday distributions cover the last twelve calendar months, including today
+and excluding the equivalent date a year ago. Customer-category special sales
+exclude products actually sold on the event date, including newly sold products.
+Special-sale reference weeks use the same ISO-week rule as General forecasts;
+incompatible units are omitted and reported in these calculations too.
+
+Key-account orders and customer truck/pallet quantities retain their weekly
+total when distributed over holidays; those explicit quantities take precedence
+over calendar event forecasts. Mixed forecasts without orders use General
+parameters, including family increases, and calendar events. New Product uses
+only months closed both at calculation time and before the forecast period. A
+missing closed month with sales raises an error instead of producing a zero.
+
+Manual forecasts preserve their weekly quantity when distributing it over
+weekdays and holidays. Partial weeks include only the selected days. Daily
+rounding is reconciled with the weekly total. A product day requires an explicit
+quantity; zero is allowed. Missing packaging conversion factors are never
+replaced by a one-to-one conversion: unavailable boxes/pallets remain empty,
+and entering boxes or pallets without the required factors raises an error.
+
+"Forecast vs Actual Sales" compares the latest complete forecast for each
+product/week with actual sales, by week or for the entire selected period. It
+supports products, family categories, forecast method and units/boxes/pallets.
+A missing forecast is shown as N/A, also in aggregates containing a missing
+week. An unknown packaging conversion is also N/A. Percentage differences are
+N/A when actual sales are zero. Subtotals and a grand total are included.
+The product's planning tab also selects the latest complete forecast per week;
+recalculating one week keeps the latest results for the other weeks visible.
+
+The customer integration initializes the family root from Familia/Família and
+builds calendar product days from sales of products in Diadas/Diades. Dates with
+manual edits are preserved when regenerating automatic calendar entries.

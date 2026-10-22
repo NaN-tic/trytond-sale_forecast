@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="view_comparison_tree">
+            <field name="model">sales.forecast.comparison</field>
+            <field name="type">tree</field>
+            <field name="name">comparison_tree</field>
+        </record>
+        <record model="ir.ui.view" id="view_comparison_form">
+            <field name="model">sales.forecast.comparison</field>
+            <field name="type">form</field>
+            <field name="name">comparison_form</field>
+        </record>
+        <record model="ir.ui.view" id="view_comparison_line_tree">
+            <field name="model">sales.forecast.comparison.line</field>
+            <field name="type">tree</field>
+            <field name="name">comparison_line_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_comparison">
+            <field name="name">Forecast vs Actual Sales</field>
+            <field name="res_model">sales.forecast.comparison</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_comparison_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_comparison_tree"/>
+            <field name="act_window" ref="act_comparison"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_comparison_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_comparison_form"/>
+            <field name="act_window" ref="act_comparison"/>
+        </record>
+        <record model="ir.model.button" id="comparison_calculate_button">
+            <field name="name">calculate</field>
+            <field name="string">Calculate Comparison</field>
+            <field name="model">sales.forecast.comparison</field>
+        </record>
+        <menuitem id="menu_comparison" parent="menu_sales_forecast_root"
+            action="act_comparison" sequence="15"/>
+        <record model="ir.model.access" id="access_comparison_0_read">
+            <field name="model">sales.forecast.comparison</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_0_production">
+            <field name="model">sales.forecast.comparison</field>
+            <field name="group" ref="production.group_production"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_0_admin">
+            <field name="model">sales.forecast.comparison</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_1_read">
+            <field name="model">sales.forecast.comparison-product.template</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_1_production">
+            <field name="model">sales.forecast.comparison-product.template</field>
+            <field name="group" ref="production.group_production"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_1_admin">
+            <field name="model">sales.forecast.comparison-product.template</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_2_read">
+            <field name="model">sales.forecast.comparison-product.category</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_2_production">
+            <field name="model">sales.forecast.comparison-product.category</field>
+            <field name="group" ref="production.group_production"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_2_admin">
+            <field name="model">sales.forecast.comparison-product.category</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_3_read">
+            <field name="model">sales.forecast.comparison.line</field>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_3_production">
+            <field name="model">sales.forecast.comparison.line</field>
+            <field name="group" ref="production.group_production"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_comparison_3_admin">
+            <field name="model">sales.forecast.comparison.line</field>
+            <field name="group" ref="production.group_production_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.rule.group" id="rule_group_comparison_company">
+            <field name="name">Comparison Company</field>
+            <field name="model">sales.forecast.comparison</field>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_comparison_company">
+            <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
+            <field name="rule_group" ref="rule_group_comparison_company"/>
+        </record>
+        <record model="ir.rule.group" id="rule_group_comparison_line_company">
+            <field name="name">Comparison Line Company</field>
+            <field name="model">sales.forecast.comparison.line</field>
+            <field name="global_p" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_comparison_line_company">
+            <field name="domain" eval="[('comparison.company', 'in', Eval('companies', []))]" pyson="1"/>
+            <field name="rule_group" ref="rule_group_comparison_line_company"/>
+        </record>
+    </data>
+</tryton>

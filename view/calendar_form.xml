@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="active"/>
+    <field name="active"/>
+    <label name="distribution_calculated_at"/>
+    <field name="distribution_calculated_at"/>
+    <label name="events_calculated_at"/>
+    <field name="events_calculated_at"/>
+    <group col="2" colspan="4" id="buttons">
+        <button name="calculate_distributions"/>
+        <button name="calculate_event_results"/>
+    </group>
+    <newline/>
+    <field name="day_lines" colspan="4"
+        view_ids="sales_forecast.view_sales_forecast_calendar_day_tree,sales_forecast.view_sales_forecast_calendar_day_form,sales_forecast.view_sales_forecast_calendar_day_calendar"/>
+</form>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<form>
+    <label id="calculate_distributions_msg"
+        string="Press Calculate to recalculate the weekday sales distributions for the active calendars."/>
+</form>

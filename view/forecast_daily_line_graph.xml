@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<graph type="line">
+    <x>
+        <field name="date"/>
+    </x>
+    <y>
+        <field name="quantity" empty="0" fill="1" color="#0f766e"/>
+        <field name="current_year_quantity" empty="0" color="#2563eb"/>
+        <field name="previous_year_1_quantity" empty="0" color="#d97706"/>
+        <field name="previous_year_2_quantity" empty="0" color="#7c3aed"/>
+        <field name="previous_year_3_quantity" empty="0" color="#16a34a"/>
+    </y>
+</graph>

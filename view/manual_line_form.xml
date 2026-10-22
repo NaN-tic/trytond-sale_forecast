@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<form>
+    <label name="product_template"/>
+    <field name="product_template"/>
+    <label name="week_start"/>
+    <field name="week_start"/>
+    <label name="package"/>
+    <field name="package"/>
+    <label name="units"/>
+    <field name="units"/>
+    <label name="boxes"/>
+    <field name="boxes"/>
+    <label name="pallets"/>
+    <field name="pallets"/>
+    <label name="updated_at"/>
+    <field name="updated_at"/>
+</form>

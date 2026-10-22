@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<form>
+    <label name="company"/>
+    <field name="company"/>
+    <label name="calendar"/>
+    <field name="calendar"/>
+    <label name="refresh_parameters"/>
+    <field name="refresh_parameters"/>
+    <label name="start_date"/>
+    <field name="start_date"/>
+    <label name="end_date"/>
+    <field name="end_date"/>
+    <button name="calculate_all" colspan="2"/>
+    <label name="last_calculated_at"/>
+    <field name="last_calculated_at"/>
+    <notebook colspan="4">
+        <page name="product_templates" col="1">
+            <field name="product_templates"/>
+        </page>
+        <page string="General Method" id="general_method">
+            <label name="family_category"/>
+            <field name="family_category"/>
+            <label name="general_increase_percentage"/>
+            <field name="general_increase_percentage" factor="100"/>
+            <field name="category_increase_lines" colspan="2"
+                view_ids="sales_forecast.view_sales_forecast_calculation_category_increase_tree"/>
+            <field name="product_increase_lines" colspan="2"
+                view_ids="sales_forecast.view_sales_forecast_calculation_product_increase_tree"/>
+            <button name="load_general_categories" colspan="4"/>
+            <label name="last_general_calculated_at"/>
+            <field name="last_general_calculated_at"/>
+            <button name="calculate_general"/>
+        </page>
+        <page string="Key Accounts" id="key_accounts">
+            <label name="last_key_accounts_calculated_at"/>
+            <field name="last_key_accounts_calculated_at"/>
+            <button name="calculate_key_accounts"/>
+        </page>
+        <page string="New Product" id="new_product">
+            <label name="last_new_product_calculated_at"/>
+            <field name="last_new_product_calculated_at"/>
+            <button name="calculate_new_product"/>
+        </page>
+        <page string="Manual" id="manual">
+            <label name="last_manual_calculated_at"/>
+            <field name="last_manual_calculated_at"/>
+            <button name="calculate_manual"/>
+        </page>
+        <page string="Generated Forecasts" id="generated_forecasts">
+            <field name="generated_forecasts" colspan="4"
+                view_ids="sales_forecast.view_sales_forecast_tree"/>
+        </page>
+    </notebook>
+</form>

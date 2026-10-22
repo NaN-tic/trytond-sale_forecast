@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="product_template"/>
+    <field name="units"/>
+    <field name="boxes"/>
+    <field name="pallets"/>
+</tree>

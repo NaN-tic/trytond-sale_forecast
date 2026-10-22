@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<form>
+    <label name="last_date"/>
+    <field name="last_date"/>
+    <label string="Refresh all confirmed, processing and completed sales for the current company." id="refresh_history" colspan="2"/>
+</form>

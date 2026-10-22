@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="week_label"/>
+    <field name="week_start" optional="0"/>
+    <field name="package"/>
+    <field name="units"/>
+    <field name="boxes"/>
+    <field name="pallets"/>
+    <field name="updated_at" widget="date"/>
+    <field name="updated_at" widget="time"/>
+</tree>

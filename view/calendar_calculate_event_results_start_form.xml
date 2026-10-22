@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<form>
+    <label id="calculate_event_results_msg"
+        string="Press Calculate to recalculate the special sales forecast results for the active calendars."/>
+</form>

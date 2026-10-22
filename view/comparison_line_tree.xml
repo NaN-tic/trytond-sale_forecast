@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="week"/><field name="kind"/><field name="product"/>
+    <field name="method"/><field name="unit"/>
+    <field name="forecast_display"/><field name="actual_display"/>
+    <field name="difference"/><field name="percentage"/>
+</tree>

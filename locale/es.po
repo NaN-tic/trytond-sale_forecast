@@ -1,0 +1,1846 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:product.template,sales_forecast_customer_pallets_per_truck:"
+msgid "Customer Pallets per Truck"
+msgstr "Palés de cliente por camión"
+
+msgctxt "field:product.template,sales_forecast_customer_trucks_per_week:"
+msgid "Customer Trucks per Week"
+msgstr "Camiones de cliente por semana"
+
+msgctxt "field:product.template,sales_forecast_distribution_lines:"
+msgid "Sale Distribution by Day"
+msgstr "Distribución de ventas por día"
+
+msgctxt "field:product.template,sales_forecast_key_account_source:"
+msgid "Key Account Source"
+msgstr "Origen de grandes cuentas"
+
+msgctxt "field:product.template,sales_forecast_lines:"
+msgid "Sales Forecasts"
+msgstr "Previsiones de ventas"
+
+msgctxt "field:product.template,sales_forecast_method:"
+msgid "Forecast Method"
+msgstr "Método de previsión"
+
+msgctxt "field:sales.forecast,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sales.forecast,calculation_method:"
+msgid "Calculation Method"
+msgstr "Método de cálculo"
+
+msgctxt "field:sales.forecast,calculation:"
+msgid "Calculation Source"
+msgstr "Origen del cálculo"
+
+msgctxt "field:sales.forecast,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast,calendar:"
+msgid "Calendar"
+msgstr "Calendario"
+
+msgctxt "field:sales.forecast,general_increase_percentage:"
+msgid "General Increase %"
+msgstr "% de incremento general"
+
+msgctxt "field:sales.forecast,start_date:"
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+msgctxt "field:sales.forecast,end_date:"
+msgid "End Date"
+msgstr "Fecha de fin"
+
+msgctxt "field:sales.forecast,product_templates:"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "field:sales.forecast,computed_at:"
+msgid "Computed At"
+msgstr "Calculado el"
+
+msgctxt "field:sales.forecast,last_general_calculated_at:"
+msgid "Last General Calculation"
+msgstr "Último cálculo general"
+
+msgctxt "field:sales.forecast,last_key_accounts_calculated_at:"
+msgid "Last Key Accounts Calculation"
+msgstr "Último cálculo de grandes cuentas"
+
+msgctxt "field:sales.forecast,last_new_product_calculated_at:"
+msgid "Last New Product Calculation"
+msgstr "Último cálculo de producto nuevo"
+
+msgctxt "field:sales.forecast,last_manual_calculated_at:"
+msgid "Last Manual Calculation"
+msgstr "Último cálculo manual"
+
+msgctxt "field:sales.forecast,lines:"
+msgid "Lines"
+msgstr "Líneas"
+
+msgctxt "field:sales.forecast,category_increase_lines:"
+msgid "Category Increases"
+msgstr "Incrementos por categoría"
+
+msgctxt "field:sales.forecast,product_increase_lines:"
+msgid "Product Increases"
+msgstr "Incrementos por producto"
+
+msgctxt "field:sales.forecast,state:"
+msgid "State"
+msgstr "Estado"
+
+msgctxt "field:sales.forecast.calculation,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.calculation,calendar:"
+msgid "Calendar"
+msgstr "Calendario"
+
+msgctxt "field:sales.forecast.calculation,general_increase_percentage:"
+msgid "General Increase %"
+msgstr "% de incremento general"
+
+msgctxt "field:sales.forecast.calculation,start_date:"
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+msgctxt "field:sales.forecast.calculation,end_date:"
+msgid "End Date"
+msgstr "Fecha de fin"
+
+msgctxt "field:sales.forecast.calculation,product_templates:"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "field:sales.forecast.calculation,category_increase_lines:"
+msgid "Category Increases"
+msgstr "Incrementos por categoría"
+
+msgctxt "field:sales.forecast.calculation,product_increase_lines:"
+msgid "Product Increases"
+msgstr "Incrementos por producto"
+
+msgctxt "field:sales.forecast.calculation,generated_forecasts:"
+msgid "Generated Forecasts"
+msgstr "Previsiones generadas"
+
+msgctxt "field:sales.forecast.calculation,last_general_calculated_at:"
+msgid "Last General Calculation"
+msgstr "Último cálculo general"
+
+msgctxt "field:sales.forecast.calculation,last_key_accounts_calculated_at:"
+msgid "Last Key Accounts Calculation"
+msgstr "Último cálculo de grandes cuentas"
+
+msgctxt "field:sales.forecast.calculation,last_new_product_calculated_at:"
+msgid "Last New Product Calculation"
+msgstr "Último cálculo de producto nuevo"
+
+msgctxt "field:sales.forecast.calculation,last_manual_calculated_at:"
+msgid "Last Manual Calculation"
+msgstr "Último cálculo manual"
+
+msgctxt "field:sales.forecast.calculation-product.template,calculation:"
+msgid "Calculation"
+msgstr "Cálculo"
+
+msgctxt "field:sales.forecast.calculation-product.template,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast-product.template,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast-product.template,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.calculation.category_increase,calculation:"
+msgid "Calculation"
+msgstr "Cálculo"
+
+msgctxt "field:sales.forecast.calculation.category_increase,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:sales.forecast.calculation.category_increase,percentage:"
+msgid "Increase %"
+msgstr "% de incremento"
+
+msgctxt "field:sales.forecast.calculation.product_increase,calculation:"
+msgid "Calculation"
+msgstr "Cálculo"
+
+msgctxt "field:sales.forecast.calculation.product_increase,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.calculation.product_increase,percentage:"
+msgid "Increase %"
+msgstr "% de incremento"
+
+msgctxt "field:sales.forecast.calendar,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sales.forecast.calendar,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:sales.forecast.calendar,day_lines:"
+msgid "Days"
+msgstr "Días"
+
+msgctxt "field:sales.forecast.calendar,distribution_calculated_at:"
+msgid "Distribution Calculated At"
+msgstr "Distribución calculada el"
+
+msgctxt "field:sales.forecast.calendar,events_calculated_at:"
+msgid "Events Calculated At"
+msgstr "Eventos calculados el"
+
+msgctxt "field:sales.forecast.calendar.day,calendar:"
+msgid "Calendar"
+msgstr "Calendario"
+
+msgctxt "field:sales.forecast.calendar.day,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sales.forecast.calendar.day,day_type:"
+msgid "Day Type"
+msgstr "Tipo de día"
+
+msgctxt "field:sales.forecast.calendar.day,note:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sales.forecast.calendar.day,product_lines:"
+msgid "Productos Diada"
+msgstr "Productos Diada"
+
+msgctxt "field:sales.forecast.calendar.day,special_lines:"
+msgid "Alcances Venta Especial"
+msgstr "Alcances Venta Especial"
+
+msgctxt "field:sales.forecast.calendar.day,result_lines:"
+msgid "Resultados del Cálculo"
+msgstr "Resultados del Cálculo"
+
+msgctxt "field:sales.forecast.calendar.day.product,calendar_day:"
+msgid "Calendar Day"
+msgstr "Día de calendario"
+
+msgctxt "field:sales.forecast.calendar.day.product,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.calendar.day.product,units:"
+msgid "Venta en unidades"
+msgstr "Venta en unidades"
+
+msgctxt "field:sales.forecast.calendar.day.product,boxes:"
+msgid "Venta en cajas"
+msgstr "Venta en cajas"
+
+msgctxt "field:sales.forecast.calendar.day.product,pallets:"
+msgid "Venta en pallets"
+msgstr "Venta en palés"
+
+msgctxt "field:sales.forecast.calendar.day.special,calendar_day:"
+msgid "Calendar Day"
+msgstr "Día de calendario"
+
+msgctxt "field:sales.forecast.calendar.day.special,scope:"
+msgid "Alcance"
+msgstr "Alcance"
+
+msgctxt "field:sales.forecast.calendar.day.special,product_category:"
+msgid "Categoría de Producto"
+msgstr "Categoría de Producto"
+
+msgctxt "field:sales.forecast.calendar.day.special,party_category:"
+msgid "Categoría de Cliente"
+msgstr "Categoría de Cliente"
+
+msgctxt "field:sales.forecast.calendar.day.special,increase_percentage:"
+msgid "Porcentaje aumento venta"
+msgstr "Porcentaje aumento venta"
+
+msgctxt "field:sales.forecast.distribution,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.distribution,sequence:"
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgctxt "field:sales.forecast.distribution,weekday:"
+msgid "Weekday"
+msgstr "Día de la semana"
+
+msgctxt "field:sales.forecast.distribution,percentage:"
+msgid "Percentage"
+msgstr "Porcentaje"
+
+msgctxt "field:sales.forecast.distribution,computed_at:"
+msgid "Computed At"
+msgstr "Calculado el"
+
+msgctxt "field:sales.forecast.event_result,calendar_day:"
+msgid "Día calendario"
+msgstr "Día calendario"
+
+msgctxt "field:sales.forecast.event_result,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.event_result,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:sales.forecast.event_result,units:"
+msgid "Venta en unidades"
+msgstr "Venta en unidades"
+
+msgctxt "field:sales.forecast.event_result,boxes:"
+msgid "Venta en cajas"
+msgstr "Venta en cajas"
+
+msgctxt "field:sales.forecast.event_result,pallets:"
+msgid "Venta en pallets"
+msgstr "Venta en palés"
+
+msgctxt "field:sales.forecast.sale_history,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.sale_history,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sales.forecast.sale_history,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sales.forecast.sale_history,computed_at:"
+msgid "Computed At"
+msgstr "Calculado el"
+
+msgctxt "field:sales.forecast.sale_history.update.start,last_date:"
+msgid "Current Last Date"
+msgstr "Última fecha actual"
+
+msgctxt "view:sales.forecast.sale_history.update.start:"
+msgid "Refresh all confirmed, processing and completed sales for the current company."
+msgstr "Actualiza todas las ventas confirmadas, en proceso y finalizadas de la empresa actual."
+
+msgctxt "field:product.package,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:product.template,sales_forecast_manual_updated_at:"
+msgid "Last Manual Forecast Update"
+msgstr "Última actualización de la previsión manual"
+
+msgctxt "model:ir.message,text:msg_duplicate_product_day"
+msgid "A product can only appear once in a product day."
+msgstr "Un producto solo puede aparecer una vez en una diada."
+
+msgctxt "model:ir.message,text:msg_special_scope_overlap"
+msgid "Special sale on %(date)s must use a single scope type and non-overlapping categories."
+msgstr "La venta especial del %(date)s debe tener un único tipo de alcance y categorías que no se solapen."
+
+msgctxt "model:ir.message,text:msg_inactive_forecast_package"
+msgid "Select an active forecast package for product \"%(product)s\"."
+msgstr "Seleccione un empaquetado activo de previsión para el producto \"%(product)s\"."
+
+msgctxt "model:ir.message,text:msg_missing_distribution"
+msgid "Recalculate the weekday distribution for product \"%(product)s\"."
+msgstr "Recalcule la distribución por días de la semana del producto \"%(product)s\"."
+
+msgctxt "field:sales.forecast.category_increase,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.category_increase,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:sales.forecast.category_increase,percentage:"
+msgid "Increase %"
+msgstr "% de incremento"
+
+msgctxt "field:sales.forecast.product_increase,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.product_increase,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.product_increase,percentage:"
+msgid "Increase %"
+msgstr "% de incremento"
+
+msgctxt "field:sales.forecast.line,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.line,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.line,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.line,product:"
+msgid "Variant"
+msgstr "Variante"
+
+msgctxt "field:sales.forecast.line,week_start:"
+msgid "Week Start"
+msgstr "Inicio de semana"
+
+msgctxt "field:sales.forecast.line,week_end:"
+msgid "Week End"
+msgstr "Fin de semana"
+
+msgctxt "field:sales.forecast.line,method:"
+msgid "Method"
+msgstr "Método"
+
+msgctxt "field:sales.forecast.line,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:sales.forecast.line,calendar_adjustment:"
+msgid "Calendar Adjustment"
+msgstr "Ajuste de calendario"
+
+msgctxt "field:sales.forecast.line,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sales.forecast.line,units:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "field:sales.forecast.line,boxes:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "field:sales.forecast.line,pallets:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "field:sales.forecast.line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Año actual"
+
+msgctxt "field:sales.forecast.line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Año anterior"
+
+msgctxt "field:sales.forecast.line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Hace dos años"
+
+msgctxt "field:sales.forecast.line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Hace tres años"
+
+msgctxt "field:sales.forecast.daily_line,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.daily_line,line:"
+msgid "Forecast Line"
+msgstr "Línea de previsión"
+
+msgctxt "field:sales.forecast.daily_line,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.daily_line,product:"
+msgid "Variant"
+msgstr "Variante"
+
+msgctxt "field:sales.forecast.daily_line,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sales.forecast.daily_line,weekday:"
+msgid "Weekday"
+msgstr "Día de la semana"
+
+msgctxt "field:sales.forecast.daily_line,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sales.forecast.daily_line,units:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "field:sales.forecast.daily_line,boxes:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "field:sales.forecast.daily_line,pallets:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "field:sales.forecast.daily_line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Año actual"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Año anterior"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Hace dos años"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Hace tres años"
+
+msgctxt "field:sales.forecast.monthly_line,forecast:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.monthly_line,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.monthly_line,product:"
+msgid "Variant"
+msgstr "Variante"
+
+msgctxt "field:sales.forecast.monthly_line,month_start:"
+msgid "Month Start"
+msgstr "Inicio de mes"
+
+msgctxt "field:sales.forecast.monthly_line,month_end:"
+msgid "Month End"
+msgstr "Fin de mes"
+
+msgctxt "field:sales.forecast.monthly_line,method:"
+msgid "Method"
+msgstr "Método"
+
+msgctxt "field:sales.forecast.monthly_line,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sales.forecast.monthly_line,units:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "field:sales.forecast.monthly_line,boxes:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "field:sales.forecast.monthly_line,pallets:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "field:sales.forecast.monthly_line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Año actual"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Año anterior"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Hace dos años"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Hace tres años"
+
+msgctxt "help:sales.forecast,general_increase_percentage:"
+msgid "Percentage applied to products using the General Method."
+msgstr "Porcentaje aplicado a los productos que usan el método general."
+
+msgctxt "help:sales.forecast.calculation.category_increase,percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduzca un porcentaje, por ejemplo 20 para 20%%."
+
+msgctxt "help:sales.forecast.calculation.product_increase,percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduzca un porcentaje, por ejemplo 20 para 20%%."
+
+msgctxt "help:sales.forecast.calendar.day,special_lines:"
+msgid ""
+"Add one line for each scope. If there are several product or customer "
+"categories, create one line per category."
+msgstr ""
+"Añada una línea para cada alcance. Si hay varias categorías de producto o "
+"de cliente, cree una línea por categoría."
+
+msgctxt "help:sales.forecast.calendar.day.special,scope:"
+msgid "Si hay varias categorías, cree una línea por categoría."
+msgstr "Si hay varias categorías, cree una línea por categoría."
+
+msgctxt "help:sales.forecast.calendar.day.special,increase_percentage:"
+msgid "Introduzca un porcentaje: 20 para 20%%; 350 para 350%%."
+msgstr "Introduzca un porcentaje: 20 para 20%%; 350 para 350%%."
+
+msgctxt "help:sales.forecast.sale_history.update.start,rebuild:"
+msgid ""
+"Delete the cached sales history and calculate it again from all posted "
+"sales invoices."
+msgstr ""
+"Elimina el histórico de ventas en caché y vuelve a calcularlo a partir de "
+"todas las facturas de venta contabilizadas."
+
+msgctxt "model:ir.action,name:act_sales_forecast"
+msgid "Sales Forecasts"
+msgstr "Previsiones de ventas"
+
+msgctxt "model:ir.action,name:act_sales_forecast_calendar"
+msgid "Forecast Calendars"
+msgstr "Calendarios de previsión"
+
+msgctxt "model:ir.action,name:act_sales_forecast_calendar_day"
+msgid "Forecast Calendars"
+msgstr "Calendarios de previsión"
+
+msgctxt "model:ir.action,name:act_sales_forecast_daily_line"
+msgid "Daily Forecast Lines"
+msgstr "Líneas diarias de previsión"
+
+msgctxt "model:ir.action,name:act_sales_forecast_distribution"
+msgid "Sale Distribution by Day"
+msgstr "Distribución de ventas por día"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result"
+msgid "Todos los Resultados del Cálculo"
+msgstr "Todos los Resultados del Cálculo"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result_product_day"
+msgid "Resultados Diadas"
+msgstr "Resultados Diadas"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result_special_sale"
+msgid "Resultados Venta Especial"
+msgstr "Resultados Venta Especial"
+
+msgctxt "model:ir.action,name:act_sales_forecast_line"
+msgid "Weekly Forecast Lines"
+msgstr "Líneas semanales de previsión"
+
+msgctxt "model:ir.action,name:act_sales_forecast_monthly_line"
+msgid "Monthly Forecast Lines"
+msgstr "Líneas mensuales de previsión"
+
+msgctxt "model:ir.action,name:act_sales_forecast_sale_history"
+msgid "Historical Sales"
+msgstr "Ventas históricas"
+
+msgctxt "model:ir.action,name:wiz_sale_history_update"
+msgid "Update Sale History"
+msgstr "Actualizar histórico de ventas"
+
+msgctxt "model:ir.action,name:wiz_sales_forecast_calendar_calculate_distributions"
+msgid "Calculate Distributions"
+msgstr "Calcular distribuciones"
+
+msgctxt "model:ir.action,name:wiz_sales_forecast_calendar_calculate_event_results"
+msgid "Calcular Previsión Ventas Especiales"
+msgstr "Calcular Previsión Ventas Especiales"
+
+msgctxt "model:ir.message,text:msg_invalid_period"
+msgid "The forecast start date must be before the end date."
+msgstr "La fecha de inicio de la previsión debe ser anterior a la fecha de fin."
+
+msgctxt "model:ir.message,text:msg_missing_general_percentage"
+msgid "Missing General Method percentage for product \"%(product)s\"."
+msgstr "Falta el porcentaje del método general para el producto \"%(product)s\"."
+
+msgctxt "model:ir.message,text:msg_missing_product_day_quantity"
+msgid "A product day line for \"%(product)s\" requires at least one quantity."
+msgstr "Una línea de día de producto para \"%(product)s\" requiere al menos una cantidad."
+
+msgctxt "model:ir.message,text:msg_missing_product_day_lines"
+msgid "The Diada Productos on %(date)s requires at least one product."
+msgstr "La Diada Productos del %(date)s requiere al menos un producto."
+
+msgctxt "model:ir.message,text:msg_missing_special_sale_lines"
+msgid "The Venta Especial on %(date)s requires at least one scope line."
+msgstr "La Venta Especial del %(date)s requiere al menos una línea de alcance."
+
+msgctxt "model:ir.message,text:msg_missing_calculation_period"
+msgid "Start Date and End Date are required to calculate sales forecasts."
+msgstr "Se requieren Fecha de inicio y Fecha de fin para calcular las previsiones de ventas."
+
+msgctxt "model:ir.message,text:msg_missing_general_percentage_for_method"
+msgid "General Method requires a general increase or a complete family percentage matrix."
+msgstr "El método general requiere un incremento general o una matriz completa de porcentajes por familia."
+
+msgctxt "model:ir.message,text:msg_missing_category_percentages"
+msgid "Without a general increase, all product families must have an increase percentage."
+msgstr "Sin un incremento general, todas las familias de producto deben tener un porcentaje de incremento."
+
+msgctxt "model:ir.message,text:msg_distributions_calculated"
+msgid "Sales forecast distributions have been recalculated."
+msgstr "Las distribuciones de previsión de ventas se han recalculado."
+
+msgctxt "model:ir.message,text:msg_event_results_calculated"
+msgid "Special sales forecast results have been recalculated."
+msgstr "Los resultados de previsión de ventas especiales se han recalculado."
+
+msgctxt "model:ir.model.button,string:calculate_button"
+msgid "Calculate"
+msgstr "Calcular"
+
+msgctxt "model:ir.model.button,string:open_daily_lines_button"
+msgid "Open Daily Lines"
+msgstr "Abrir líneas diarias"
+
+msgctxt "model:ir.model.button,string:open_week_lines_button"
+msgid "Open Week Lines"
+msgstr "Abrir líneas semanales"
+
+msgctxt "model:ir.model.button,string:open_month_lines_button"
+msgid "Open Month Lines"
+msgstr "Abrir líneas mensuales"
+
+msgctxt "model:ir.model.button,string:update_current_year_sales_button"
+msgid "Update Current Year Sales"
+msgstr "Actualizar ventas del año actual"
+
+msgctxt "model:ir.model.button,string:calculate_distributions_button"
+msgid "Calculate Distributions"
+msgstr "Calcular distribuciones"
+
+msgctxt "model:ir.model.button,string:calculate_event_results_button"
+msgid "Calcular Previsión Ventas"
+msgstr "Calcular Previsión Ventas"
+
+msgctxt "model:ir.model.button,string:draft_button"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "model:ir.model.button,string:cancel_button"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_root"
+msgid "Sales Forecasts"
+msgstr "Previsiones de ventas"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast"
+msgid "Calcular Previsiones"
+msgstr "Calcular Previsiones"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_configuration"
+msgid "Configuration"
+msgstr "Configuración"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_temp_tables"
+msgid "Temporary Tables"
+msgstr "Tablas temporales"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_sale_history_update"
+msgid "Update Sale History"
+msgstr "Actualizar histórico de ventas"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_sale_history"
+msgid "Historical Sales"
+msgstr "Ventas históricas"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_distribution"
+msgid "Sale Distribution by Day"
+msgstr "Distribución de ventas por día"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result"
+msgid "Todos los Resultados del Cálculo"
+msgstr "Todos los Resultados del Cálculo"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result_product_day"
+msgid "Resultados Diadas"
+msgstr "Resultados Diadas"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result_special_sale"
+msgid "Resultados Venta Especial"
+msgstr "Resultados Venta Especial"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar"
+msgid "Forecast Calendars"
+msgstr "Calendarios de previsión"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar_calculate_distributions"
+msgid "Calculate Distributions"
+msgstr "Calcular distribuciones"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar_calculate_event_results"
+msgid "Calcular Previsión Ventas Especiales"
+msgstr "Calcular Previsión Ventas Especiales"
+
+msgctxt "model:sales.forecast,string:"
+msgid "Sales Forecast"
+msgstr "Previsión de ventas"
+
+msgctxt "model:sales.forecast-product.template,string:"
+msgid "Sales Forecast Selected Product"
+msgstr "Producto seleccionado de previsión de ventas"
+
+msgctxt "model:sales.forecast.calculation,string:"
+msgid "Sales Forecast Calculation"
+msgstr "Cálculo de previsión de ventas"
+
+msgctxt "model:sales.forecast.calculation-product.template,string:"
+msgid "Sales Forecast Calculation Product"
+msgstr "Producto del cálculo de previsión de ventas"
+
+msgctxt "model:sales.forecast.calculation.category_increase,string:"
+msgid "Sales Forecast Calculation Category Increase"
+msgstr "Incremento de categoría del cálculo de previsión de ventas"
+
+msgctxt "model:sales.forecast.calculation.product_increase,string:"
+msgid "Sales Forecast Calculation Product Increase"
+msgstr "Incremento de producto del cálculo de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar,string:"
+msgid "Sales Forecast Calendar"
+msgstr "Calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.day,string:"
+msgid "Sales Forecast Calendar Day"
+msgstr "Día del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.day.product,string:"
+msgid "Sales Forecast Calendar Day Product"
+msgstr "Producto del día del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.day.special,string:"
+msgid "Sales Forecast Calendar Day Special"
+msgstr "Especial del día del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.daily_line,string:"
+msgid "Sales Forecast Daily Line"
+msgstr "Línea diaria de previsión de ventas"
+
+msgctxt "model:sales.forecast.distribution,string:"
+msgid "Sales Forecast Distribution"
+msgstr "Distribución de previsión de ventas"
+
+msgctxt "model:sales.forecast.event_result,string:"
+msgid "Sales Forecast Event Result"
+msgstr "Resultado de evento de previsión de ventas"
+
+msgctxt "model:sales.forecast.line,string:"
+msgid "Sales Forecast Line"
+msgstr "Línea de previsión de ventas"
+
+msgctxt "model:sales.forecast.monthly_line,string:"
+msgid "Sales Forecast Monthly Line"
+msgstr "Línea mensual de previsión de ventas"
+
+msgctxt "model:sales.forecast.product_increase,string:"
+msgid "Sales Forecast Product Increase"
+msgstr "Incremento de producto de previsión de ventas"
+
+msgctxt "model:sales.forecast.category_increase,string:"
+msgid "Sales Forecast Category Increase"
+msgstr "Incremento de categoría de previsión de ventas"
+
+msgctxt "model:sales.forecast.sale_history,string:"
+msgid "Sales Forecast Sale History"
+msgstr "Histórico de ventas de previsión de ventas"
+
+msgctxt "model:sales.forecast.sale_history.update.start,string:"
+msgid "Sales Forecast Sale History Update"
+msgstr "Actualización del histórico de ventas de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.calculate_distributions,string:"
+msgid "Sales Forecast Calendar Calculate Distributions"
+msgstr "Cálculo de distribuciones del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.calculate_distributions.start,string:"
+msgid "Sales Forecast Calendar Calculate Distributions"
+msgstr "Cálculo de distribuciones del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.calculate_event_results,string:"
+msgid "Sales Forecast Calendar Calculate Event Results"
+msgstr "Cálculo de resultados de eventos del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.calendar.calculate_event_results.start,string:"
+msgid "Sales Forecast Calendar Calculate Event Results"
+msgstr "Cálculo de resultados de eventos del calendario de previsión de ventas"
+
+msgctxt "model:sales.forecast.sale_history.update,string:"
+msgid "Sales Forecast Sale History Update"
+msgstr "Actualización del histórico de ventas de previsión de ventas"
+
+msgctxt "view:sales.forecast.calendar.calculate_event_results.start:"
+msgid "Press Calculate to recalculate the special sales forecast results for the active calendars."
+msgstr "Pulsa Calcular para recalcular los resultados de previsión de ventas especiales de los calendarios activos."
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_event_results,start,calculate:"
+msgid "Calculate"
+msgstr "Calcular"
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_event_results,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "view:sales.forecast.calendar.calculate_distributions.start:"
+msgid "Press Calculate to recalculate the weekday sales distributions for the active calendars."
+msgstr "Pulsa Calcular para recalcular las distribuciones de ventas por día de la semana de los calendarios activos."
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_distributions,start,calculate:"
+msgid "Calculate"
+msgstr "Calcular"
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_distributions,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Orders in Tryton"
+msgstr "Pedidos en Tryton"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Customer Forecast"
+msgstr "Previsión de cliente"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Mixed"
+msgstr "Mixto"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Draft"
+msgstr "Borrador"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Calculated"
+msgstr "Calculada"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Cancelled"
+msgstr "Cancelada"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Festivo"
+msgstr "Festivo"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Diada Productos"
+msgstr "Diada Productos"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Venta Especial"
+msgstr "Venta Especial"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Todos los Productos"
+msgstr "Todos los Productos"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Categoría de Producto"
+msgstr "Categoría de Producto"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Categoría de Cliente"
+msgstr "Categoría de Cliente"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Monday"
+msgstr "Lunes"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Tuesday"
+msgstr "Martes"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Thursday"
+msgstr "Jueves"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Friday"
+msgstr "Viernes"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Saturday"
+msgstr "Sábado"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Sunday"
+msgstr "Domingo"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Monday"
+msgstr "Lunes"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Tuesday"
+msgstr "Martes"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Thursday"
+msgstr "Jueves"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Friday"
+msgstr "Viernes"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Saturday"
+msgstr "Sábado"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Sunday"
+msgstr "Domingo"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.line,origin:"
+msgid "Calculated"
+msgstr "Calculada"
+
+msgctxt "selection:sales.forecast.line,origin:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.event_result,origin:"
+msgid "Diada Productos"
+msgstr "Diada Productos"
+
+msgctxt "selection:sales.forecast.event_result,origin:"
+msgid "Venta Especial"
+msgstr "Venta Especial"
+
+msgctxt "view:product.template:"
+msgid "Planning"
+msgstr "Planificación"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Generated Forecasts"
+msgstr "Previsiones generadas"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Diada Productos"
+msgstr "Diada Productos"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Venta Especial (1 línea por alcance)"
+msgstr "Venta Especial (1 línea por alcance)"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Resultados del Cálculo"
+msgstr "Resultados del Cálculo"
+
+msgctxt "view:sales.forecast:"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "view:sales.forecast:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "view:sales.forecast:"
+msgid "Lines"
+msgstr "Líneas"
+
+msgctxt "wizard_button:sales.forecast.sale_history.update,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "wizard_button:sales.forecast.sale_history.update,start,update:"
+msgid "Update"
+msgstr "Actualizar"
+
+msgctxt "field:product.template,sales_forecast_package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:sales.forecast.event_result,package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:sales.forecast.event_result,date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:sales.forecast.calculation,last_calculated_at:"
+msgid "Last Calculation"
+msgstr "Último cálculo"
+
+msgctxt "model:ir.model.button,string:calculate_special_sale_button"
+msgid "Calculate Special Sale Forecast"
+msgstr "Calcular previsión de venta especial"
+
+msgctxt "field:product.template,sales_forecast_boxes_per_pallet:"
+msgid "Forecast Boxes per Pallet"
+msgstr "Cajas por palé de previsión"
+
+msgctxt "field:product.template,sales_forecast_new_product_source:"
+msgid "New Product Forecast Source"
+msgstr "Origen de previsión de producto nuevo"
+
+msgctxt "selection:product.template,sales_forecast_new_product_source:"
+msgid "Average Months with History"
+msgstr "Promedio de meses con histórico"
+
+msgctxt "selection:product.template,sales_forecast_new_product_source:"
+msgid "Last Closed Month"
+msgstr "Último mes cerrado"
+
+msgctxt "field:product.template,sales_forecast_new_product_increase_percentage:"
+msgid "New Product Increase %"
+msgstr "% de incremento de producto nuevo"
+
+msgctxt "field:product.template,sales_forecast_manual_lines:"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsiones semanales manuales"
+
+msgctxt "field:product.template,sales_forecast_lines:"
+msgid "Latest Sales Forecast"
+msgstr "Última previsión de ventas"
+
+msgctxt "field:product.template,sales_forecast_last_calculated_at:"
+msgid "Last Sales Forecast Calculation"
+msgstr "Último cálculo de previsión de ventas"
+
+msgctxt "model:sales.forecast.manual_line,name:"
+msgid "Sales Forecast Manual Line"
+msgstr "Línea manual de previsión de ventas"
+
+msgctxt "field:sales.forecast.manual_line,week_start:"
+msgid "Week"
+msgstr "Semana"
+
+msgctxt "field:sales.forecast.manual_line,updated_at:"
+msgid "Last Update"
+msgstr "Última actualización"
+
+msgctxt "field:sales.forecast.line,base_quantity:"
+msgid "Base Quantity"
+msgstr "Cantidad base"
+
+msgctxt "model:ir.model.button,string:duplicate_last_manual_forecast_button"
+msgid "Duplicate Last Manual Forecast"
+msgstr "Duplicar la última previsión manual"
+
+msgctxt "field:sales.forecast.sale_history,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.distribution,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.event_result,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "model:ir.action.act_window,name:act_sales_forecast_calculation"
+msgid "Calculate Sales Forecasts"
+msgstr "Calcular previsiones de ventas"
+
+msgctxt "model:ir.action.act_window,name:act_sales_forecast_manual_line"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsiones semanales manuales"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_results"
+msgid "Calculated Forecasts"
+msgstr "Previsiones calculadas"
+
+msgctxt "model:ir.model.button,string:calculation_load_general_categories_button"
+msgid "Load General Method Families"
+msgstr "Cargar familias del método general"
+
+msgctxt "model:ir.model.button,string:calculation_open_manual_lines_button"
+msgid "Enter Manual Forecasts"
+msgstr "Introducir previsiones manuales"
+
+msgctxt "model:ir.message,text:msg_manual_delete_sequence"
+msgid "Only the latest manual forecast weeks can be deleted, without leaving gaps."
+msgstr "Solo se pueden eliminar las últimas semanas de previsión manual, sin dejar huecos."
+
+msgctxt "model:ir.message,text:msg_missing_manual_week"
+msgid "Product \"%(product)s\" has no manual forecast for week %(week)s."
+msgstr "El producto \"%(product)s\" no tiene previsión manual para la semana %(week)s."
+
+msgctxt "model:ir.message,text:msg_product_day_single_update"
+msgid "Product day quantities must be updated one line at a time."
+msgstr "Las cantidades de Diada deben actualizarse línea por línea."
+
+msgctxt "model:ir.message,text:msg_missing_key_account_parameters"
+msgid "Product \"%(product)s\" requires trucks per week and pallets per truck."
+msgstr "El producto \"%(product)s\" requiere camiones por semana y palés por camión."
+
+msgctxt "model:ir.message,text:msg_missing_forecast_packaging"
+msgid "Product \"%(product)s\" requires a forecast package and boxes per pallet."
+msgstr "El producto \"%(product)s\" requiere un empaquetado de previsión y cajas por palé."
+
+msgctxt "model:ir.message,text:msg_missing_history_company"
+msgid "A company is required to calculate historical sales."
+msgstr "Se necesita una empresa para calcular el histórico de ventas."
+
+msgctxt "model:ir.message,text:msg_history_incompatible_units"
+msgid "Lines with incompatible units were skipped in the following sales:"
+msgstr "Se han omitido líneas con unidades incompatibles en las siguientes ventas:"
+
+msgctxt "model:ir.message,text:msg_conflicting_category_increases"
+msgid ""
+"Product \"%(product)s\" has conflicting category increases. Set a product "
+"increase or use consistent category percentages."
+msgstr ""
+"El producto \"%(product)s\" tiene incrementos de categoría contradictorios. "
+"Indique un incremento por producto o porcentajes coherentes."
+
+msgctxt "model:ir.message,text:msg_calculated_readonly"
+msgid ""
+"Calculated forecasts are read-only. Create a new calculation to change the "
+"forecast."
+msgstr ""
+"Las previsiones calculadas son de solo lectura. Lance un nuevo cálculo para "
+"modificarlas."
+
+msgctxt "model:ir.message,text:msg_comparison_selection"
+msgid ""
+"The selected products, categories and forecast method are incompatible or "
+"contain no salable products."
+msgstr ""
+"Los productos, categorías y método seleccionados son incompatibles o no "
+"contienen productos vendibles."
+
+msgctxt "field:sales.forecast,refresh_parameters:"
+msgid "Refresh Forecast Parameters"
+msgstr "Actualizar parámetros de previsión"
+
+msgctxt "help:sales.forecast,refresh_parameters:"
+msgid ""
+"Refresh sales history, weekday distributions and calendar results. Otherwise"
+" reuse the existing parameters."
+msgstr ""
+"Actualiza el histórico de ventas, las distribuciones por día y los "
+"resultados del calendario. Si no se marca, reutiliza los parámetros "
+"existentes."
+
+msgctxt "field:sales.forecast.calculation,refresh_parameters:"
+msgid "Refresh Forecast Parameters"
+msgstr "Actualizar parámetros de previsión"
+
+msgctxt "help:sales.forecast.calculation,refresh_parameters:"
+msgid ""
+"Refresh sales history, weekday distributions and calendar results. Otherwise"
+" reuse the existing parameters."
+msgstr ""
+"Actualiza el histórico de ventas, las distribuciones por día y los "
+"resultados del calendario. Si no se marca, reutiliza los parámetros "
+"existentes."
+
+msgctxt "field:sales.forecast.calculation,family_category:"
+msgid "Product Family Root"
+msgstr "Categoría raíz de familias"
+
+msgctxt "help:sales.forecast.calculation,family_category:"
+msgid "Only categories under this root are used as product families."
+msgstr ""
+"Solo se utilizan como familias las categorías que pertenecen a esta raíz."
+
+msgctxt "field:sales.forecast.line,week_label:"
+msgid "Week"
+msgstr "Semana"
+
+msgctxt "field:sales.forecast.manual_line,week_label:"
+msgid "Week"
+msgstr "Semana"
+
+msgctxt ""
+"help:product.template,sales_forecast_new_product_increase_percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduzca un porcentaje, por ejemplo 20 para 20%%."
+
+msgctxt "field:sales.forecast.comparison,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sales.forecast.comparison,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.comparison,start_date:"
+msgid "First Week"
+msgstr "Primera semana"
+
+msgctxt "field:sales.forecast.comparison,end_date:"
+msgid "Last Week"
+msgstr "Última semana"
+
+msgctxt "field:sales.forecast.comparison,weekly:"
+msgid "Weekly Detail"
+msgstr "Detalle semanal"
+
+msgctxt "field:sales.forecast.comparison,products:"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "field:sales.forecast.comparison,categories:"
+msgid "Product Families"
+msgstr "Familias de producto"
+
+msgctxt "field:sales.forecast.comparison,method:"
+msgid "Forecast Method"
+msgstr "Método de previsión"
+
+msgctxt "field:sales.forecast.comparison,unit:"
+msgid "Display Unit"
+msgstr "Unidad de presentación"
+
+msgctxt "field:sales.forecast.comparison,calculated_at:"
+msgid "Calculated At"
+msgstr "Fecha de cálculo"
+
+msgctxt "field:sales.forecast.comparison,lines:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "help:sales.forecast.comparison,start_date:"
+msgid "Select any date in the first week to include."
+msgstr "Seleccione cualquier fecha de la primera semana que desea incluir."
+
+msgctxt "help:sales.forecast.comparison,end_date:"
+msgid "Select any date in the last week to include."
+msgstr "Seleccione cualquier fecha de la última semana que desea incluir."
+
+msgctxt "field:sales.forecast.comparison.line,comparison:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "field:sales.forecast.comparison.line,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.comparison.line,method:"
+msgid "Forecast Method"
+msgstr "Método de previsión"
+
+msgctxt "field:sales.forecast.comparison.line,kind:"
+msgid "Row"
+msgstr "Fila"
+
+msgctxt "field:sales.forecast.comparison.line,week_start:"
+msgid "Week Start"
+msgstr "Inicio de semana"
+
+msgctxt "field:sales.forecast.comparison.line,week:"
+msgid "Week"
+msgstr "Semana"
+
+msgctxt "field:sales.forecast.comparison.line,unit:"
+msgid "Display Unit"
+msgstr "Unidad de presentación"
+
+msgctxt "field:sales.forecast.comparison.line,forecast_quantity:"
+msgid "Forecast Quantity"
+msgstr "Cantidad prevista"
+
+msgctxt "field:sales.forecast.comparison.line,actual_quantity:"
+msgid "Actual Quantity"
+msgstr "Cantidad real"
+
+msgctxt "field:sales.forecast.comparison.line,forecast_display:"
+msgid "Forecast"
+msgstr "Previsión"
+
+msgctxt "field:sales.forecast.comparison.line,actual_display:"
+msgid "Actual Sales"
+msgstr "Venta real"
+
+msgctxt "field:sales.forecast.comparison.line,difference:"
+msgid "Difference"
+msgstr "Diferencia"
+
+msgctxt "field:sales.forecast.comparison.line,percentage:"
+msgid "Difference %"
+msgstr "Diferencia %"
+
+msgctxt "model:ir.action,name:act_comparison"
+msgid "Forecast vs Actual Sales"
+msgstr "Previsión frente a venta real"
+
+msgctxt "model:ir.ui.menu,name:menu_comparison"
+msgid "Forecast vs Actual Sales"
+msgstr "Previsión frente a venta real"
+
+msgctxt "model:ir.model.button,string:comparison_calculate_button"
+msgid "Calculate Comparison"
+msgstr "Calcular comparativa"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "All Methods"
+msgstr "Todos los métodos"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Total"
+msgstr "Total"
+
+msgctxt "model:ir.message,text:msg_missing_new_product_history"
+msgid ""
+"Product \"%(product)s\" has no sales history in a closed month before the "
+"forecast period. Enter a manual forecast or select another method."
+msgstr ""
+"El producto \"%(product)s\" no tiene ventas en un mes cerrado anterior al "
+"período de previsión. Introduzca una previsión manual o seleccione otro "
+"método."
+
+msgctxt "field:sales.forecast.comparison-product.category,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:sales.forecast.comparison-product.category,comparison:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "field:sales.forecast.comparison-product.template,comparison:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "field:sales.forecast.comparison-product.template,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.daily_line,package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:sales.forecast.line,package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:sales.forecast.manual_line,boxes:"
+msgid "Boxes"
+msgstr "Cajas"
+
+msgctxt "field:sales.forecast.manual_line,package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:sales.forecast.manual_line,pallets:"
+msgid "Pallets"
+msgstr "Palés"
+
+msgctxt "field:sales.forecast.manual_line,product_template:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sales.forecast.manual_line,units:"
+msgid "Units"
+msgstr "Unidades"
+
+msgctxt "field:sales.forecast.monthly_line,package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "help:product.template,sales_forecast_boxes_per_pallet:"
+msgid ""
+"Fallback used when the selected package does not define boxes per pallet."
+msgstr ""
+"Valor utilizado cuando el empaquetado seleccionado no define las cajas por "
+"palé."
+
+msgctxt "help:product.template,sales_forecast_package:"
+msgid ""
+"Package used to display forecast quantities in boxes and pallets. If empty, "
+"the default product package is used."
+msgstr ""
+"Empaquetado utilizado para mostrar las cantidades previstas en cajas y "
+"palés. Si se deja vacío, se utiliza el empaquetado predeterminado del "
+"producto."
+
+msgctxt "model:ir.action,name:act_sales_forecast_calculation"
+msgid "Calculate Sales Forecasts"
+msgstr "Calcular previsiones de ventas"
+
+msgctxt "model:ir.action,name:act_sales_forecast_manual_line"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsiones semanales manuales"
+
+msgctxt "model:ir.message,text:msg_manual_single_update"
+msgid "Manual forecast quantities must be updated one line at a time."
+msgstr ""
+"Las cantidades de previsión manual deben actualizarse línea por línea."
+
+msgctxt "model:ir.message,text:msg_manual_week_in_past"
+msgid "A manual forecast can not be created in the past."
+msgstr "No se puede crear una previsión manual en el pasado."
+
+msgctxt "model:ir.message,text:msg_manual_week_readonly"
+msgid "The product and week of a manual forecast can not be changed."
+msgstr ""
+"No se pueden cambiar el producto ni la semana de una previsión manual."
+
+msgctxt "model:ir.message,text:msg_manual_week_sequence"
+msgid "The next manual forecast for \"%(product)s\" must be week %(week)s."
+msgstr ""
+"La siguiente previsión manual del producto \"%(product)s\" debe corresponder"
+" a la semana %(week)s."
+
+msgctxt "model:ir.message,text:msg_missing_manual_line"
+msgid "Product \"%(product)s\" has no manual forecast line to duplicate."
+msgstr ""
+"El producto \"%(product)s\" no tiene ninguna línea de previsión manual para "
+"duplicar."
+
+msgctxt "model:ir.message,text:msg_missing_manual_quantity"
+msgid "A manual forecast for \"%(product)s\" requires units, boxes or pallets."
+msgstr ""
+"La previsión manual del producto \"%(product)s\" requiere unidades, cajas o "
+"palés."
+
+msgctxt "model:ir.model.button,string:calculation_calculate_general_button"
+msgid "Calculate General"
+msgstr "Calcular método general"
+
+msgctxt ""
+"model:ir.model.button,string:calculation_calculate_key_accounts_button"
+msgid "Calculate Key Accounts"
+msgstr "Calcular grandes cuentas"
+
+msgctxt "model:ir.model.button,string:calculation_calculate_manual_button"
+msgid "Calculate Manual"
+msgstr "Calcular previsión manual"
+
+msgctxt ""
+"model:ir.model.button,string:calculation_calculate_new_product_button"
+msgid "Calculate New Product"
+msgstr "Calcular producto nuevo"
+
+msgctxt "model:sales.forecast.comparison,string:"
+msgid "Sales Forecast Compared with Actual Sales"
+msgstr "Previsión frente a venta real"
+
+msgctxt "model:sales.forecast.comparison.line,string:"
+msgid "Sales Forecast Comparison Line"
+msgstr "Línea de comparativa de previsión de ventas"
+
+msgctxt "model:sales.forecast.manual_line,string:"
+msgid "Sales Forecast Manual Line"
+msgstr "Línea manual de previsión de ventas"
+
+msgctxt "model:ir.message,text:msg_sale_history_company_product_date_unique"
+msgid "A company and product can only have one sales history row per day."
+msgstr ""
+"Solo puede existir una fila de histórico de ventas por empresa, producto y "
+"fecha."
+
+msgctxt "model:ir.message,text:msg_calendar_date_unique"
+msgid "A forecast calendar can only have one entry per day."
+msgstr "Un calendario de previsión solo puede tener una entrada por día."
+
+msgctxt "model:ir.message,text:msg_distribution_product_weekday_unique"
+msgid "The weekday distribution must be unique per company and product."
+msgstr ""
+"La distribución por día de la semana debe ser única por empresa y producto."
+
+msgctxt "model:ir.message,text:msg_manual_product_week_unique"
+msgid "A product can only have one manual forecast per week."
+msgstr "Un producto solo puede tener una previsión manual por semana."
+
+msgctxt "model:ir.message,text:msg_calculation_category_unique"
+msgid "The category increase must be unique per calculation."
+msgstr "El incremento por categoría debe ser único por cálculo."
+
+msgctxt "model:ir.message,text:msg_forecast_category_unique"
+msgid "The category increase must be unique per forecast."
+msgstr "El incremento por categoría debe ser único por previsión."
+
+msgctxt "model:ir.message,text:msg_forecast_product_unique"
+msgid "The product increase must be unique per forecast."
+msgstr "El incremento por producto debe ser único por previsión."
+
+msgctxt "model:ir.message,text:msg_forecast_product_week_unique"
+msgid "A product can only have one forecast line per week."
+msgstr "Un producto solo puede tener una línea de previsión por semana."
+
+msgctxt "model:ir.message,text:msg_forecast_daily_line_unique"
+msgid "A product can only have one daily forecast line per day."
+msgstr "Un producto solo puede tener una línea de previsión diaria por día."
+
+msgctxt "model:ir.message,text:msg_forecast_monthly_line_unique"
+msgid "A product can only have one monthly forecast line per month."
+msgstr "Un producto solo puede tener una línea de previsión mensual por mes."
+
+msgctxt "model:ir.model.button,string:calculation_calculate_all_button"
+msgid "Calculate All"
+msgstr "Calcular todos"
+
+msgctxt "field:product.product,sales_forecast_customer_pallets_per_truck:"
+msgid "Customer Pallets per Truck"
+msgstr "Palés de cliente por camión"
+
+msgctxt "field:product.product,sales_forecast_customer_trucks_per_week:"
+msgid "Customer Trucks per Week"
+msgstr "Camiones de cliente por semana"
+
+msgctxt "field:product.product,sales_forecast_distribution_lines:"
+msgid "Sale Distribution by Day"
+msgstr "Distribución de ventas por día"
+
+msgctxt "field:product.product,sales_forecast_key_account_source:"
+msgid "Key Account Source"
+msgstr "Origen de grandes cuentas"
+
+msgctxt "field:product.product,sales_forecast_method:"
+msgid "Forecast Method"
+msgstr "Método de previsión"
+
+msgctxt "field:product.product,sales_forecast_manual_updated_at:"
+msgid "Last Manual Forecast Update"
+msgstr "Última actualización de la previsión manual"
+
+msgctxt "selection:product.product,sales_forecast_method:"
+msgid "General Method"
+msgstr "Método general"
+
+msgctxt "selection:product.product,sales_forecast_method:"
+msgid "Key Accounts"
+msgstr "Grandes cuentas"
+
+msgctxt "selection:product.product,sales_forecast_method:"
+msgid "New Product"
+msgstr "Producto nuevo"
+
+msgctxt "selection:product.product,sales_forecast_method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:product.product,sales_forecast_key_account_source:"
+msgid "Orders in Tryton"
+msgstr "Pedidos en Tryton"
+
+msgctxt "selection:product.product,sales_forecast_key_account_source:"
+msgid "Customer Forecast"
+msgstr "Previsión de cliente"
+
+msgctxt "selection:product.product,sales_forecast_key_account_source:"
+msgid "Mixed"
+msgstr "Mixto"
+
+msgctxt "field:product.product,sales_forecast_package:"
+msgid "Forecast Package"
+msgstr "Empaquetado de previsión"
+
+msgctxt "field:product.product,sales_forecast_boxes_per_pallet:"
+msgid "Forecast Boxes per Pallet"
+msgstr "Cajas por palé de previsión"
+
+msgctxt "field:product.product,sales_forecast_new_product_source:"
+msgid "New Product Forecast Source"
+msgstr "Origen de previsión de producto nuevo"
+
+msgctxt "selection:product.product,sales_forecast_new_product_source:"
+msgid "Average Months with History"
+msgstr "Promedio de meses con histórico"
+
+msgctxt "selection:product.product,sales_forecast_new_product_source:"
+msgid "Last Closed Month"
+msgstr "Último mes cerrado"
+
+msgctxt ""
+"field:product.product,sales_forecast_new_product_increase_percentage:"
+msgid "New Product Increase %"
+msgstr "% de incremento de producto nuevo"
+
+msgctxt "field:product.product,sales_forecast_manual_lines:"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsiones semanales manuales"
+
+msgctxt "field:product.product,sales_forecast_lines:"
+msgid "Latest Sales Forecast"
+msgstr "Última previsión de ventas"
+
+msgctxt "field:product.product,sales_forecast_last_calculated_at:"
+msgid "Last Sales Forecast Calculation"
+msgstr "Último cálculo de previsión de ventas"
+
+msgctxt "help:product.product,sales_forecast_new_product_increase_percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduzca un porcentaje, por ejemplo 20 para 20%%."
+
+msgctxt "help:product.product,sales_forecast_boxes_per_pallet:"
+msgid ""
+"Fallback used when the selected package does not define boxes per pallet."
+msgstr ""
+"Valor utilizado cuando el empaquetado seleccionado no define las cajas por "
+"palé."
+
+msgctxt "help:product.product,sales_forecast_package:"
+msgid ""
+"Package used to display forecast quantities in boxes and pallets. If empty, "
+"the default product package is used."
+msgstr ""
+"Empaquetado utilizado para mostrar las cantidades previstas en cajas y "
+"palés. Si se deja vacío, se utiliza el empaquetado predeterminado del "
+"producto."

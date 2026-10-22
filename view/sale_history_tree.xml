@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="company"/>
+    <field name="product_template"/>
+    <field name="date"/>
+    <field name="quantity"/>
+    <field name="computed_at" widget="date"/>
+    <field name="computed_at" widget="time"/>
+</tree>

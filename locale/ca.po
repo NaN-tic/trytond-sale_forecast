@@ -1,0 +1,1539 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:product.template,sales_forecast_customer_pallets_per_truck:"
+msgid "Customer Pallets per Truck"
+msgstr "Palets del client per camió"
+
+msgctxt "field:product.template,sales_forecast_customer_trucks_per_week:"
+msgid "Customer Trucks per Week"
+msgstr "Camions del client per setmana"
+
+msgctxt "field:product.template,sales_forecast_distribution_lines:"
+msgid "Sale Distribution by Day"
+msgstr "Distribució de vendes per dia"
+
+msgctxt "field:product.template,sales_forecast_key_account_source:"
+msgid "Key Account Source"
+msgstr "Origen dels grans comptes"
+
+msgctxt "field:product.template,sales_forecast_lines:"
+msgid "Sales Forecasts"
+msgstr "Previsions de vendes"
+
+msgctxt "field:product.template,sales_forecast_method:"
+msgid "Forecast Method"
+msgstr "Mètode de previsió"
+
+msgctxt "field:sales.forecast,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sales.forecast,calculation_method:"
+msgid "Calculation Method"
+msgstr "Mètode de càlcul"
+
+msgctxt "field:sales.forecast,calculation:"
+msgid "Calculation Source"
+msgstr "Origen del càlcul"
+
+msgctxt "field:sales.forecast,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast,calendar:"
+msgid "Calendar"
+msgstr "Calendari"
+
+msgctxt "field:sales.forecast,general_increase_percentage:"
+msgid "General Increase %"
+msgstr "% d'increment general"
+
+msgctxt "field:sales.forecast,start_date:"
+msgid "Start Date"
+msgstr "Data d'inici"
+
+msgctxt "field:sales.forecast,end_date:"
+msgid "End Date"
+msgstr "Data de fi"
+
+msgctxt "field:sales.forecast,product_templates:"
+msgid "Products"
+msgstr "Productes"
+
+msgctxt "field:sales.forecast,computed_at:"
+msgid "Computed At"
+msgstr "Calculat el"
+
+msgctxt "field:sales.forecast,last_general_calculated_at:"
+msgid "Last General Calculation"
+msgstr "Últim càlcul general"
+
+msgctxt "field:sales.forecast,last_key_accounts_calculated_at:"
+msgid "Last Key Accounts Calculation"
+msgstr "Últim càlcul de grans comptes"
+
+msgctxt "field:sales.forecast,last_new_product_calculated_at:"
+msgid "Last New Product Calculation"
+msgstr "Últim càlcul de producte nou"
+
+msgctxt "field:sales.forecast,last_manual_calculated_at:"
+msgid "Last Manual Calculation"
+msgstr "Últim càlcul manual"
+
+msgctxt "field:sales.forecast,lines:"
+msgid "Lines"
+msgstr "Línies"
+
+msgctxt "field:sales.forecast,category_increase_lines:"
+msgid "Category Increases"
+msgstr "Increments per categoria"
+
+msgctxt "field:sales.forecast,product_increase_lines:"
+msgid "Product Increases"
+msgstr "Increments per producte"
+
+msgctxt "field:sales.forecast,state:"
+msgid "State"
+msgstr "Estat"
+
+msgctxt "field:sales.forecast.calculation,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.calculation,calendar:"
+msgid "Calendar"
+msgstr "Calendari"
+
+msgctxt "field:sales.forecast.calculation,general_increase_percentage:"
+msgid "General Increase %"
+msgstr "% d'increment general"
+
+msgctxt "field:sales.forecast.calculation,start_date:"
+msgid "Start Date"
+msgstr "Data d'inici"
+
+msgctxt "field:sales.forecast.calculation,end_date:"
+msgid "End Date"
+msgstr "Data de fi"
+
+msgctxt "field:sales.forecast.calculation,product_templates:"
+msgid "Products"
+msgstr "Productes"
+
+msgctxt "field:sales.forecast.calculation,category_increase_lines:"
+msgid "Category Increases"
+msgstr "Increments per categoria"
+
+msgctxt "field:sales.forecast.calculation,product_increase_lines:"
+msgid "Product Increases"
+msgstr "Increments per producte"
+
+msgctxt "field:sales.forecast.calculation,generated_forecasts:"
+msgid "Generated Forecasts"
+msgstr "Previsions generades"
+
+msgctxt "field:sales.forecast.calculation,last_general_calculated_at:"
+msgid "Last General Calculation"
+msgstr "Últim càlcul general"
+
+msgctxt "field:sales.forecast.calculation,last_key_accounts_calculated_at:"
+msgid "Last Key Accounts Calculation"
+msgstr "Últim càlcul de grans comptes"
+
+msgctxt "field:sales.forecast.calculation,last_new_product_calculated_at:"
+msgid "Last New Product Calculation"
+msgstr "Últim càlcul de producte nou"
+
+msgctxt "field:sales.forecast.calculation,last_manual_calculated_at:"
+msgid "Last Manual Calculation"
+msgstr "Últim càlcul manual"
+
+msgctxt "field:sales.forecast.calculation-product.template,calculation:"
+msgid "Calculation"
+msgstr "Càlcul"
+
+msgctxt "field:sales.forecast.calculation-product.template,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast-product.template,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast-product.template,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.calculation.category_increase,calculation:"
+msgid "Calculation"
+msgstr "Càlcul"
+
+msgctxt "field:sales.forecast.calculation.category_increase,category:"
+msgid "Category"
+msgstr "Categoria"
+
+msgctxt "field:sales.forecast.calculation.category_increase,percentage:"
+msgid "Increase %"
+msgstr "% d'increment"
+
+msgctxt "field:sales.forecast.calculation.product_increase,calculation:"
+msgid "Calculation"
+msgstr "Càlcul"
+
+msgctxt "field:sales.forecast.calculation.product_increase,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.calculation.product_increase,percentage:"
+msgid "Increase %"
+msgstr "% d'increment"
+
+msgctxt "field:sales.forecast.calendar,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sales.forecast.calendar,active:"
+msgid "Active"
+msgstr "Actiu"
+
+msgctxt "field:sales.forecast.calendar,day_lines:"
+msgid "Days"
+msgstr "Dies"
+
+msgctxt "field:sales.forecast.calendar,distribution_calculated_at:"
+msgid "Distribution Calculated At"
+msgstr "Distribució calculada el"
+
+msgctxt "field:sales.forecast.calendar,events_calculated_at:"
+msgid "Events Calculated At"
+msgstr "Esdeveniments calculats el"
+
+msgctxt "field:sales.forecast.calendar.day,calendar:"
+msgid "Calendar"
+msgstr "Calendari"
+
+msgctxt "field:sales.forecast.calendar.day,date:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "field:sales.forecast.calendar.day,day_type:"
+msgid "Day Type"
+msgstr "Tipus de dia"
+
+msgctxt "field:sales.forecast.calendar.day,note:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sales.forecast.calendar.day,product_lines:"
+msgid "Productos Diada"
+msgstr "Productes de diada"
+
+msgctxt "field:sales.forecast.calendar.day,special_lines:"
+msgid "Alcances Venta Especial"
+msgstr "Abasts de venda especial"
+
+msgctxt "field:sales.forecast.calendar.day,result_lines:"
+msgid "Resultados del Cálculo"
+msgstr "Resultats del càlcul"
+
+msgctxt "field:sales.forecast.calendar.day.product,calendar_day:"
+msgid "Calendar Day"
+msgstr "Dia del calendari"
+
+msgctxt "field:sales.forecast.calendar.day.product,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.calendar.day.product,units:"
+msgid "Venta en unidades"
+msgstr "Venda en unitats"
+
+msgctxt "field:sales.forecast.calendar.day.product,boxes:"
+msgid "Venta en cajas"
+msgstr "Venda en caixes"
+
+msgctxt "field:sales.forecast.calendar.day.product,pallets:"
+msgid "Venta en pallets"
+msgstr "Venda en palets"
+
+msgctxt "field:sales.forecast.calendar.day.special,calendar_day:"
+msgid "Calendar Day"
+msgstr "Dia del calendari"
+
+msgctxt "field:sales.forecast.calendar.day.special,scope:"
+msgid "Alcance"
+msgstr "Abast"
+
+msgctxt "field:sales.forecast.calendar.day.special,product_category:"
+msgid "Categoría de Producto"
+msgstr "Categoria de producte"
+
+msgctxt "field:sales.forecast.calendar.day.special,party_category:"
+msgid "Categoría de Cliente"
+msgstr "Categoria de client"
+
+msgctxt "field:sales.forecast.calendar.day.special,increase_percentage:"
+msgid "Porcentaje aumento venta"
+msgstr "Percentatge d'augment de venda"
+
+msgctxt "field:sales.forecast.distribution,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.distribution,sequence:"
+msgid "Sequence"
+msgstr "Seqüència"
+
+msgctxt "field:sales.forecast.distribution,weekday:"
+msgid "Weekday"
+msgstr "Dia de la setmana"
+
+msgctxt "field:sales.forecast.distribution,percentage:"
+msgid "Percentage"
+msgstr "Percentatge"
+
+msgctxt "field:sales.forecast.distribution,computed_at:"
+msgid "Computed At"
+msgstr "Calculat el"
+
+msgctxt "field:sales.forecast.event_result,calendar_day:"
+msgid "Día calendario"
+msgstr "Dia del calendari"
+
+msgctxt "field:sales.forecast.event_result,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.event_result,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:sales.forecast.event_result,units:"
+msgid "Venta en unidades"
+msgstr "Venda en unitats"
+
+msgctxt "field:sales.forecast.event_result,boxes:"
+msgid "Venta en cajas"
+msgstr "Venda en caixes"
+
+msgctxt "field:sales.forecast.event_result,pallets:"
+msgid "Venta en pallets"
+msgstr "Venda en palets"
+
+msgctxt "field:sales.forecast.sale_history,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.sale_history,date:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "field:sales.forecast.sale_history,quantity:"
+msgid "Quantity"
+msgstr "Quantitat"
+
+msgctxt "field:sales.forecast.sale_history,computed_at:"
+msgid "Computed At"
+msgstr "Calculat el"
+
+msgctxt "field:sales.forecast.sale_history.update.start,last_date:"
+msgid "Current Last Date"
+msgstr "Darrera data actual"
+
+msgctxt "view:sales.forecast.sale_history.update.start:"
+msgid "Refresh all confirmed, processing and completed sales for the current company."
+msgstr "Actualitza totes les vendes confirmades, en procés i finalitzades de l'empresa actual."
+
+msgctxt "field:product.package,active:"
+msgid "Active"
+msgstr "Actiu"
+
+msgctxt "field:product.template,sales_forecast_manual_updated_at:"
+msgid "Last Manual Forecast Update"
+msgstr "Darrera actualització de la previsió manual"
+
+msgctxt "model:ir.message,text:msg_duplicate_product_day"
+msgid "A product can only appear once in a product day."
+msgstr "Un producte només pot aparèixer una vegada en una diada."
+
+msgctxt "model:ir.message,text:msg_special_scope_overlap"
+msgid "Special sale on %(date)s must use a single scope type and non-overlapping categories."
+msgstr "La venda especial del %(date)s ha de tenir un únic tipus d'àmbit i categories que no se solapin."
+
+msgctxt "model:ir.message,text:msg_inactive_forecast_package"
+msgid "Select an active forecast package for product \"%(product)s\"."
+msgstr "Seleccioneu un embalum actiu de previsió per al producte \"%(product)s\"."
+
+msgctxt "model:ir.message,text:msg_missing_distribution"
+msgid "Recalculate the weekday distribution for product \"%(product)s\"."
+msgstr "Recalculeu la distribució per dies de la setmana del producte \"%(product)s\"."
+
+msgctxt "field:sales.forecast.category_increase,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.category_increase,category:"
+msgid "Category"
+msgstr "Categoria"
+
+msgctxt "field:sales.forecast.category_increase,percentage:"
+msgid "Increase %"
+msgstr "% d'increment"
+
+msgctxt "field:sales.forecast.product_increase,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.product_increase,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.product_increase,percentage:"
+msgid "Increase %"
+msgstr "% d'increment"
+
+msgctxt "field:sales.forecast.line,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.line,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.line,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.line,product:"
+msgid "Variant"
+msgstr "Variant"
+
+msgctxt "field:sales.forecast.line,week_start:"
+msgid "Week Start"
+msgstr "Inici de setmana"
+
+msgctxt "field:sales.forecast.line,week_end:"
+msgid "Week End"
+msgstr "Fi de setmana"
+
+msgctxt "field:sales.forecast.line,method:"
+msgid "Method"
+msgstr "Mètode"
+
+msgctxt "field:sales.forecast.line,origin:"
+msgid "Origin"
+msgstr "Origen"
+
+msgctxt "field:sales.forecast.line,calendar_adjustment:"
+msgid "Calendar Adjustment"
+msgstr "Ajust del calendari"
+
+msgctxt "field:sales.forecast.line,quantity:"
+msgid "Quantity"
+msgstr "Quantitat"
+
+msgctxt "field:sales.forecast.line,units:"
+msgid "Units"
+msgstr "Unitats"
+
+msgctxt "field:sales.forecast.line,boxes:"
+msgid "Boxes"
+msgstr "Caixes"
+
+msgctxt "field:sales.forecast.line,pallets:"
+msgid "Pallets"
+msgstr "Palets"
+
+msgctxt "field:sales.forecast.line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Any actual"
+
+msgctxt "field:sales.forecast.line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Any anterior"
+
+msgctxt "field:sales.forecast.line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Fa dos anys"
+
+msgctxt "field:sales.forecast.line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Fa tres anys"
+
+msgctxt "field:sales.forecast.daily_line,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.daily_line,line:"
+msgid "Forecast Line"
+msgstr "Línia de previsió"
+
+msgctxt "field:sales.forecast.daily_line,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.daily_line,product:"
+msgid "Variant"
+msgstr "Variant"
+
+msgctxt "field:sales.forecast.daily_line,date:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "field:sales.forecast.daily_line,weekday:"
+msgid "Weekday"
+msgstr "Dia de la setmana"
+
+msgctxt "field:sales.forecast.daily_line,quantity:"
+msgid "Quantity"
+msgstr "Quantitat"
+
+msgctxt "field:sales.forecast.daily_line,units:"
+msgid "Units"
+msgstr "Unitats"
+
+msgctxt "field:sales.forecast.daily_line,boxes:"
+msgid "Boxes"
+msgstr "Caixes"
+
+msgctxt "field:sales.forecast.daily_line,pallets:"
+msgid "Pallets"
+msgstr "Palets"
+
+msgctxt "field:sales.forecast.daily_line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Any actual"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Any anterior"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Fa dos anys"
+
+msgctxt "field:sales.forecast.daily_line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Fa tres anys"
+
+msgctxt "field:sales.forecast.monthly_line,forecast:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.monthly_line,product_template:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.monthly_line,product:"
+msgid "Variant"
+msgstr "Variant"
+
+msgctxt "field:sales.forecast.monthly_line,month_start:"
+msgid "Month Start"
+msgstr "Inici de mes"
+
+msgctxt "field:sales.forecast.monthly_line,month_end:"
+msgid "Month End"
+msgstr "Fi de mes"
+
+msgctxt "field:sales.forecast.monthly_line,method:"
+msgid "Method"
+msgstr "Mètode"
+
+msgctxt "field:sales.forecast.monthly_line,quantity:"
+msgid "Quantity"
+msgstr "Quantitat"
+
+msgctxt "field:sales.forecast.monthly_line,units:"
+msgid "Units"
+msgstr "Unitats"
+
+msgctxt "field:sales.forecast.monthly_line,boxes:"
+msgid "Boxes"
+msgstr "Caixes"
+
+msgctxt "field:sales.forecast.monthly_line,pallets:"
+msgid "Pallets"
+msgstr "Palets"
+
+msgctxt "field:sales.forecast.monthly_line,current_year_quantity:"
+msgid "Current Year"
+msgstr "Any actual"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_1_quantity:"
+msgid "Previous Year"
+msgstr "Any anterior"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_2_quantity:"
+msgid "Two Years Ago"
+msgstr "Fa dos anys"
+
+msgctxt "field:sales.forecast.monthly_line,previous_year_3_quantity:"
+msgid "Three Years Ago"
+msgstr "Fa tres anys"
+
+msgctxt "help:sales.forecast,general_increase_percentage:"
+msgid "Percentage applied to products using the General Method."
+msgstr "Percentatge aplicat als productes que usen el mètode general."
+
+msgctxt "help:sales.forecast.calculation.category_increase,percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduïu un percentatge, per exemple 20 per a 20%%."
+
+msgctxt "help:sales.forecast.calculation.product_increase,percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduïu un percentatge, per exemple 20 per a 20%%."
+
+msgctxt "help:sales.forecast.calendar.day,special_lines:"
+msgid ""
+"Add one line for each scope. If there are several product or customer "
+"categories, create one line per category."
+msgstr ""
+"Afegiu una línia per a cada abast. Si hi ha diverses categories de producte "
+"o de client, creeu una línia per categoria."
+
+msgctxt "help:sales.forecast.calendar.day.special,scope:"
+msgid "Si hay varias categorías, cree una línea por categoría."
+msgstr "Si hi ha diverses categories, creeu una línia per categoria."
+
+msgctxt "help:sales.forecast.calendar.day.special,increase_percentage:"
+msgid "Introduzca un porcentaje: 20 para 20%%; 350 para 350%%."
+msgstr "Introduïu un percentatge: 20 per a 20%%; 350 per a 350%%."
+
+msgctxt "help:sales.forecast.sale_history.update.start,rebuild:"
+msgid ""
+"Delete the cached sales history and calculate it again from all posted "
+"sales invoices."
+msgstr ""
+"Elimina l'històric de vendes en memòria cau i torna'l a calcular a partir "
+"de totes les factures de venda comptabilitzades."
+
+msgctxt "model:ir.action,name:act_sales_forecast"
+msgid "Sales Forecasts"
+msgstr "Previsions de vendes"
+
+msgctxt "model:ir.action,name:act_sales_forecast_calendar"
+msgid "Forecast Calendars"
+msgstr "Calendaris de previsió"
+
+msgctxt "model:ir.action,name:act_sales_forecast_calendar_day"
+msgid "Forecast Calendars"
+msgstr "Calendaris de previsió"
+
+msgctxt "model:ir.action,name:act_sales_forecast_daily_line"
+msgid "Daily Forecast Lines"
+msgstr "Línies diàries de previsió"
+
+msgctxt "model:ir.action,name:act_sales_forecast_distribution"
+msgid "Sale Distribution by Day"
+msgstr "Distribució de vendes per dia"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result"
+msgid "Todos los Resultados del Cálculo"
+msgstr "Tots els resultats del càlcul"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result_product_day"
+msgid "Resultados Diadas"
+msgstr "Resultats de diades"
+
+msgctxt "model:ir.action,name:act_sales_forecast_event_result_special_sale"
+msgid "Resultados Venta Especial"
+msgstr "Resultats de venda especial"
+
+msgctxt "model:ir.action,name:act_sales_forecast_line"
+msgid "Weekly Forecast Lines"
+msgstr "Línies setmanals de previsió"
+
+msgctxt "model:ir.action,name:act_sales_forecast_monthly_line"
+msgid "Monthly Forecast Lines"
+msgstr "Línies mensuals de previsió"
+
+msgctxt "model:ir.action,name:act_sales_forecast_sale_history"
+msgid "Historical Sales"
+msgstr "Vendes històriques"
+
+msgctxt "model:ir.action,name:wiz_sale_history_update"
+msgid "Update Sale History"
+msgstr "Actualitza l'històric de vendes"
+
+msgctxt "model:ir.action,name:wiz_sales_forecast_calendar_calculate_distributions"
+msgid "Calculate Distributions"
+msgstr "Calcula les distribucions"
+
+msgctxt "model:ir.action,name:wiz_sales_forecast_calendar_calculate_event_results"
+msgid "Calcular Previsión Ventas Especiales"
+msgstr "Calcula la previsió de vendes especials"
+
+msgctxt "model:ir.message,text:msg_invalid_period"
+msgid "The forecast start date must be before the end date."
+msgstr "La data d'inici de la previsió ha de ser anterior a la data de fi."
+
+msgctxt "model:ir.message,text:msg_missing_general_percentage"
+msgid "Missing General Method percentage for product \"%(product)s\"."
+msgstr "Falta el percentatge del mètode general per al producte \"%(product)s\"."
+
+msgctxt "model:ir.message,text:msg_missing_product_day_quantity"
+msgid "A product day line for \"%(product)s\" requires at least one quantity."
+msgstr "Una línia de dia de producte per a \"%(product)s\" requereix almenys una quantitat."
+
+msgctxt "model:ir.message,text:msg_missing_product_day_lines"
+msgid "The Diada Productos on %(date)s requires at least one product."
+msgstr "La diada de productes del %(date)s requereix almenys un producte."
+
+msgctxt "model:ir.message,text:msg_missing_special_sale_lines"
+msgid "The Venta Especial on %(date)s requires at least one scope line."
+msgstr "La venda especial del %(date)s requereix almenys una línia d'abast."
+
+msgctxt "model:ir.message,text:msg_missing_calculation_period"
+msgid "Start Date and End Date are required to calculate sales forecasts."
+msgstr "Calen la data d'inici i la data de fi per calcular les previsions de vendes."
+
+msgctxt "model:ir.message,text:msg_missing_general_percentage_for_method"
+msgid "General Method requires a general increase or a complete family percentage matrix."
+msgstr "El mètode general requereix un increment general o una matriu completa de percentatges per família."
+
+msgctxt "model:ir.message,text:msg_missing_category_percentages"
+msgid "Without a general increase, all product families must have an increase percentage."
+msgstr "Sense un increment general, totes les famílies de producte han de tenir un percentatge d'increment."
+
+msgctxt "model:ir.message,text:msg_distributions_calculated"
+msgid "Sales forecast distributions have been recalculated."
+msgstr "Les distribucions de previsió de vendes s'han recalculat."
+
+msgctxt "model:ir.message,text:msg_event_results_calculated"
+msgid "Special sales forecast results have been recalculated."
+msgstr "Els resultats de previsió de vendes especials s'han recalculat."
+
+msgctxt "model:ir.model.button,string:calculate_button"
+msgid "Calculate"
+msgstr "Calcula"
+
+msgctxt "model:ir.model.button,string:open_daily_lines_button"
+msgid "Open Daily Lines"
+msgstr "Obre les línies diàries"
+
+msgctxt "model:ir.model.button,string:open_week_lines_button"
+msgid "Open Week Lines"
+msgstr "Obre les línies setmanals"
+
+msgctxt "model:ir.model.button,string:open_month_lines_button"
+msgid "Open Month Lines"
+msgstr "Obre les línies mensuals"
+
+msgctxt "model:ir.model.button,string:update_current_year_sales_button"
+msgid "Update Current Year Sales"
+msgstr "Actualitza les vendes de l'any actual"
+
+msgctxt "model:ir.model.button,string:calculate_distributions_button"
+msgid "Calculate Distributions"
+msgstr "Calcula les distribucions"
+
+msgctxt "model:ir.model.button,string:calculate_event_results_button"
+msgid "Calcular Previsión Ventas"
+msgstr "Calcula la previsió de vendes"
+
+msgctxt "model:ir.model.button,string:draft_button"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "model:ir.model.button,string:cancel_button"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_root"
+msgid "Sales Forecasts"
+msgstr "Previsions de vendes"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast"
+msgid "Calcular Previsiones"
+msgstr "Calcula previsions"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_configuration"
+msgid "Configuration"
+msgstr "Configuració"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_temp_tables"
+msgid "Temporary Tables"
+msgstr "Taules temporals"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_sale_history_update"
+msgid "Update Sale History"
+msgstr "Actualitza l'històric de vendes"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_sale_history"
+msgid "Historical Sales"
+msgstr "Vendes històriques"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_distribution"
+msgid "Sale Distribution by Day"
+msgstr "Distribució de vendes per dia"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result"
+msgid "Todos los Resultados del Cálculo"
+msgstr "Tots els resultats del càlcul"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result_product_day"
+msgid "Resultados Diadas"
+msgstr "Resultats de diades"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_event_result_special_sale"
+msgid "Resultados Venta Especial"
+msgstr "Resultats de venda especial"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar"
+msgid "Forecast Calendars"
+msgstr "Calendaris de previsió"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar_calculate_distributions"
+msgid "Calculate Distributions"
+msgstr "Calcula les distribucions"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_calendar_calculate_event_results"
+msgid "Calcular Previsión Ventas Especiales"
+msgstr "Calcula la previsió de vendes especials"
+
+msgctxt "model:sales.forecast,string:"
+msgid "Sales Forecast"
+msgstr "Previsió de vendes"
+
+msgctxt "model:sales.forecast-product.template,string:"
+msgid "Sales Forecast Selected Product"
+msgstr "Producte seleccionat de previsió de vendes"
+
+msgctxt "model:sales.forecast.calculation,string:"
+msgid "Sales Forecast Calculation"
+msgstr "Càlcul de previsió de vendes"
+
+msgctxt "model:sales.forecast.calculation-product.template,string:"
+msgid "Sales Forecast Calculation Product"
+msgstr "Producte del càlcul de previsió de vendes"
+
+msgctxt "model:sales.forecast.calculation.category_increase,string:"
+msgid "Sales Forecast Calculation Category Increase"
+msgstr "Increment de categoria del càlcul de previsió de vendes"
+
+msgctxt "model:sales.forecast.calculation.product_increase,string:"
+msgid "Sales Forecast Calculation Product Increase"
+msgstr "Increment de producte del càlcul de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar,string:"
+msgid "Sales Forecast Calendar"
+msgstr "Calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.day,string:"
+msgid "Sales Forecast Calendar Day"
+msgstr "Dia del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.day.product,string:"
+msgid "Sales Forecast Calendar Day Product"
+msgstr "Producte del dia del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.day.special,string:"
+msgid "Sales Forecast Calendar Day Special"
+msgstr "Especial del dia del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.daily_line,string:"
+msgid "Sales Forecast Daily Line"
+msgstr "Línia diària de previsió de vendes"
+
+msgctxt "model:sales.forecast.distribution,string:"
+msgid "Sales Forecast Distribution"
+msgstr "Distribució de previsió de vendes"
+
+msgctxt "model:sales.forecast.event_result,string:"
+msgid "Sales Forecast Event Result"
+msgstr "Resultat d'esdeveniment de previsió de vendes"
+
+msgctxt "model:sales.forecast.line,string:"
+msgid "Sales Forecast Line"
+msgstr "Línia de previsió de vendes"
+
+msgctxt "model:sales.forecast.monthly_line,string:"
+msgid "Sales Forecast Monthly Line"
+msgstr "Línia mensual de previsió de vendes"
+
+msgctxt "model:sales.forecast.product_increase,string:"
+msgid "Sales Forecast Product Increase"
+msgstr "Increment de producte de previsió de vendes"
+
+msgctxt "model:sales.forecast.category_increase,string:"
+msgid "Sales Forecast Category Increase"
+msgstr "Increment de categoria de previsió de vendes"
+
+msgctxt "model:sales.forecast.sale_history,string:"
+msgid "Sales Forecast Sale History"
+msgstr "Històric de vendes de previsió de vendes"
+
+msgctxt "model:sales.forecast.sale_history.update.start,string:"
+msgid "Sales Forecast Sale History Update"
+msgstr "Actualització de l'històric de vendes de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.calculate_distributions,string:"
+msgid "Sales Forecast Calendar Calculate Distributions"
+msgstr "Càlcul de distribucions del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.calculate_distributions.start,string:"
+msgid "Sales Forecast Calendar Calculate Distributions"
+msgstr "Càlcul de distribucions del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.calculate_event_results,string:"
+msgid "Sales Forecast Calendar Calculate Event Results"
+msgstr "Càlcul de resultats d'esdeveniments del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.calendar.calculate_event_results.start,string:"
+msgid "Sales Forecast Calendar Calculate Event Results"
+msgstr "Càlcul de resultats d'esdeveniments del calendari de previsió de vendes"
+
+msgctxt "model:sales.forecast.sale_history.update,string:"
+msgid "Sales Forecast Sale History Update"
+msgstr "Actualització de l'històric de vendes de previsió de vendes"
+
+msgctxt "view:sales.forecast.calendar.calculate_event_results.start:"
+msgid "Press Calculate to recalculate the special sales forecast results for the active calendars."
+msgstr "Prem Calcula per recalcular els resultats de previsió de vendes especials dels calendaris actius."
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_event_results,start,calculate:"
+msgid "Calculate"
+msgstr "Calcula"
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_event_results,start,end:"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "view:sales.forecast.calendar.calculate_distributions.start:"
+msgid "Press Calculate to recalculate the weekday sales distributions for the active calendars."
+msgstr "Prem Calcula per recalcular les distribucions de vendes per dia de la setmana dels calendaris actius."
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_distributions,start,calculate:"
+msgid "Calculate"
+msgstr "Calcula"
+
+msgctxt "wizard_button:sales.forecast.calendar.calculate_distributions,start,end:"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:product.template,sales_forecast_method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Orders in Tryton"
+msgstr "Comandes a Tryton"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Customer Forecast"
+msgstr "Previsió del client"
+
+msgctxt "selection:product.template,sales_forecast_key_account_source:"
+msgid "Mixed"
+msgstr "Mixt"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:sales.forecast,calculation_method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Draft"
+msgstr "Esborrany"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Calculated"
+msgstr "Calculada"
+
+msgctxt "selection:sales.forecast,state:"
+msgid "Cancelled"
+msgstr "Cancel·lada"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Festivo"
+msgstr "Festiu"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Diada Productos"
+msgstr "Diada de productes"
+
+msgctxt "selection:sales.forecast.calendar.day,day_type:"
+msgid "Venta Especial"
+msgstr "Venda especial"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Todos los Productos"
+msgstr "Tots els productes"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Categoría de Producto"
+msgstr "Categoria de producte"
+
+msgctxt "selection:sales.forecast.calendar.day.special,scope:"
+msgid "Categoría de Cliente"
+msgstr "Categoria de client"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Monday"
+msgstr "Dilluns"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Tuesday"
+msgstr "Dimarts"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Wednesday"
+msgstr "Dimecres"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Thursday"
+msgstr "Dijous"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Friday"
+msgstr "Divendres"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgctxt "selection:sales.forecast.distribution,weekday:"
+msgid "Sunday"
+msgstr "Diumenge"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Monday"
+msgstr "Dilluns"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Tuesday"
+msgstr "Dimarts"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Wednesday"
+msgstr "Dimecres"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Thursday"
+msgstr "Dijous"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Friday"
+msgstr "Divendres"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgctxt "selection:sales.forecast.daily_line,weekday:"
+msgid "Sunday"
+msgstr "Diumenge"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:sales.forecast.line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.line,origin:"
+msgid "Calculated"
+msgstr "Calculada"
+
+msgctxt "selection:sales.forecast.line,origin:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:sales.forecast.monthly_line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.event_result,origin:"
+msgid "Diada Productos"
+msgstr "Diada de productes"
+
+msgctxt "selection:sales.forecast.event_result,origin:"
+msgid "Venta Especial"
+msgstr "Venda especial"
+
+msgctxt "view:product.template:"
+msgid "Planning"
+msgstr "Planificació"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "view:sales.forecast.calculation:"
+msgid "Generated Forecasts"
+msgstr "Previsions generades"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Diada Productos"
+msgstr "Diada de productes"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Venta Especial (1 línea por alcance)"
+msgstr "Venda especial (1 línia per abast)"
+
+msgctxt "view:sales.forecast.calendar.day:"
+msgid "Resultados del Cálculo"
+msgstr "Resultats del càlcul"
+
+msgctxt "view:sales.forecast:"
+msgid "Products"
+msgstr "Productes"
+
+msgctxt "view:sales.forecast:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "view:sales.forecast:"
+msgid "Lines"
+msgstr "Línies"
+
+msgctxt "wizard_button:sales.forecast.sale_history.update,start,end:"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "wizard_button:sales.forecast.sale_history.update,start,update:"
+msgid "Update"
+msgstr "Actualitza"
+
+msgctxt "field:product.template,sales_forecast_package:"
+msgid "Forecast Package"
+msgstr "Empaquetat de previsió"
+
+msgctxt "field:product.template,sales_forecast_boxes_per_pallet:"
+msgid "Forecast Boxes per Pallet"
+msgstr "Caixes per palet de previsió"
+
+msgctxt "field:product.template,sales_forecast_new_product_source:"
+msgid "New Product Forecast Source"
+msgstr "Origen de previsió de producte nou"
+
+msgctxt "selection:product.template,sales_forecast_new_product_source:"
+msgid "Average Months with History"
+msgstr "Mitjana de mesos amb històric"
+
+msgctxt "selection:product.template,sales_forecast_new_product_source:"
+msgid "Last Closed Month"
+msgstr "Últim mes tancat"
+
+msgctxt "field:product.template,sales_forecast_new_product_increase_percentage:"
+msgid "New Product Increase %"
+msgstr "% d'increment de producte nou"
+
+msgctxt "field:product.template,sales_forecast_manual_lines:"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsions setmanals manuals"
+
+msgctxt "field:product.template,sales_forecast_lines:"
+msgid "Latest Sales Forecast"
+msgstr "Última previsió de vendes"
+
+msgctxt "field:product.template,sales_forecast_last_calculated_at:"
+msgid "Last Sales Forecast Calculation"
+msgstr "Últim càlcul de previsió de vendes"
+
+msgctxt "model:sales.forecast.manual_line,name:"
+msgid "Sales Forecast Manual Line"
+msgstr "Línia manual de previsió de vendes"
+
+msgctxt "field:sales.forecast.manual_line,week_start:"
+msgid "Week"
+msgstr "Setmana"
+
+msgctxt "field:sales.forecast.manual_line,updated_at:"
+msgid "Last Update"
+msgstr "Última actualització"
+
+msgctxt "field:sales.forecast.line,base_quantity:"
+msgid "Base Quantity"
+msgstr "Quantitat base"
+
+msgctxt "model:ir.model.button,string:duplicate_last_manual_forecast_button"
+msgid "Duplicate Last Manual Forecast"
+msgstr "Duplica l'última previsió manual"
+
+msgctxt "field:sales.forecast.sale_history,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.distribution,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.event_result,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "model:ir.action.act_window,name:act_sales_forecast_calculation"
+msgid "Calculate Sales Forecasts"
+msgstr "Calcula previsions de vendes"
+
+msgctxt "model:ir.action.act_window,name:act_sales_forecast_manual_line"
+msgid "Manual Weekly Forecasts"
+msgstr "Previsions setmanals manuals"
+
+msgctxt "model:ir.ui.menu,name:menu_sales_forecast_results"
+msgid "Calculated Forecasts"
+msgstr "Previsions calculades"
+
+msgctxt "model:ir.model.button,string:calculation_load_general_categories_button"
+msgid "Load General Method Families"
+msgstr "Carrega famílies del mètode general"
+
+msgctxt "model:ir.model.button,string:calculation_open_manual_lines_button"
+msgid "Enter Manual Forecasts"
+msgstr "Introdueix previsions manuals"
+
+msgctxt "model:ir.message,text:msg_manual_delete_sequence"
+msgid "Only the latest manual forecast weeks can be deleted, without leaving gaps."
+msgstr "Només es poden eliminar les últimes setmanes de previsió manual, sense deixar buits."
+
+msgctxt "model:ir.message,text:msg_missing_manual_week"
+msgid "Product \"%(product)s\" has no manual forecast for week %(week)s."
+msgstr "El producte \"%(product)s\" no té previsió manual per a la setmana %(week)s."
+
+msgctxt "model:ir.message,text:msg_product_day_single_update"
+msgid "Product day quantities must be updated one line at a time."
+msgstr "Les quantitats de Diada s'han d'actualitzar línia per línia."
+
+msgctxt "model:ir.message,text:msg_missing_key_account_parameters"
+msgid "Product \"%(product)s\" requires trucks per week and pallets per truck."
+msgstr "El producte \"%(product)s\" requereix camions per setmana i palets per camió."
+
+msgctxt "model:ir.message,text:msg_missing_forecast_packaging"
+msgid "Product \"%(product)s\" requires a forecast package and boxes per pallet."
+msgstr "El producte \"%(product)s\" requereix un empaquetat de previsió i caixes per palet."
+
+msgctxt "model:ir.message,text:msg_missing_history_company"
+msgid "A company is required to calculate historical sales."
+msgstr "Cal una empresa per calcular l'històric de vendes."
+
+msgctxt "model:ir.message,text:msg_history_incompatible_units"
+msgid "Lines with incompatible units were skipped in the following sales:"
+msgstr "S'han omès línies amb unitats incompatibles en les vendes següents:"
+
+msgctxt "model:ir.message,text:msg_conflicting_category_increases"
+msgid ""
+"Product \"%(product)s\" has conflicting category increases. Set a product "
+"increase or use consistent category percentages."
+msgstr ""
+"El producte \"%(product)s\" té increments de categoria contradictoris. "
+"Indiqueu un increment per producte o percentatges coherents."
+
+msgctxt "model:ir.message,text:msg_calculated_readonly"
+msgid ""
+"Calculated forecasts are read-only. Create a new calculation to change the "
+"forecast."
+msgstr ""
+"Les previsions calculades són de només lectura. Feu un càlcul nou per "
+"modificar-les."
+
+msgctxt "model:ir.message,text:msg_comparison_selection"
+msgid ""
+"The selected products, categories and forecast method are incompatible or "
+"contain no salable products."
+msgstr ""
+"Els productes, categories i mètode seleccionats són incompatibles o no "
+"contenen productes vendibles."
+
+msgctxt "field:sales.forecast,refresh_parameters:"
+msgid "Refresh Forecast Parameters"
+msgstr "Actualitza els paràmetres de previsió"
+
+msgctxt "help:sales.forecast,refresh_parameters:"
+msgid ""
+"Refresh sales history, weekday distributions and calendar results. Otherwise"
+" reuse the existing parameters."
+msgstr ""
+"Actualitza l’històric de vendes, les distribucions per dia i els resultats "
+"del calendari. Si no es marca, reutilitza els paràmetres existents."
+
+msgctxt "field:sales.forecast.calculation,refresh_parameters:"
+msgid "Refresh Forecast Parameters"
+msgstr "Actualitza els paràmetres de previsió"
+
+msgctxt "help:sales.forecast.calculation,refresh_parameters:"
+msgid ""
+"Refresh sales history, weekday distributions and calendar results. Otherwise"
+" reuse the existing parameters."
+msgstr ""
+"Actualitza l’històric de vendes, les distribucions per dia i els resultats "
+"del calendari. Si no es marca, reutilitza els paràmetres existents."
+
+msgctxt "field:sales.forecast.calculation,family_category:"
+msgid "Product Family Root"
+msgstr "Categoria arrel de famílies"
+
+msgctxt "help:sales.forecast.calculation,family_category:"
+msgid "Only categories under this root are used as product families."
+msgstr ""
+"Només s’utilitzen com a famílies les categories que pertanyen a aquesta "
+"arrel."
+
+msgctxt "field:sales.forecast.line,week_label:"
+msgid "Week"
+msgstr "Setmana"
+
+msgctxt "field:sales.forecast.manual_line,week_label:"
+msgid "Week"
+msgstr "Setmana"
+
+msgctxt ""
+"help:product.template,sales_forecast_new_product_increase_percentage:"
+msgid "Enter a percentage, for example 20 for 20%%."
+msgstr "Introduïu un percentatge, per exemple 20 per a 20%%."
+
+msgctxt "field:sales.forecast.comparison,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:sales.forecast.comparison,company:"
+msgid "Company"
+msgstr "Empresa"
+
+msgctxt "field:sales.forecast.comparison,start_date:"
+msgid "First Week"
+msgstr "Primera setmana"
+
+msgctxt "field:sales.forecast.comparison,end_date:"
+msgid "Last Week"
+msgstr "Darrera setmana"
+
+msgctxt "field:sales.forecast.comparison,weekly:"
+msgid "Weekly Detail"
+msgstr "Detall setmanal"
+
+msgctxt "field:sales.forecast.comparison,products:"
+msgid "Products"
+msgstr "Productes"
+
+msgctxt "field:sales.forecast.comparison,categories:"
+msgid "Product Families"
+msgstr "Famílies de producte"
+
+msgctxt "field:sales.forecast.comparison,method:"
+msgid "Forecast Method"
+msgstr "Mètode de previsió"
+
+msgctxt "field:sales.forecast.comparison,unit:"
+msgid "Display Unit"
+msgstr "Unitat de presentació"
+
+msgctxt "field:sales.forecast.comparison,calculated_at:"
+msgid "Calculated At"
+msgstr "Data de càlcul"
+
+msgctxt "field:sales.forecast.comparison,lines:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "help:sales.forecast.comparison,start_date:"
+msgid "Select any date in the first week to include."
+msgstr "Seleccioneu qualsevol data de la primera setmana que voleu incloure."
+
+msgctxt "help:sales.forecast.comparison,end_date:"
+msgid "Select any date in the last week to include."
+msgstr "Seleccioneu qualsevol data de la darrera setmana que voleu incloure."
+
+msgctxt "field:sales.forecast.comparison.line,comparison:"
+msgid "Comparison"
+msgstr "Comparativa"
+
+msgctxt "field:sales.forecast.comparison.line,product:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "field:sales.forecast.comparison.line,method:"
+msgid "Forecast Method"
+msgstr "Mètode de previsió"
+
+msgctxt "field:sales.forecast.comparison.line,kind:"
+msgid "Row"
+msgstr "Fila"
+
+msgctxt "field:sales.forecast.comparison.line,week_start:"
+msgid "Week Start"
+msgstr "Inici de setmana"
+
+msgctxt "field:sales.forecast.comparison.line,week:"
+msgid "Week"
+msgstr "Setmana"
+
+msgctxt "field:sales.forecast.comparison.line,unit:"
+msgid "Display Unit"
+msgstr "Unitat de presentació"
+
+msgctxt "field:sales.forecast.comparison.line,forecast_quantity:"
+msgid "Forecast Quantity"
+msgstr "Quantitat prevista"
+
+msgctxt "field:sales.forecast.comparison.line,actual_quantity:"
+msgid "Actual Quantity"
+msgstr "Quantitat real"
+
+msgctxt "field:sales.forecast.comparison.line,forecast_display:"
+msgid "Forecast"
+msgstr "Previsió"
+
+msgctxt "field:sales.forecast.comparison.line,actual_display:"
+msgid "Actual Sales"
+msgstr "Venda real"
+
+msgctxt "field:sales.forecast.comparison.line,difference:"
+msgid "Difference"
+msgstr "Diferència"
+
+msgctxt "field:sales.forecast.comparison.line,percentage:"
+msgid "Difference %"
+msgstr "Diferència %"
+
+msgctxt "model:ir.action,name:act_comparison"
+msgid "Forecast vs Actual Sales"
+msgstr "Previsió contra venda real"
+
+msgctxt "model:ir.ui.menu,name:menu_comparison"
+msgid "Forecast vs Actual Sales"
+msgstr "Previsió contra venda real"
+
+msgctxt "model:ir.model.button,string:comparison_calculate_button"
+msgid "Calculate Comparison"
+msgstr "Calcula la comparativa"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Units"
+msgstr "Unitats"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Boxes"
+msgstr "Caixes"
+
+msgctxt "selection:sales.forecast.comparison,unit:"
+msgid "Pallets"
+msgstr "Palets"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Units"
+msgstr "Unitats"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Boxes"
+msgstr "Caixes"
+
+msgctxt "selection:sales.forecast.comparison.line,unit:"
+msgid "Pallets"
+msgstr "Palets"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "General Method"
+msgstr "Mètode general"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "Key Accounts"
+msgstr "Grans comptes"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "New Product"
+msgstr "Producte nou"
+
+msgctxt "selection:sales.forecast.comparison.line,method:"
+msgid "Manual"
+msgstr "Manual"
+
+msgctxt "selection:sales.forecast.comparison,method:"
+msgid "All Methods"
+msgstr "Tots els mètodes"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Product"
+msgstr "Producte"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgctxt "selection:sales.forecast.comparison.line,kind:"
+msgid "Total"
+msgstr "Total"
+
+msgctxt "model:ir.message,text:msg_missing_new_product_history"
+msgid ""
+"Product \"%(product)s\" has no sales history in a closed month before the "
+"forecast period. Enter a manual forecast or select another method."
+msgstr ""
+"El producte \"%(product)s\" no té vendes en un mes tancat anterior al "
+"període de previsió. Introduïu una previsió manual o seleccioneu un altre "
+"mètode."

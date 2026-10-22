@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree editable="1">
+    <field name="scope"/>
+    <field name="product_category"/>
+    <field name="party_category"/>
+    <field name="increase_percentage" factor="100"/>
+</tree>

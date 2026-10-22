@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<form>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="state"/>
+    <field name="state"/>
+    <label name="company"/>
+    <field name="company"/>
+    <label name="calculation_method"/>
+    <field name="calculation_method"/>
+    <label name="calendar"/>
+    <field name="calendar"/>
+    <label name="general_increase_percentage"/>
+    <field name="general_increase_percentage" factor="100"/>
+    <label name="refresh_parameters"/>
+    <field name="refresh_parameters"/>
+    <label name="start_date"/>
+    <field name="start_date"/>
+    <label name="end_date"/>
+    <field name="end_date"/>
+    <label name="computed_at"/>
+    <field name="computed_at"/>
+    <newline/>
+    <group col="6" colspan="6" id="buttons">
+        <button name="update_current_year_sales"/>
+        <button name="open_month_lines"/>
+        <button name="open_week_lines"/>
+        <button name="open_daily_lines"/>
+    </group>
+    <notebook colspan="6">
+        <page string="Products" id="products">
+            <field name="product_templates" colspan="4"/>
+        </page>
+        <page string="General Method" id="general_method">
+            <label name="last_general_calculated_at"/>
+            <field name="last_general_calculated_at"/>
+            <field name="category_increase_lines" colspan="4"
+                view_ids="sales_forecast.view_sales_forecast_category_increase_tree"/>
+            <field name="product_increase_lines" colspan="4"
+                view_ids="sales_forecast.view_sales_forecast_product_increase_tree"/>
+        </page>
+        <page string="Lines" id="lines">
+            <field name="lines" colspan="4" view_ids="sales_forecast.view_sales_forecast_line_tree"/>
+        </page>
+    </notebook>
+</form>
