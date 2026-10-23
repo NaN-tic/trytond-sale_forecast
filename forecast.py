@@ -14,7 +14,7 @@ from trytond.model import (
     ModelSQL, ModelSingleton, ModelView, Workflow, Unique, fields)
 from trytond.pool import Pool
 from trytond.pyson import Eval, PYSONEncoder
-from trytond.transaction import Transaction
+from trytond.transaction import Transaction, without_check_access
 from trytond.exceptions import UserError
 from trytond.wizard import Button, StateTransition, StateView, Wizard
 
@@ -528,6 +528,7 @@ class SalesForecastCalendar(ModelSQL, ModelView):
 
     @classmethod
     @ModelView.button
+    @without_check_access
     def calculate_distributions(cls, calendars):
         pool = Pool()
         Company = pool.get('company.company')
@@ -629,6 +630,7 @@ class SalesForecastCalendar(ModelSQL, ModelView):
 
     @classmethod
     @ModelView.button
+    @without_check_access
     def calculate_event_results(cls, calendars):
         pool = Pool()
         Company = pool.get('company.company')
@@ -834,6 +836,7 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
 
     @classmethod
     @ModelView.button
+    @without_check_access
     def calculate_special_sale(cls, days):
         pool = Pool()
         Calendar = pool.get('sales.forecast.calendar')
@@ -873,26 +876,31 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
 
     @classmethod
     def create(cls, vlist):
+        Calendar = Pool().get('sales.forecast.calendar')
         records = super().create(vlist)
-        Pool().get('sales.forecast.calendar').write(
-            list({record.calendar for record in records}), {
-                'events_calculated_at': None,
-                'distribution_calculated_at': None,
-                })
+        with without_check_access():
+            Calendar.write(
+                list({record.calendar for record in records}), {
+                    'events_calculated_at': None,
+                    'distribution_calculated_at': None,
+                    })
         return records
 
     @classmethod
     def delete(cls, records):
+        Calendar = Pool().get('sales.forecast.calendar')
         calendars = list({record.calendar for record in records})
         super().delete(records)
         if calendars:
-            Pool().get('sales.forecast.calendar').write(calendars, {
-                    'events_calculated_at': None,
-                    'distribution_calculated_at': None,
-                    })
+            with without_check_access():
+                Calendar.write(calendars, {
+                        'events_calculated_at': None,
+                        'distribution_calculated_at': None,
+                        })
 
     @classmethod
     def write(cls, *args):
+        Calendar = Pool().get('sales.forecast.calendar')
         actions = iter(args)
         updated = []
         for records, values in zip(actions, actions):
@@ -906,10 +914,11 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
         calendars = list({record.calendar for records in args[::2]
                 for record in records})
         if calendars:
-            Pool().get('sales.forecast.calendar').write(calendars, {
-                    'events_calculated_at': None,
-                    'distribution_calculated_at': None,
-                    })
+            with without_check_access():
+                Calendar.write(calendars, {
+                        'events_calculated_at': None,
+                        'distribution_calculated_at': None,
+                        })
 
 
 class CalendarEventLineMixin:
@@ -1266,6 +1275,10 @@ class SalesForecastManualLine(ModelSQL, ModelView):
     def default_product_template():
         return Transaction().context.get('default_product_template')
 
+    @staticmethod
+    def default_updated_at():
+        return datetime.now()
+
     @fields.depends('product_template', '_parent_product_template.id')
     def on_change_product_template(self):
         self.week_start = self._current_week_start()
@@ -1308,6 +1321,7 @@ class SalesForecastManualLine(ModelSQL, ModelView):
         Template = pool.get('product.template')
         expected_dates = {}
         normalized = []
+        packages = []
         for values in sorted(
                 (values.copy() for values in vlist),
                 key=lambda values: (
@@ -1332,23 +1346,38 @@ class SalesForecastManualLine(ModelSQL, ModelView):
                 raise UserError(gettext(
                     'sales_forecast.msg_manual_week_in_past'))
             values['week_start'] = week_start
-            values.update(cls._normalized_quantities(template, values))
-            values['updated_at'] = datetime.now()
+            values.pop('package', None)
+            values.pop('updated_at', None)
+            quantities = cls._normalized_quantities(template, values)
+            packages.append(quantities.pop('package'))
+            values.update(quantities)
             normalized.append(values)
             expected_dates[template.id] += timedelta(days=7)
         records = super().create(normalized)
-        Template.write(list({record.product_template for record in records}), {
-                'sales_forecast_manual_updated_at': datetime.now(),
-                })
+        with without_check_access():
+            package_args = []
+            for record, package in zip(records, packages):
+                package_args.extend(([record], {'package': package}))
+            super().write(*package_args)
+            Template.write(
+                list({record.product_template for record in records}), {
+                    'sales_forecast_manual_updated_at': datetime.now(),
+                    })
         return records
 
     @classmethod
     def write(cls, *args):
+        Template = Pool().get('product.template')
         actions = iter(args)
         new_args = []
+        internal_args = []
         templates = set()
         for records, values in zip(actions, actions):
             templates.update(record.product_template for record in records)
+            values = values.copy()
+            values.pop('package', None)
+            values.pop('updated_at', None)
+            internal_values = {'updated_at': datetime.now()}
             if any(record.week_start < cls._current_week_start()
                     for record in records):
                 raise UserError(gettext(
@@ -1356,22 +1385,27 @@ class SalesForecastManualLine(ModelSQL, ModelView):
             if 'product_template' in values or 'week_start' in values:
                 raise UserError(gettext(
                     'sales_forecast.msg_manual_week_readonly'))
-            values = values.copy()
             if any(field in values for field in ('units', 'boxes', 'pallets')):
                 if len(records) != 1:
                     raise UserError(gettext(
                         'sales_forecast.msg_manual_single_update'))
-                values.update(cls._normalized_quantities(
-                    records[0].product_template, values, current=records[0]))
-            values['updated_at'] = datetime.now()
+                quantities = cls._normalized_quantities(
+                    records[0].product_template, values, current=records[0])
+                package = quantities.pop('package')
+                values.update(quantities)
+                internal_values['package'] = package
             new_args.extend([records, values])
+            internal_args.extend([records, internal_values])
         super().write(*new_args)
-        Pool().get('product.template').write(list(templates), {
-                'sales_forecast_manual_updated_at': datetime.now(),
-                })
+        with without_check_access():
+            super().write(*internal_args)
+            Template.write(list(templates), {
+                    'sales_forecast_manual_updated_at': datetime.now(),
+                    })
 
     @classmethod
     def delete(cls, records):
+        Template = Pool().get('product.template')
         by_template = {}
         for record in records:
             by_template.setdefault(record.product_template.id, set()).add(
@@ -1389,12 +1423,12 @@ class SalesForecastManualLine(ModelSQL, ModelView):
                 raise UserError(gettext(
                     'sales_forecast.msg_manual_delete_sequence'))
         super().delete(records)
-        Template = Pool().get('product.template')
         templates = Template.search([('id', 'in', list(by_template))])
         if templates:
-            Template.write(templates, {
-                    'sales_forecast_manual_updated_at': datetime.now(),
-                    })
+            with without_check_access():
+                Template.write(templates, {
+                        'sales_forecast_manual_updated_at': datetime.now(),
+                        })
 
 
 class SalesForecastCalculationProduct(ModelSQL):
@@ -1653,6 +1687,7 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
         return action
 
     @classmethod
+    @without_check_access
     def _run_method(cls, records, method):
         Forecast = Pool().get('sales.forecast')
         now = datetime.now()
@@ -1964,6 +1999,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             cls._calculate_method(forecast, method)
 
     @classmethod
+    @without_check_access
     def _prepare_calculation(cls, forecast):
         pool = Pool()
         Calendar = pool.get('sales.forecast.calendar')
@@ -2041,6 +2077,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                 cls._refresh_monthly_lines(forecast, daily_lines)
 
     @classmethod
+    @without_check_access
     def _calculate(cls, forecast, templates=None):
         pool = Pool()
         Line = pool.get('sales.forecast.line')
@@ -2120,6 +2157,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         })
 
     @classmethod
+    @without_check_access
     def _calculate_method(cls, forecast, method):
         pool = Pool()
         Line = pool.get('sales.forecast.line')
@@ -2252,6 +2290,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         return round(quantity, 2)
 
     @classmethod
+    @without_check_access
     def _update_current_year_fields(cls, lines):
         Line = Pool().get('sales.forecast.line')
         if not lines:
@@ -2272,6 +2311,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             })
 
     @classmethod
+    @without_check_access
     def _update_current_year_daily_fields(cls, daily_lines):
         DailyLine = Pool().get('sales.forecast.daily_line')
         if not daily_lines:
@@ -2292,6 +2332,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             })
 
     @classmethod
+    @without_check_access
     def _refresh_monthly_lines(cls, forecast, daily_lines):
         MonthlyLine = Pool().get('sales.forecast.monthly_line')
         existing_monthly_lines = MonthlyLine.search([
