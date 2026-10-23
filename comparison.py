@@ -7,7 +7,7 @@ from trytond.i18n import gettext
 from trytond.model import ModelSQL, ModelView, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval
-from trytond.transaction import Transaction
+from trytond.transaction import Transaction, without_check_access
 
 from .forecast import _convert_packaging_quantities
 from .product import FORECAST_METHODS
@@ -76,21 +76,25 @@ class Comparison(ModelSQL, ModelView):
 
     @classmethod
     def write(cls, *args):
+        Line = Pool().get('sales.forecast.comparison.line')
         actions = iter(args)
         updated = []
+        invalidated = []
         for reports, values in zip(actions, actions):
             if values.keys() & {'company', 'start_date', 'end_date', 'weekly',
                     'products', 'categories', 'method', 'unit'}:
-                Line = Pool().get('sales.forecast.comparison.line')
-                with Transaction().set_context(_check_access=False):
-                    Line.delete([line for report in reports
-                            for line in report.lines])
-                values = {**values, 'calculated_at': None}
+                invalidated.extend(reports)
             updated.extend((reports, values))
         super().write(*updated)
+        if invalidated:
+            with without_check_access():
+                Line.delete([line for report in invalidated
+                        for line in report.lines])
+                super().write(invalidated, {'calculated_at': None})
 
     @classmethod
     @ModelView.button
+    @without_check_access
     def calculate(cls, records):
         pool = Pool()
         Template = pool.get('product.template')
