@@ -100,13 +100,13 @@ class Comparison(ModelSQL, ModelView):
         Line = pool.get('sales.forecast.comparison.line')
         for report in records:
             if report.start_date > report.end_date:
-                raise UserError(gettext('sales_forecast.msg_invalid_period'))
+                raise UserError(gettext('sale_forecast.msg_invalid_period'))
             start = report.start_date - timedelta(
                 days=report.start_date.weekday())
             end = report.end_date + timedelta(days=6-report.end_date.weekday())
             domain = [('salable', '=', True), ('type', '=', 'goods')]
             if report.method:
-                domain.append(('sales_forecast_method', '=', report.method))
+                domain.append(('sale_forecast_method', '=', report.method))
             if report.categories:
                 domain.append(('categories_all', 'child_of',
                     [c.id for c in report.categories], 'parent'))
@@ -117,7 +117,7 @@ class Comparison(ModelSQL, ModelView):
             if ((report.products and {p.id for p in report.products}
                         != {p.id for p in templates}) or not templates):
                 raise UserError(gettext(
-                    'sales_forecast.msg_comparison_selection'))
+                    'sale_forecast.msg_comparison_selection'))
             weeks = list(Forecast._iter_weeks(start, end))
             latest = {}
             # A forecast of only part of a week is not a complete weekly value.
@@ -165,7 +165,7 @@ class Comparison(ModelSQL, ModelView):
                     value = {
                         'comparison': report.id,
                         'product': template.id,
-                        'method': template.sales_forecast_method,
+                        'method': template.sale_forecast_method,
                         'week_start': week,
                         'forecast_quantity': forecast,
                         'actual_quantity': actual_quantity,

@@ -17,7 +17,7 @@ class TestForecastPackage(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
         create_company()
         Template = Model.get('product.template')
         Uom = Model.get('product.uom')
@@ -31,20 +31,20 @@ class TestForecastPackage(unittest.TestCase):
         template.save()
         packages = {package.name: package for package in template.packages}
 
-        template.sales_forecast_boxes_per_pallet = 20
-        template.sales_forecast_package = packages['Box']
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 20)
+        template.sale_forecast_boxes_per_pallet = 20
+        template.sale_forecast_package = packages['Box']
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 20)
         template.save()
         template.reload()
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 20)
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 20)
 
-        template.sales_forecast_package = packages['Small Box']
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 20)
-        template.sales_forecast_boxes_per_pallet = 24
-        template.sales_forecast_package = packages['Manual Pallet']
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 24)
-        template.sales_forecast_package = None
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 24)
+        template.sale_forecast_package = packages['Small Box']
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 20)
+        template.sale_forecast_boxes_per_pallet = 24
+        template.sale_forecast_package = packages['Manual Pallet']
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 24)
+        template.sale_forecast_package = None
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 24)
         template.save()
         template.reload()
-        self.assertEqual(template.sales_forecast_boxes_per_pallet, 24)
+        self.assertEqual(template.sale_forecast_boxes_per_pallet, 24)

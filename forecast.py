@@ -49,16 +49,16 @@ def _context_company():
 
 
 def _packaging_capabilities(product_template):
-    package = (getattr(product_template, 'sales_forecast_package', None)
+    package = (getattr(product_template, 'sale_forecast_package', None)
         or getattr(product_template, 'default_package', None))
     if package and not package.active:
         raise UserError(gettext(
-            'sales_forecast.msg_inactive_forecast_package',
+            'sale_forecast.msg_inactive_forecast_package',
             product=product_template.rec_name))
     package_quantity = getattr(package, 'quantity', None) if package else None
     box_per_pallet = getattr(package, 'box_per_pallet', None) if package else None
     box_per_pallet = (box_per_pallet
-        or getattr(product_template, 'sales_forecast_boxes_per_pallet', None))
+        or getattr(product_template, 'sale_forecast_boxes_per_pallet', None))
     return package, package_quantity, box_per_pallet
 
 
@@ -70,7 +70,7 @@ def _convert_packaging_quantities(product_template, units=None, boxes=None,
     if units is None and (boxes is not None or pallets is not None):
         if not package_quantity or (pallets is not None and not box_per_pallet):
             raise UserError(gettext(
-                'sales_forecast.msg_missing_forecast_packaging',
+                'sale_forecast.msg_missing_forecast_packaging',
                 product=product_template.rec_name))
     if package_quantity:
         if units is None and boxes is not None:
@@ -137,7 +137,7 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
             ('sale_history_company_product_date_unique',
                 Unique(table, table.company, table.product_template,
                     table.date),
-                'sales_forecast.msg_sale_history_company_product_date_unique'),
+                'sale_forecast.msg_sale_history_company_product_date_unique'),
         ]
         cls._order.insert(0, ('date', 'DESC'))
         cls._order.insert(1, ('product_template', 'ASC'))
@@ -175,7 +175,7 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
                 company = Pool().get('company.company')(company_id)
         if company is None:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_history_company'))
+                'sale_forecast.msg_missing_history_company'))
 
         # A sale may be confirmed, cancelled or re-dated before the last cached
         # date. Refresh the whole company history, including removed quantities.
@@ -285,7 +285,7 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
                     Template(template_id).rec_name,
                     Uom(unit_id).rec_name, Uom(default_uom_id).rec_name,
                     sales))
-            notify(gettext('sales_forecast.msg_history_incompatible_units'),
+            notify(gettext('sale_forecast.msg_history_incompatible_units'),
                 body='\n'.join(details), priority=2)
         return [
             (template_id, sale_date, quantity)
@@ -413,7 +413,7 @@ class SalesForecastSaleHistoryUpdate(Wizard):
     __name__ = 'sales.forecast.sale_history.update'
     start = StateView(
         'sales.forecast.sale_history.update.start',
-        'sales_forecast.sale_history_update_start_view_form', [
+        'sale_forecast.sale_history_update_start_view_form', [
             Button('Cancel', 'end', 'tryton-cancel'),
             Button('Update', 'update', 'tryton-ok', default=True),
         ])
@@ -431,7 +431,7 @@ class SalesForecastCalendarCalculateDistributions(Wizard):
 
     start = StateView(
         'sales.forecast.calendar.calculate_distributions.start',
-        'sales_forecast.calendar_calculate_distributions_start_view_form', [
+        'sale_forecast.calendar_calculate_distributions_start_view_form', [
             Button('Cancel', 'end', 'tryton-cancel'),
             Button('Calculate', 'calculate', 'tryton-ok', default=True),
         ])
@@ -443,7 +443,7 @@ class SalesForecastCalendarCalculateDistributions(Wizard):
         calendars = Calendar.active_calendars()
         if calendars:
             Calendar.calculate_distributions(calendars)
-            notify(gettext('sales_forecast.msg_distributions_calculated'))
+            notify(gettext('sale_forecast.msg_distributions_calculated'))
         return 'end'
 
 
@@ -463,7 +463,7 @@ class SalesForecastCalendarCalculateEventResults(Wizard):
 
     start = StateView(
         'sales.forecast.calendar.calculate_event_results.start',
-        'sales_forecast.calendar_calculate_event_results_start_view_form', [
+        'sale_forecast.calendar_calculate_event_results_start_view_form', [
             Button('Cancel', 'end', 'tryton-cancel'),
             Button('Calculate', 'calculate', 'tryton-ok', default=True),
         ])
@@ -475,7 +475,7 @@ class SalesForecastCalendarCalculateEventResults(Wizard):
         calendars = Calendar.active_calendars()
         if calendars:
             Calendar.calculate_event_results(calendars)
-            notify(gettext('sales_forecast.msg_event_results_calculated'))
+            notify(gettext('sale_forecast.msg_event_results_calculated'))
         return 'end'
 
 
@@ -536,10 +536,10 @@ class SalesForecastCalendar(ModelSQL, ModelView):
         company_id = Transaction().context.get('company')
         if not company_id:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_history_company'))
+                'sale_forecast.msg_missing_history_company'))
         company = Company(company_id)
 
-        if not Transaction().context.get('sales_forecast_history_ready'):
+        if not Transaction().context.get('sale_forecast_history_ready'):
             pool.get('sales.forecast.sale_history').update_history(
                 company=company)
 
@@ -636,10 +636,10 @@ class SalesForecastCalendar(ModelSQL, ModelView):
         company_id = Transaction().context.get('company')
         if not company_id:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_history_company'))
+                'sale_forecast.msg_missing_history_company'))
         company = Company(company_id)
 
-        if not Transaction().context.get('sales_forecast_history_ready'):
+        if not Transaction().context.get('sale_forecast_history_ready'):
             pool.get('sales.forecast.sale_history').update_history(
                 company=company)
 
@@ -822,7 +822,7 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('calendar_date_unique',
                 Unique(table, table.calendar, table.date),
-                'sales_forecast.msg_calendar_date_unique'),
+                'sale_forecast.msg_calendar_date_unique'),
         ]
         cls._order.insert(0, ('date', 'ASC'))
         cls._buttons.update({
@@ -841,7 +841,7 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
         company_id = Transaction().context.get('company')
         if not company_id:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_history_company'))
+                'sale_forecast.msg_missing_history_company'))
         days = [day for day in days if day.day_type == 'special_sale']
         if not days:
             return
@@ -864,11 +864,11 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
         for record in records:
             if record.day_type == 'product_day' and not record.product_lines:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_product_day_lines',
+                    'sale_forecast.msg_missing_product_day_lines',
                     date=record.date))
             if record.day_type == 'special_sale' and not record.special_lines:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_special_sale_lines',
+                    'sale_forecast.msg_missing_special_sale_lines',
                     date=record.date))
 
     @classmethod
@@ -961,7 +961,7 @@ class SalesForecastCalendarDayProduct(
         cls._sql_constraints += [
             ('day_product_unique',
                 Unique(table, table.calendar_day, table.product_template),
-                'sales_forecast.msg_duplicate_product_day'),
+                'sale_forecast.msg_duplicate_product_day'),
             ]
 
     @classmethod
@@ -977,7 +977,7 @@ class SalesForecastCalendarDayProduct(
                 if all(values.get(name) is None
                         for name in ('units', 'boxes', 'pallets')):
                     raise UserError(gettext(
-                        'sales_forecast.msg_missing_product_day_quantity',
+                        'sale_forecast.msg_missing_product_day_quantity',
                         product=template.rec_name))
                 quantities = _convert_packaging_quantities(
                     template,
@@ -1004,7 +1004,7 @@ class SalesForecastCalendarDayProduct(
                 values = values.copy()
                 if len(records) != 1:
                     raise UserError(gettext(
-                        'sales_forecast.msg_product_day_single_update'))
+                        'sale_forecast.msg_product_day_single_update'))
                 changed_fields = [
                     field_name for field_name in quantity_fields
                     if values[field_name] != getattr(records[0], field_name)]
@@ -1023,7 +1023,7 @@ class SalesForecastCalendarDayProduct(
             if not any(value is not None for value in [
                         record.units, record.boxes, record.pallets]):
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_product_day_quantity',
+                    'sale_forecast.msg_missing_product_day_quantity',
                     product=record.product_template.rec_name))
 
 
@@ -1067,7 +1067,7 @@ class SalesForecastCalendarDaySpecial(
             if len(scopes) > 1 or (len(lines) > 1
                     and 'all_products' in scopes):
                 raise UserError(gettext(
-                    'sales_forecast.msg_special_scope_overlap', date=day.date))
+                    'sale_forecast.msg_special_scope_overlap', date=day.date))
             seen_categories = set()
             seen_records = set()
             for line in lines:
@@ -1092,7 +1092,7 @@ class SalesForecastCalendarDaySpecial(
                 if (seen_categories.intersection(category_ids)
                         or seen_records.intersection(record_ids)):
                     raise UserError(gettext(
-                        'sales_forecast.msg_special_scope_overlap',
+                        'sale_forecast.msg_special_scope_overlap',
                         date=day.date))
                 seen_categories.update(category_ids)
                 seen_records.update(record_ids)
@@ -1122,7 +1122,7 @@ class SalesForecastDistribution(ModelSQL, ModelView):
             ('distribution_product_weekday_unique',
                 Unique(table, table.company, table.product_template,
                     table.weekday),
-                'sales_forecast.msg_distribution_product_weekday_unique'),
+                'sale_forecast.msg_distribution_product_weekday_unique'),
         ]
         cls._order.insert(0, ('sequence', 'ASC'))
         cls._order.insert(1, ('weekday', 'ASC'))
@@ -1214,7 +1214,7 @@ class SalesForecastManualLine(ModelSQL, ModelView):
     product_template = fields.Many2One(
         'product.template', 'Product', required=True, ondelete='CASCADE',
         domain=[
-            ('sales_forecast_method', '=', 'manual'),
+            ('sale_forecast_method', '=', 'manual'),
             ('salable', '=', True),
             ('type', '=', 'goods'),
             ('active', '=', True),
@@ -1241,7 +1241,7 @@ class SalesForecastManualLine(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('manual_product_week_unique',
                 Unique(table, table.product_template, table.week_start),
-                'sales_forecast.msg_manual_product_week_unique'),
+                'sale_forecast.msg_manual_product_week_unique'),
         ]
         cls._order.insert(0, ('week_start', 'ASC'))
 
@@ -1294,7 +1294,7 @@ class SalesForecastManualLine(ModelSQL, ModelView):
             values = {**values, 'units': current.units}
         if source is None:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_manual_quantity',
+                'sale_forecast.msg_missing_manual_quantity',
                 product=template.rec_name))
         quantities = _convert_packaging_quantities(
             template, **{source: values[source]})
@@ -1325,12 +1325,12 @@ class SalesForecastManualLine(ModelSQL, ModelView):
             week_start = values.get('week_start') or expected_dates[template.id]
             if week_start != expected_dates[template.id]:
                 raise UserError(gettext(
-                    'sales_forecast.msg_manual_week_sequence',
+                    'sale_forecast.msg_manual_week_sequence',
                     product=template.rec_name,
                     week=expected_dates[template.id]))
             if week_start < cls._current_week_start():
                 raise UserError(gettext(
-                    'sales_forecast.msg_manual_week_in_past'))
+                    'sale_forecast.msg_manual_week_in_past'))
             values['week_start'] = week_start
             values.update(cls._normalized_quantities(template, values))
             values['updated_at'] = datetime.now()
@@ -1338,7 +1338,7 @@ class SalesForecastManualLine(ModelSQL, ModelView):
             expected_dates[template.id] += timedelta(days=7)
         records = super().create(normalized)
         Template.write(list({record.product_template for record in records}), {
-                'sales_forecast_manual_updated_at': datetime.now(),
+                'sale_forecast_manual_updated_at': datetime.now(),
                 })
         return records
 
@@ -1352,22 +1352,22 @@ class SalesForecastManualLine(ModelSQL, ModelView):
             if any(record.week_start < cls._current_week_start()
                     for record in records):
                 raise UserError(gettext(
-                    'sales_forecast.msg_manual_week_in_past'))
+                    'sale_forecast.msg_manual_week_in_past'))
             if 'product_template' in values or 'week_start' in values:
                 raise UserError(gettext(
-                    'sales_forecast.msg_manual_week_readonly'))
+                    'sale_forecast.msg_manual_week_readonly'))
             values = values.copy()
             if any(field in values for field in ('units', 'boxes', 'pallets')):
                 if len(records) != 1:
                     raise UserError(gettext(
-                        'sales_forecast.msg_manual_single_update'))
+                        'sale_forecast.msg_manual_single_update'))
                 values.update(cls._normalized_quantities(
                     records[0].product_template, values, current=records[0]))
             values['updated_at'] = datetime.now()
             new_args.extend([records, values])
         super().write(*new_args)
         Pool().get('product.template').write(list(templates), {
-                'sales_forecast_manual_updated_at': datetime.now(),
+                'sale_forecast_manual_updated_at': datetime.now(),
                 })
 
     @classmethod
@@ -1387,13 +1387,13 @@ class SalesForecastManualLine(ModelSQL, ModelView):
                     and any(line.id not in record_ids
                         for line in lines[first_deleted:])):
                 raise UserError(gettext(
-                    'sales_forecast.msg_manual_delete_sequence'))
+                    'sale_forecast.msg_manual_delete_sequence'))
         super().delete(records)
         Template = Pool().get('product.template')
         templates = Template.search([('id', 'in', list(by_template))])
         if templates:
             Template.write(templates, {
-                    'sales_forecast_manual_updated_at': datetime.now(),
+                    'sale_forecast_manual_updated_at': datetime.now(),
                     })
 
 
@@ -1435,7 +1435,7 @@ class SalesForecastCalculationCategoryIncrease(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('calculation_category_unique',
                 Unique(table, table.calculation, table.category),
-                'sales_forecast.msg_calculation_category_unique'),
+                'sale_forecast.msg_calculation_category_unique'),
         ]
 
 
@@ -1448,7 +1448,7 @@ class SalesForecastCalculationProductIncrease(ModelSQL, ModelView):
     product_template = fields.Many2One('product.template', 'Product',
         required=True, ondelete='RESTRICT',
         domain=[
-            ('sales_forecast_method', '=', 'general'),
+            ('sale_forecast_method', '=', 'general'),
             ('salable', '=', True),
             ('type', '=', 'goods'),
             ('active', '=', True),
@@ -1568,9 +1568,9 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
         goods_categories = {
             category.id
             for template in Forecast.filtered_templates()
-            if (template.sales_forecast_method == 'general'
-                or (template.sales_forecast_method == 'key_accounts'
-                    and template.sales_forecast_key_account_source == 'mixed'))
+            if (template.sale_forecast_method == 'general'
+                or (template.sale_forecast_method == 'key_accounts'
+                    and template.sale_forecast_key_account_source == 'mixed'))
             for category in template.categories_all
             }
         for record in records:
@@ -1582,9 +1582,9 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
                 category.id
                 for template in Forecast.filtered_templates(
                     product_templates=list(record.product_templates))
-                if (template.sales_forecast_method == 'general'
-                    or (template.sales_forecast_method == 'key_accounts'
-                        and template.sales_forecast_key_account_source == 'mixed'))
+                if (template.sale_forecast_method == 'general'
+                    or (template.sale_forecast_method == 'key_accounts'
+                        and template.sale_forecast_key_account_source == 'mixed'))
                 for category in template.categories_all
                 }
             allowed = goods_categories.copy()
@@ -1628,7 +1628,7 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
             method='manual',
             product_templates=list(record.product_templates))
         action_id = ModelData.get_id(
-            'sales_forecast', 'act_sales_forecast_manual_line')
+            'sale_forecast', 'act_sale_forecast_manual_line')
         action = Action(action_id).get_action_value()
         action['pyson_domain'] = PYSONEncoder().encode([
                 ('product_template', 'in', [
@@ -1645,8 +1645,8 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
             if not ManualLine.search([
                     ('product_template', '=', templates[0].id),
                     ], limit=1):
-                view_id = ModelData.get_id('sales_forecast',
-                    'view_sales_forecast_manual_line_form')
+                view_id = ModelData.get_id('sale_forecast',
+                    'view_sale_forecast_manual_line_form')
                 action['views'] = [(view_id, 'form')]
                 action['res_id'] = None
         action['pyson_context'] = PYSONEncoder().encode(action_context)
@@ -1666,7 +1666,7 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
             record = cls.get_singleton()
             if not record.start_date or not record.end_date:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_calculation_period'))
+                    'sale_forecast.msg_missing_calculation_period'))
             if method == 'general':
                 cls._validate_general_method(record)
             values = {
@@ -1929,7 +1929,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             for records in args[::2]:
                 if any(record.state == 'calculated' for record in records):
                     raise UserError(gettext(
-                        'sales_forecast.msg_calculated_readonly'))
+                        'sale_forecast.msg_calculated_readonly'))
         super().write(*args)
 
     @classmethod
@@ -1938,7 +1938,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         for forecast in forecasts:
             if forecast.start_date > forecast.end_date:
                 raise UserError(gettext(
-                    'sales_forecast.msg_invalid_period'))
+                    'sale_forecast.msg_invalid_period'))
 
     @classmethod
     @ModelView.button
@@ -1984,7 +1984,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                 ])
         ready = {line.product_template.id for line in distributions}
         with Transaction().set_context(company=forecast.company.id,
-                sales_forecast_history_ready=True):
+                sale_forecast_history_ready=True):
             if (refresh or any(t.id not in ready for t in templates)
                     or any(not c.distribution_calculated_at for c in calendars)):
                 Calendar.calculate_distributions(calendars)
@@ -2002,17 +2002,17 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                 Calendar.calculate_event_results(pending)
 
     @classmethod
-    @ModelView.button_action('sales_forecast.act_sales_forecast_monthly_line')
+    @ModelView.button_action('sale_forecast.act_sale_forecast_monthly_line')
     def open_month_lines(cls, forecasts):
         pass
 
     @classmethod
-    @ModelView.button_action('sales_forecast.act_sales_forecast_daily_line')
+    @ModelView.button_action('sale_forecast.act_sale_forecast_daily_line')
     def open_daily_lines(cls, forecasts):
         pass
 
     @classmethod
-    @ModelView.button_action('sales_forecast.act_sales_forecast_line')
+    @ModelView.button_action('sale_forecast.act_sale_forecast_line')
     def open_week_lines(cls, forecasts):
         pass
 
@@ -2087,9 +2087,9 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                         if len(template.products) == 1 else None),
                     'package': package.id if package else None,
                     'week_start': week_start,
-                    'method': template.sales_forecast_method,
+                    'method': template.sale_forecast_method,
                     'origin': ('manual'
-                        if template.sales_forecast_method == 'manual'
+                        if template.sale_forecast_method == 'manual'
                         else 'calculated'),
                     'base_quantity': round(base_quantity, 2),
                     'calendar_adjustment': round(adjustment, 4),
@@ -2160,9 +2160,9 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                         if len(template.products) == 1 else None),
                     'package': package.id if package else None,
                     'week_start': week_start,
-                    'method': template.sales_forecast_method,
+                    'method': template.sale_forecast_method,
                     'origin': ('manual'
-                        if template.sales_forecast_method == 'manual'
+                        if template.sale_forecast_method == 'manual'
                         else 'calculated'),
                     'base_quantity': round(base_quantity, 2),
                     'calendar_adjustment': round(adjustment, 4),
@@ -2230,7 +2230,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             ('active', '=', True),
         ]
         if method:
-            domain.append(('sales_forecast_method', '=', method))
+            domain.append(('sale_forecast_method', '=', method))
         if product_templates:
             domain.append(('id', 'in', [template.id for template in product_templates]))
         return Template.search(domain, order=[('name', 'ASC')])
@@ -2441,7 +2441,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
 
     @classmethod
     def _compute_quantity(cls, forecast, template, week_start):
-        method = template.sales_forecast_method
+        method = template.sale_forecast_method
         if method == 'manual':
             quantity = cls._manual_quantity(template, week_start)
             daily = cls._calendar_daily_quantities(
@@ -2470,7 +2470,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         if lines:
             return lines[0].units
         raise UserError(gettext(
-            'sales_forecast.msg_missing_manual_week',
+            'sale_forecast.msg_missing_manual_week',
             product=template.rec_name,
             week=week_start))
 
@@ -2488,7 +2488,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         total = sum(percentages.values())
         if len(percentages) != 7 or total <= 0:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_distribution',
+                'sale_forecast.msg_missing_distribution',
                 product=template.rec_name))
         return {
             str(index): percentages[str(index)] / total
@@ -2501,9 +2501,9 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         quantity = max(0.0, quantity)
         # Explicit orders and customer quantities take precedence over events.
         # Only the General fallback of the mixed method applies event forecasts.
-        if apply_events and template.sales_forecast_method == 'key_accounts':
+        if apply_events and template.sale_forecast_method == 'key_accounts':
             apply_events = (
-                template.sales_forecast_key_account_source == 'mixed'
+                template.sale_forecast_key_account_source == 'mixed'
                 and not cls._draft_orders_quantity(
                     forecast.company, template, week_start))
         percentages = cls._weekday_percentages(forecast.company, template)
@@ -2582,13 +2582,13 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             if line.category in categories and line.percentage is not None}
         if len(percentages) > 1:
             raise UserError(gettext(
-                'sales_forecast.msg_conflicting_category_increases',
+                'sale_forecast.msg_conflicting_category_increases',
                 product=template.rec_name))
         if percentages:
             return percentages.pop()
         if forecast.general_increase_percentage is None:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_general_percentage',
+                'sale_forecast.msg_missing_general_percentage',
                 product=template.rec_name))
         return forecast.general_increase_percentage
 
@@ -2602,20 +2602,20 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
 
     @classmethod
     def _compute_key_account_quantity(cls, forecast, template, week_start):
-        source = template.sales_forecast_key_account_source
+        source = template.sale_forecast_key_account_source
         if source == 'customer_forecast':
-            trucks = template.sales_forecast_customer_trucks_per_week
+            trucks = template.sale_forecast_customer_trucks_per_week
             pallets_per_truck = (
-                template.sales_forecast_customer_pallets_per_truck)
+                template.sale_forecast_customer_pallets_per_truck)
             if not trucks or not pallets_per_truck:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_key_account_parameters',
+                    'sale_forecast.msg_missing_key_account_parameters',
                     product=template.rec_name))
             _package, package_quantity, boxes_per_pallet = (
                 _packaging_capabilities(template))
             if not package_quantity or not boxes_per_pallet:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_forecast_packaging',
+                    'sale_forecast.msg_missing_forecast_packaging',
                     product=template.rec_name))
             pallets = trucks * pallets_per_truck
             return _convert_packaging_quantities(
@@ -2632,12 +2632,12 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
 
     @classmethod
     def _compute_new_product_quantity(cls, forecast, template, week_start):
-        source = template.sales_forecast_new_product_source or 'average_months'
+        source = template.sale_forecast_new_product_source or 'average_months'
         reference_months = cls._new_product_reference_months(
             forecast.company, template, forecast.start_date, source)
         if not reference_months:
             raise UserError(gettext(
-                'sales_forecast.msg_missing_new_product_history',
+                'sale_forecast.msg_missing_new_product_history',
                 product=template.rec_name))
         week_index = cls._month_week_index(week_start)
         quantities = [
@@ -2647,7 +2647,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             ]
         base = sum(quantities) / len(quantities)
         percentage = (
-            template.sales_forecast_new_product_increase_percentage or 0.0)
+            template.sale_forecast_new_product_increase_percentage or 0.0)
         return base * (1 + percentage)
 
     @staticmethod
@@ -2733,7 +2733,7 @@ class SalesForecastCategoryIncrease(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('forecast_category_unique',
                 Unique(table, table.forecast, table.category),
-                'sales_forecast.msg_forecast_category_unique'),
+                'sale_forecast.msg_forecast_category_unique'),
         ]
 
     def get_rec_name(self, name):
@@ -2757,7 +2757,7 @@ class SalesForecastProductIncrease(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('forecast_product_unique',
                 Unique(table, table.forecast, table.product_template),
-                'sales_forecast.msg_forecast_product_unique'),
+                'sale_forecast.msg_forecast_product_unique'),
         ]
 
     def get_rec_name(self, name):
@@ -2817,7 +2817,7 @@ class SalesForecastLine(ModelSQL, ModelView):
             ('forecast_product_week_unique',
                 Unique(table, table.forecast, table.product_template,
                     table.week_start),
-                'sales_forecast.msg_forecast_product_week_unique'),
+                'sale_forecast.msg_forecast_product_week_unique'),
         ]
         cls._order.insert(0, ('week_start', 'ASC'))
         cls._order.insert(1, ('product_template', 'ASC'))
@@ -2869,7 +2869,7 @@ class SalesForecastDailyLine(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('forecast_daily_line_unique',
                 Unique(table, table.forecast, table.product_template, table.date),
-                'sales_forecast.msg_forecast_daily_line_unique'),
+                'sale_forecast.msg_forecast_daily_line_unique'),
         ]
         cls._order.insert(0, ('date', 'ASC'))
         cls._order.insert(1, ('product_template', 'ASC'))
@@ -2906,7 +2906,7 @@ class SalesForecastMonthlyLine(ModelSQL, ModelView):
             ('forecast_monthly_line_unique',
                 Unique(table, table.forecast, table.product_template,
                     table.month_start),
-                'sales_forecast.msg_forecast_monthly_line_unique'),
+                'sale_forecast.msg_forecast_monthly_line_unique'),
         ]
         cls._order.insert(0, ('month_start', 'ASC'))
         cls._order.insert(1, ('product_template', 'ASC'))

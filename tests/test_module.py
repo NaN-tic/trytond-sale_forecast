@@ -6,7 +6,7 @@ from trytond.tests.test_tryton import ModuleTestCase
 
 class SalesForecastTestCase(ModuleTestCase, CompanyTestMixin):
     'Test Sales Forecast module'
-    module = 'sales_forecast'
+    module = 'sale_forecast'
 
 
 del ModuleTestCase
