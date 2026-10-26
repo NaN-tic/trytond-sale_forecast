@@ -22,7 +22,7 @@ class TestFunctionalForecastMethods(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
 
         Calendar = Model.get('sales.forecast.calendar')
         Calculation = Model.get('sales.forecast.calculation')
@@ -47,11 +47,11 @@ class TestFunctionalForecastMethods(unittest.TestCase):
                 salable=True,
                 type='goods',
                 cost_price_method='fixed')
-            template.sales_forecast_method = method
-            template.sales_forecast_boxes_per_pallet = 20
+            template.sale_forecast_method = method
+            template.sale_forecast_boxes_per_pallet = 20
             if method == 'new_product':
-                template.sales_forecast_new_product_source = 'last_month'
-                template.sales_forecast_new_product_increase_percentage = 0.2
+                template.sale_forecast_new_product_source = 'last_month'
+                template.sale_forecast_new_product_increase_percentage = 0.2
             package = template.packages.new()
             package.name = 'Box'
             package.quantity = 10
@@ -66,9 +66,9 @@ class TestFunctionalForecastMethods(unittest.TestCase):
         general.save()
         manual = create_template('Manual', 'manual')
         key_account = create_template('Key Account', 'key_accounts')
-        key_account.sales_forecast_key_account_source = 'customer_forecast'
-        key_account.sales_forecast_customer_trucks_per_week = 2
-        key_account.sales_forecast_customer_pallets_per_truck = 3
+        key_account.sale_forecast_key_account_source = 'customer_forecast'
+        key_account.sale_forecast_customer_trucks_per_week = 2
+        key_account.sale_forecast_customer_pallets_per_truck = 3
         key_account.save()
         new_product = create_template('New Product', 'new_product')
 
@@ -98,8 +98,8 @@ class TestFunctionalForecastMethods(unittest.TestCase):
         self.assertEqual(manual_line.units, 50.0)
         self.assertEqual(manual_line.pallets, 0.25)
         manual.reload()
-        self.assertIsNotNone(manual.sales_forecast_manual_updated_at)
-        updated_at = manual.sales_forecast_manual_updated_at
+        self.assertIsNotNone(manual.sale_forecast_manual_updated_at)
+        updated_at = manual.sale_forecast_manual_updated_at
         manual.click('duplicate_last_manual_forecast')
         manual_lines = ManualLine.find([
                 ('product_template', '=', manual.id),
@@ -109,7 +109,7 @@ class TestFunctionalForecastMethods(unittest.TestCase):
             week_start + timedelta(days=7))
         self.assertEqual(manual_lines[1].units, 50.0)
         manual.reload()
-        self.assertGreaterEqual(manual.sales_forecast_manual_updated_at,
+        self.assertGreaterEqual(manual.sale_forecast_manual_updated_at,
             updated_at)
         with self.assertRaises(UserError):
             manual_lines[0].delete()
@@ -145,10 +145,10 @@ class TestFunctionalForecastMethods(unittest.TestCase):
         general_forecast.product_templates.append(general)
         general_forecast.save()
         with patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecast._previous_year_week_quantity',
                 return_value=70), patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecast._weekday_percentages',
                 return_value=equal_distribution):
             general_forecast.click('calculate')
@@ -193,10 +193,10 @@ class TestFunctionalForecastMethods(unittest.TestCase):
             return 0
 
         with patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecastSaleHistory.quantity_sum',
                 side_effect=new_product_history_quantity), patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecast._month_week_quantity',
                 return_value=100):
             new_forecast.click('calculate')
@@ -250,9 +250,9 @@ class TestFunctionalForecastMethods(unittest.TestCase):
         calculation.end_date = week_start + timedelta(days=6)
         calculation.save()
         with patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecastSaleHistory.quantity_sum', return_value=100), patch(
-                'trytond.modules.sales_forecast.forecast.'
+                'trytond.modules.sale_forecast.forecast.'
                 'SalesForecast._month_week_quantity', return_value=100):
             calculation.click('calculate_all')
         calculation.reload()

@@ -35,7 +35,7 @@
             <field name="string">Calculate Comparison</field>
             <field name="model">sales.forecast.comparison</field>
         </record>
-        <menuitem id="menu_comparison" parent="menu_sales_forecast_root"
+        <menuitem id="menu_comparison" parent="menu_sale_forecast_root"
             action="act_comparison" sequence="15"/>
         <record model="ir.model.access" id="access_comparison_0_read">
             <field name="model">sales.forecast.comparison</field>

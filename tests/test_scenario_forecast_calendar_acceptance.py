@@ -23,7 +23,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
         create_company()
         company = get_company()
         config = get_config()
@@ -60,7 +60,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
         template.save()
         template.reload()
         package, = template.packages
-        template.sales_forecast_package = package
+        template.sale_forecast_package = package
         template.save()
         self.assertTrue(package.active)
 
@@ -142,9 +142,9 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
             self.assertEqual(context['company'], company.id)
             with config.set_context(**context):
                 linked_template = Template(template.id)
-                self.assertTrue(linked_template.sales_forecast_lines)
+                self.assertTrue(linked_template.sale_forecast_lines)
                 self.assertIsNotNone(
-                    linked_template.sales_forecast_last_calculated_at)
+                    linked_template.sale_forecast_last_calculated_at)
         expected = [10, 200, 70, 45, 50, 60, 70]
         daily = Daily.find([('forecast', '=', forecast.id)], order=[('date', 'ASC')])
         self.assertEqual([line.quantity for line in daily], expected)
@@ -179,8 +179,8 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
                 ('company', '=', company.id), ('product_template', '=', template.id)])
         self.assertAlmostEqual(sum(line.percentage for line in distribution), 100)
         template.reload()
-        self.assertIsNotNone(template.sales_forecast_last_calculated_at)
-        self.assertEqual([line.id for line in template.sales_forecast_lines],
+        self.assertIsNotNone(template.sale_forecast_last_calculated_at)
+        self.assertEqual([line.id for line in template.sale_forecast_lines],
             [line.id for line in forecast.lines])
 
         # Edits are reflected without separately recalculating event results.
@@ -260,13 +260,13 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
             self.assertEqual(other_history.quantity, 700)
             other_template = Template(template.id)
             self.assertEqual({line.forecast.id
-                    for line in other_template.sales_forecast_lines}, {second.id})
+                    for line in other_template.sale_forecast_lines}, {second.id})
         with config.set_context(company=first_company.id):
             history = History.find([('company', '=', first_company.id)])
             self.assertEqual(sum(line.quantity for line in history), 280)
             template = Template(template.id)
             self.assertEqual({line.forecast.id
-                    for line in template.sales_forecast_lines}, {forecast.id})
+                    for line in template.sale_forecast_lines}, {forecast.id})
 
             # Net returns remain in history but cannot become forecast sales.
             company = first_company
