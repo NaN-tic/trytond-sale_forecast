@@ -39,9 +39,9 @@ class Package(metaclass=PoolMeta):
 class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
 
-    sales_forecast_method = fields.Selection(
+    sale_forecast_method = fields.Selection(
         FORECAST_METHODS, 'Forecast Method', required=True)
-    sales_forecast_package = fields.Many2One(
+    sale_forecast_package = fields.Many2One(
         'product.package', 'Forecast Package', ondelete='RESTRICT',
         domain=[
             ('template', '=', Eval('id', -1)),
@@ -49,64 +49,64 @@ class Template(metaclass=PoolMeta):
         ],
         help='Package used to display forecast quantities in boxes and '
             'pallets. If empty, the default product package is used.')
-    sales_forecast_boxes_per_pallet = fields.Integer(
+    sale_forecast_boxes_per_pallet = fields.Integer(
         'Forecast Boxes per Pallet',
         help='Fallback used when the selected package does not define boxes '
             'per pallet.')
-    sales_forecast_new_product_source = fields.Selection(
+    sale_forecast_new_product_source = fields.Selection(
         NEW_PRODUCT_SOURCES, 'New Product Forecast Source',
         states={
-            'invisible': Eval('sales_forecast_method') != 'new_product',
-            'required': Eval('sales_forecast_method') == 'new_product',
+            'invisible': Eval('sale_forecast_method') != 'new_product',
+            'required': Eval('sale_forecast_method') == 'new_product',
             })
-    sales_forecast_new_product_increase_percentage = fields.Float(
+    sale_forecast_new_product_increase_percentage = fields.Float(
         'New Product Increase %',
         states={
-            'invisible': Eval('sales_forecast_method') != 'new_product',
-            'required': Eval('sales_forecast_method') == 'new_product',
+            'invisible': Eval('sale_forecast_method') != 'new_product',
+            'required': Eval('sale_forecast_method') == 'new_product',
             },
         help='Enter a percentage, for example 20 for 20%%.')
-    sales_forecast_key_account_source = fields.Selection(
+    sale_forecast_key_account_source = fields.Selection(
         KEY_ACCOUNT_SOURCES, 'Key Account Source',
         states={
-            'invisible': Eval('sales_forecast_method') != 'key_accounts',
-            'required': Eval('sales_forecast_method') == 'key_accounts',
+            'invisible': Eval('sale_forecast_method') != 'key_accounts',
+            'required': Eval('sale_forecast_method') == 'key_accounts',
             })
-    sales_forecast_customer_trucks_per_week = fields.Float(
+    sale_forecast_customer_trucks_per_week = fields.Float(
         'Customer Trucks per Week',
         domain=[
-            If((Eval('sales_forecast_method') == 'key_accounts')
-                & (Eval('sales_forecast_key_account_source') ==
+            If((Eval('sale_forecast_method') == 'key_accounts')
+                & (Eval('sale_forecast_key_account_source') ==
                     'customer_forecast'),
-                ('sales_forecast_customer_trucks_per_week', '>', 0),
+                ('sale_forecast_customer_trucks_per_week', '>', 0),
                 ()),
         ],
         states={
-            'invisible': (Eval('sales_forecast_method') != 'key_accounts')
-                | (Eval('sales_forecast_key_account_source') !=
+            'invisible': (Eval('sale_forecast_method') != 'key_accounts')
+                | (Eval('sale_forecast_key_account_source') !=
                     'customer_forecast'),
-            'required': (Eval('sales_forecast_method') == 'key_accounts')
-                & (Eval('sales_forecast_key_account_source') ==
+            'required': (Eval('sale_forecast_method') == 'key_accounts')
+                & (Eval('sale_forecast_key_account_source') ==
                     'customer_forecast'),
             })
-    sales_forecast_customer_pallets_per_truck = fields.Float(
+    sale_forecast_customer_pallets_per_truck = fields.Float(
         'Customer Pallets per Truck',
         domain=[
-            If((Eval('sales_forecast_method') == 'key_accounts')
-                & (Eval('sales_forecast_key_account_source') ==
+            If((Eval('sale_forecast_method') == 'key_accounts')
+                & (Eval('sale_forecast_key_account_source') ==
                     'customer_forecast'),
-                ('sales_forecast_customer_pallets_per_truck', '>', 0),
+                ('sale_forecast_customer_pallets_per_truck', '>', 0),
                 ()),
         ],
         states={
-            'invisible': (Eval('sales_forecast_method') != 'key_accounts')
-                | (Eval('sales_forecast_key_account_source') !=
+            'invisible': (Eval('sale_forecast_method') != 'key_accounts')
+                | (Eval('sale_forecast_key_account_source') !=
                     'customer_forecast'),
-            'required': (Eval('sales_forecast_method') == 'key_accounts')
-                & (Eval('sales_forecast_key_account_source') ==
+            'required': (Eval('sale_forecast_method') == 'key_accounts')
+                & (Eval('sale_forecast_key_account_source') ==
                     'customer_forecast'),
             })
-    sales_forecast_distribution_lines = fields.One2Many(
+    sale_forecast_distribution_lines = fields.One2Many(
         'sales.forecast.distribution', 'product_template',
         'Sale Distribution by Day', readonly=True,
         domain=[
@@ -114,23 +114,23 @@ class Template(metaclass=PoolMeta):
         ], order=[
             ('sequence', 'ASC'),
             ])
-    sales_forecast_manual_lines = fields.One2Many(
+    sale_forecast_manual_lines = fields.One2Many(
         'sales.forecast.manual_line', 'product_template',
         'Manual Weekly Forecasts',
         states={
-            'invisible': Eval('sales_forecast_method') != 'manual',
+            'invisible': Eval('sale_forecast_method') != 'manual',
             }, context={'default_product_template': Eval('id', -1)})
-    sales_forecast_manual_updated_at = fields.DateTime(
+    sale_forecast_manual_updated_at = fields.DateTime(
         'Last Manual Forecast Update', readonly=True,
-        states={'invisible': Eval('sales_forecast_method') != 'manual'})
-    sales_forecast_lines = fields.Function(fields.One2Many(
+        states={'invisible': Eval('sale_forecast_method') != 'manual'})
+    sale_forecast_lines = fields.Function(fields.One2Many(
             'sales.forecast.line', None, 'Latest Sales Forecast',
             readonly=True),
-        'get_latest_sales_forecast_lines',
-        setter='set_latest_sales_forecast_lines')
-    sales_forecast_last_calculated_at = fields.Function(
+        'get_latest_sale_forecast_lines',
+        setter='set_latest_sale_forecast_lines')
+    sale_forecast_last_calculated_at = fields.Function(
         fields.DateTime('Last Sales Forecast Calculation', readonly=True),
-        'get_latest_sales_forecast_date')
+        'get_latest_sale_forecast_date')
 
     @classmethod
     def __setup__(cls):
@@ -138,32 +138,32 @@ class Template(metaclass=PoolMeta):
         cls._buttons.update({
                 'duplicate_last_manual_forecast': {
                     'icon': 'tryton-copy',
-                    'invisible': Eval('sales_forecast_method') != 'manual',
-                    'depends': ['sales_forecast_method'],
+                    'invisible': Eval('sale_forecast_method') != 'manual',
+                    'depends': ['sale_forecast_method'],
                     },
                 })
 
     @staticmethod
-    def default_sales_forecast_method():
+    def default_sale_forecast_method():
         return 'general'
 
     @staticmethod
-    def default_sales_forecast_key_account_source():
+    def default_sale_forecast_key_account_source():
         return 'orders'
 
     @staticmethod
-    def default_sales_forecast_new_product_source():
+    def default_sale_forecast_new_product_source():
         return 'average_months'
 
-    @fields.depends('sales_forecast_package')
-    def on_change_sales_forecast_package(self):
+    @fields.depends('sale_forecast_package')
+    def on_change_sale_forecast_package(self):
         boxes_per_pallet = getattr(
-            self.sales_forecast_package, 'box_per_pallet', None)
+            self.sale_forecast_package, 'box_per_pallet', None)
         if boxes_per_pallet:
-            self.sales_forecast_boxes_per_pallet = boxes_per_pallet
+            self.sale_forecast_boxes_per_pallet = boxes_per_pallet
 
     @classmethod
-    def get_latest_sales_forecast_lines(cls, templates, name):
+    def get_latest_sale_forecast_lines(cls, templates, name):
         Line = Pool().get('sales.forecast.line')
         result = {}
         for template in templates:
@@ -186,17 +186,17 @@ class Template(metaclass=PoolMeta):
         return result
 
     @classmethod
-    def get_latest_sales_forecast_date(cls, templates, name):
+    def get_latest_sale_forecast_date(cls, templates, name):
         Line = Pool().get('sales.forecast.line')
-        latest = cls.get_latest_sales_forecast_lines(
-            templates, 'sales_forecast_lines')
+        latest = cls.get_latest_sale_forecast_lines(
+            templates, 'sale_forecast_lines')
         return {template.id: max(
                 (line.forecast.computed_at
                     for line in Line.browse(latest[template.id])), default=None)
             for template in templates}
 
     @classmethod
-    def set_latest_sales_forecast_lines(cls, templates, name, value):
+    def set_latest_sale_forecast_lines(cls, templates, name, value):
         pass
 
     @classmethod
@@ -209,7 +209,7 @@ class Template(metaclass=PoolMeta):
                     ], order=[('week_start', 'DESC')], limit=1)
             if not lines:
                 raise UserError(gettext(
-                    'sales_forecast.msg_missing_manual_line',
+                    'sale_forecast.msg_missing_manual_line',
                     product=template.rec_name))
             previous = lines[0]
             ManualLine.create([{

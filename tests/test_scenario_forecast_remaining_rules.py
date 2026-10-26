@@ -23,7 +23,7 @@ class TestForecastRemainingRules(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
         create_company()
         company = get_company()
         config = get_config()
@@ -54,13 +54,13 @@ class TestForecastRemainingRules(unittest.TestCase):
         def product(name, method='general', uom=unit):
             template = Template(name=name, default_uom=uom, sale_uom=uom,
                 salable=True, type='goods', cost_price_method='fixed',
-                sales_forecast_method=method)
+                sale_forecast_method=method)
             template.categories.append(Category(family.id))
             template.packages.new(name='Box', quantity=10, is_default=True)
-            template.sales_forecast_boxes_per_pallet = 20
+            template.sale_forecast_boxes_per_pallet = 20
             if method == 'new_product':
-                template.sales_forecast_new_product_source = 'last_month'
-                template.sales_forecast_new_product_increase_percentage = 0
+                template.sale_forecast_new_product_source = 'last_month'
+                template.sale_forecast_new_product_increase_percentage = 0
             template.save()
             return template
 
@@ -78,12 +78,12 @@ class TestForecastRemainingRules(unittest.TestCase):
             return sale
 
         mixed = product('Mixed Bread', 'key_accounts')
-        mixed.sales_forecast_key_account_source = 'mixed'
+        mixed.sale_forecast_key_account_source = 'mixed'
         mixed.save()
         customer = product('Customer Bread', 'key_accounts')
-        customer.sales_forecast_key_account_source = 'customer_forecast'
-        customer.sales_forecast_customer_trucks_per_week = 2
-        customer.sales_forecast_customer_pallets_per_truck = 3
+        customer.sale_forecast_key_account_source = 'customer_forecast'
+        customer.sale_forecast_customer_trucks_per_week = 2
+        customer.sale_forecast_customer_pallets_per_truck = 3
         customer.save()
         new = product('New Bread', 'new_product')
         empty = product('No Closed History', 'new_product')
@@ -144,7 +144,7 @@ class TestForecastRemainingRules(unittest.TestCase):
         calculation.save()
         calculation.click('calculate_key_accounts')
         mixed.reload()
-        self.assertEqual([line.units for line in mixed.sales_forecast_lines], [800, 120])
+        self.assertEqual([line.units for line in mixed.sale_forecast_lines], [800, 120])
         report = Comparison(name='Latest by week', company=company,
             start_date=date(2024, 3, 4), end_date=date(2024, 3, 17), unit='units')
         report.products.append(Template(mixed.id))
@@ -170,7 +170,7 @@ class TestForecastRemainingRules(unittest.TestCase):
         calculation.reload()
         self.assertEqual(calculation.generated_forecasts[0].lines[0].base_quantity, 70)
         sell(new, date(2024, 1, 8), 30)
-        new.sales_forecast_new_product_source = 'average_months'
+        new.sale_forecast_new_product_source = 'average_months'
         new.save()
         calculation.refresh_parameters = True
         calculation.save()
@@ -191,7 +191,7 @@ class TestForecastRemainingRules(unittest.TestCase):
         day.special_lines.new(scope='party_category',
             party_category=customer_category, increase_percentage=0.5)
         special_calendar.save()
-        with patch('trytond.modules.sales_forecast.forecast.notify') as notice:
+        with patch('trytond.modules.sale_forecast.forecast.notify') as notice:
             special_calendar.click('calculate_event_results')
         self.assertTrue(notice.called)
         self.assertIn(legacy.number, notice.call_args.kwargs['body'])

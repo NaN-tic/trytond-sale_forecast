@@ -8,7 +8,7 @@ from proteus.config import get_config
 from trytond.exceptions import UserError
 from trytond.model.exceptions import AccessError
 from trytond.modules.company.tests.tools import create_company, get_company
-from trytond.modules.sales_forecast.forecast import previous_year_date
+from trytond.modules.sale_forecast.forecast import previous_year_date
 from trytond.tests.test_tryton import drop_db
 from trytond.tests.tools import activate_modules
 from trytond.transaction import Transaction
@@ -25,7 +25,7 @@ class TestForecastCompliance(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
         create_company()
         company = get_company()
         config = get_config()
@@ -60,14 +60,14 @@ class TestForecastCompliance(unittest.TestCase):
         def product(name, method='manual', packaging=True, uom=unit):
             template = Template(name=name, default_uom=uom, sale_uom=uom,
                 salable=True, type='goods', cost_price_method='fixed')
-            template.sales_forecast_method = method
+            template.sale_forecast_method = method
             template.categories.extend([Category(family.id), Category(other.id)])
             if packaging:
                 package = template.packages.new()
                 package.name = 'Box'
                 package.quantity = 10
                 package.is_default = True
-                template.sales_forecast_boxes_per_pallet = 20
+                template.sale_forecast_boxes_per_pallet = 20
             template.save()
             return template
 
@@ -79,7 +79,7 @@ class TestForecastCompliance(unittest.TestCase):
         service_family.save()
         service = Template(name='Delivery Service', default_uom=unit,
             sale_uom=unit, salable=True, type='service',
-            sales_forecast_method='general')
+            sale_forecast_method='general')
         service.categories.append(service_family)
         service.save()
         party = Party(name='Forecast Customer')
@@ -116,7 +116,7 @@ class TestForecastCompliance(unittest.TestCase):
             cursor.execute(*table.update([table.unit], [unit.id],
                     where=table.id == legacy_line_id))
             transaction.commit()
-        with patch('trytond.modules.sales_forecast.forecast.notify') as notice:
+        with patch('trytond.modules.sale_forecast.forecast.notify') as notice:
             Wizard('sales.forecast.sale_history.update').execute('update')
         self.assertTrue(notice.called)
         self.assertIn(legacy.number, notice.call_args.kwargs['body'])

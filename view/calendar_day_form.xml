@@ -9,16 +9,16 @@
     <notebook colspan="4">
         <page string="Diada Productos" id="product_day">
             <field name="product_lines" colspan="4"
-                view_ids="sales_forecast.view_sales_forecast_calendar_day_product_tree"/>
+                view_ids="sale_forecast.view_sale_forecast_calendar_day_product_tree"/>
         </page>
         <page string="Venta Especial (1 línea por alcance)" id="special_sale">
             <button name="calculate_special_sale" colspan="4"/>
             <field name="special_lines" colspan="4"
-                view_ids="sales_forecast.view_sales_forecast_calendar_day_special_tree"/>
+                view_ids="sale_forecast.view_sale_forecast_calendar_day_special_tree"/>
         </page>
         <page string="Resultados del Cálculo" id="results">
             <field name="result_lines" colspan="4"
-                view_ids="sales_forecast.view_sales_forecast_event_result_tree"/>
+                view_ids="sale_forecast.view_sale_forecast_event_result_tree"/>
         </page>
     </notebook>
 </form>

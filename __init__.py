@@ -35,9 +35,9 @@ def register():
         forecast.SalesForecastLine,
         forecast.SalesForecastDailyLine,
         forecast.SalesForecastMonthlyLine,
-        module='sales_forecast', type_='model')
+        module='sale_forecast', type_='model')
     Pool.register(
         forecast.SalesForecastSaleHistoryUpdate,
         forecast.SalesForecastCalendarCalculateDistributions,
         forecast.SalesForecastCalendarCalculateEventResults,
-        module='sales_forecast', type_='wizard')
+        module='sale_forecast', type_='wizard')
