@@ -19,7 +19,7 @@ class TestSalesHistoryFromSales(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
 
         History = Model.get('sales.forecast.sale_history')
         Party = Model.get('party.party')
@@ -47,8 +47,8 @@ class TestSalesHistoryFromSales(unittest.TestCase):
             salable=True,
             type='goods',
             cost_price_method='fixed')
-        template.sales_forecast_method = 'key_accounts'
-        template.sales_forecast_key_account_source = 'orders'
+        template.sale_forecast_method = 'key_accounts'
+        template.sale_forecast_key_account_source = 'orders'
         template.save()
 
         def create_sale(quantity):

@@ -7,7 +7,7 @@ import os
 import io
 from configparser import ConfigParser
 
-MODULE = 'sales_forecast'
+MODULE = 'sale_forecast'
 PREFIX = 'nantic'
 MODULE2PREFIX = {
 }

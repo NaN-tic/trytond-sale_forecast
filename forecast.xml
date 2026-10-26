@@ -95,133 +95,133 @@
             <field name="text">A company is required to calculate historical sales.</field>
         </record>
 
-        <record model="ir.model.access" id="access_sales_forecast_calculation_default">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_default">
             <field name="model">sales.forecast.calculation</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calendar_default">
+        <record model="ir.model.access" id="access_sale_forecast_calendar_default">
             <field name="model">sales.forecast.calendar</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_sale_history_default">
+        <record model="ir.model.access" id="access_sale_forecast_sale_history_default">
             <field name="model">sales.forecast.sale_history</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_category_increase_default">
+        <record model="ir.model.access" id="access_sale_forecast_category_increase_default">
             <field name="model">sales.forecast.category_increase</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_default">
+        <record model="ir.model.access" id="access_sale_forecast_default">
             <field name="model">sales.forecast</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_increase_default">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_increase_default">
             <field name="model">sales.forecast.calculation.product_increase</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_monthly_line_default">
+        <record model="ir.model.access" id="access_sale_forecast_monthly_line_default">
             <field name="model">sales.forecast.monthly_line</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_event_result_default">
+        <record model="ir.model.access" id="access_sale_forecast_event_result_default">
             <field name="model">sales.forecast.event_result</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calendar_day_default">
+        <record model="ir.model.access" id="access_sale_forecast_calendar_day_default">
             <field name="model">sales.forecast.calendar.day</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_distribution_default">
+        <record model="ir.model.access" id="access_sale_forecast_distribution_default">
             <field name="model">sales.forecast.distribution</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_rel_default">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_rel_default">
             <field name="model">sales.forecast.calculation-product.template</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_daily_line_default">
+        <record model="ir.model.access" id="access_sale_forecast_daily_line_default">
             <field name="model">sales.forecast.daily_line</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_product_rel_default">
+        <record model="ir.model.access" id="access_sale_forecast_product_rel_default">
             <field name="model">sales.forecast-product.template</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calendar_day_product_default">
+        <record model="ir.model.access" id="access_sale_forecast_calendar_day_product_default">
             <field name="model">sales.forecast.calendar.day.product</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calendar_day_special_default">
+        <record model="ir.model.access" id="access_sale_forecast_calendar_day_special_default">
             <field name="model">sales.forecast.calendar.day.special</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_product_increase_default">
+        <record model="ir.model.access" id="access_sale_forecast_product_increase_default">
             <field name="model">sales.forecast.product_increase</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_line_default">
+        <record model="ir.model.access" id="access_sale_forecast_line_default">
             <field name="model">sales.forecast.line</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_category_increase_default">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_category_increase_default">
             <field name="model">sales.forecast.calculation.category_increase</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_manual_line_default">
+        <record model="ir.model.access" id="access_sale_forecast_manual_line_default">
             <field name="model">sales.forecast.manual_line</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
@@ -237,7 +237,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_group_production">
             <field name="model">sales.forecast.calculation</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -245,7 +245,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_group_production_admin">
             <field name="model">sales.forecast.calculation</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -253,7 +253,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_group_production">
             <field name="model">sales.forecast.calculation-product.template</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -261,7 +261,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_group_production_admin">
             <field name="model">sales.forecast.calculation-product.template</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -269,7 +269,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_selected_product_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_selected_product_group_production">
             <field name="model">sales.forecast-product.template</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -277,7 +277,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_selected_product_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_selected_product_group_production_admin">
             <field name="model">sales.forecast-product.template</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -285,7 +285,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_category_increase_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_category_increase_group_production">
             <field name="model">sales.forecast.calculation.category_increase</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -293,7 +293,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_category_increase_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_category_increase_group_production_admin">
             <field name="model">sales.forecast.calculation.category_increase</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -301,7 +301,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_increase_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_increase_group_production">
             <field name="model">sales.forecast.calculation.product_increase</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -309,7 +309,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_calculation_product_increase_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_calculation_product_increase_group_production_admin">
             <field name="model">sales.forecast.calculation.product_increase</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -430,7 +430,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_group_production">
             <field name="model">sales.forecast</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -438,7 +438,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_group_production_admin">
             <field name="model">sales.forecast</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -446,7 +446,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_line_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_line_group_production">
             <field name="model">sales.forecast.line</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -454,7 +454,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_line_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_line_group_production_admin">
             <field name="model">sales.forecast.line</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -462,7 +462,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_daily_line_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_daily_line_group_production">
             <field name="model">sales.forecast.daily_line</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -470,7 +470,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_daily_line_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_daily_line_group_production_admin">
             <field name="model">sales.forecast.daily_line</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -478,7 +478,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_monthly_line_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_monthly_line_group_production">
             <field name="model">sales.forecast.monthly_line</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -486,7 +486,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_monthly_line_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_monthly_line_group_production_admin">
             <field name="model">sales.forecast.monthly_line</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -494,7 +494,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_category_increase_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_category_increase_group_production">
             <field name="model">sales.forecast.category_increase</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -502,7 +502,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_category_increase_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_category_increase_group_production_admin">
             <field name="model">sales.forecast.category_increase</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -510,7 +510,7 @@
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_product_increase_group_production">
+        <record model="ir.model.access" id="access_sale_forecast_product_increase_group_production">
             <field name="model">sales.forecast.product_increase</field>
             <field name="group" ref="production.group_production"/>
             <field name="perm_read" eval="True"/>
@@ -518,7 +518,7 @@
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
-        <record model="ir.model.access" id="access_sales_forecast_product_increase_group_production_admin">
+        <record model="ir.model.access" id="access_sale_forecast_product_increase_group_production_admin">
             <field name="model">sales.forecast.product_increase</field>
             <field name="group" ref="production.group_production_admin"/>
             <field name="perm_read" eval="True"/>
@@ -527,207 +527,207 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
-        <record model="ir.rule.group" id="rule_group_sales_forecast_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_company">
             <field name="name">Sales Forecast Company</field>
             <field name="model">sales.forecast</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_company">
+        <record model="ir.rule" id="rule_sale_forecast_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_company"/>
         </record>
 
-        <record model="ir.rule.group" id="rule_group_sales_forecast_line_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_line_company">
             <field name="name">Sales Forecast Line Company</field>
             <field name="model">sales.forecast.line</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_line_company">
+        <record model="ir.rule" id="rule_sale_forecast_line_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_line_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_line_company"/>
         </record>
 
-        <record model="ir.rule.group" id="rule_group_sales_forecast_calculation_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_calculation_company">
             <field name="name">Sales Forecast Calculation Company</field>
             <field name="model">sales.forecast.calculation</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_calculation_company">
+        <record model="ir.rule" id="rule_sale_forecast_calculation_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_calculation_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_calculation_company"/>
         </record>
-        <record model="ir.rule.group" id="rule_group_sales_forecast_sale_history_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_sale_history_company">
             <field name="name">Sales Forecast History Company</field>
             <field name="model">sales.forecast.sale_history</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_sale_history_company">
+        <record model="ir.rule" id="rule_sale_forecast_sale_history_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_sale_history_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_sale_history_company"/>
         </record>
-        <record model="ir.rule.group" id="rule_group_sales_forecast_distribution_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_distribution_company">
             <field name="name">Sales Forecast Distribution Company</field>
             <field name="model">sales.forecast.distribution</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_distribution_company">
+        <record model="ir.rule" id="rule_sale_forecast_distribution_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_distribution_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_distribution_company"/>
         </record>
-        <record model="ir.rule.group" id="rule_group_sales_forecast_event_result_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_event_result_company">
             <field name="name">Sales Forecast Event Result Company</field>
             <field name="model">sales.forecast.event_result</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_event_result_company">
+        <record model="ir.rule" id="rule_sale_forecast_event_result_company">
             <field name="domain" eval="[('company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_event_result_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_event_result_company"/>
         </record>
-        <record model="ir.rule.group" id="rule_group_sales_forecast_daily_line_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_daily_line_company">
             <field name="name">Sales Forecast Daily Line Company</field>
             <field name="model">sales.forecast.daily_line</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_daily_line_company">
+        <record model="ir.rule" id="rule_sale_forecast_daily_line_company">
             <field name="domain" eval="[('forecast.company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_daily_line_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_daily_line_company"/>
         </record>
-        <record model="ir.rule.group" id="rule_group_sales_forecast_monthly_line_company">
+        <record model="ir.rule.group" id="rule_group_sale_forecast_monthly_line_company">
             <field name="name">Sales Forecast Monthly Line Company</field>
             <field name="model">sales.forecast.monthly_line</field>
             <field name="global_p" eval="True"/>
         </record>
-        <record model="ir.rule" id="rule_sales_forecast_monthly_line_company">
+        <record model="ir.rule" id="rule_sale_forecast_monthly_line_company">
             <field name="domain" eval="[('forecast.company', 'in', Eval('companies', []))]" pyson="1"/>
-            <field name="rule_group" ref="rule_group_sales_forecast_monthly_line_company"/>
+            <field name="rule_group" ref="rule_group_sale_forecast_monthly_line_company"/>
         </record>
 
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_tree">
             <field name="model">sales.forecast.calendar</field>
             <field name="type">tree</field>
             <field name="name">calendar_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_form">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_form">
             <field name="model">sales.forecast.calendar</field>
             <field name="type">form</field>
             <field name="name">calendar_form</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_day_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_day_tree">
             <field name="model">sales.forecast.calendar.day</field>
             <field name="type">tree</field>
             <field name="name">calendar_day_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_day_form">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_day_form">
             <field name="model">sales.forecast.calendar.day</field>
             <field name="type">form</field>
             <field name="name">calendar_day_form</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_day_calendar">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_day_calendar">
             <field name="model">sales.forecast.calendar.day</field>
             <field name="type">calendar</field>
             <field name="name">calendar_day_calendar</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_day_product_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_day_product_tree">
             <field name="model">sales.forecast.calendar.day.product</field>
             <field name="type">tree</field>
             <field name="name">calendar_day_product_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calendar_day_special_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calendar_day_special_tree">
             <field name="model">sales.forecast.calendar.day.special</field>
             <field name="type">tree</field>
             <field name="name">calendar_day_special_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_event_result_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_event_result_tree">
             <field name="model">sales.forecast.event_result</field>
             <field name="type">tree</field>
             <field name="name">event_result_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_manual_line_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_manual_line_tree">
             <field name="model">sales.forecast.manual_line</field>
             <field name="type">tree</field>
             <field name="name">manual_line_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_manual_line_form">
+        <record model="ir.ui.view" id="view_sale_forecast_manual_line_form">
             <field name="model">sales.forecast.manual_line</field>
             <field name="type">form</field>
             <field name="name">manual_line_form</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_manual_line_list">
+        <record model="ir.ui.view" id="view_sale_forecast_manual_line_list">
             <field name="model">sales.forecast.manual_line</field>
             <field name="type">tree</field>
             <field name="name">manual_line_list</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_distribution_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_distribution_tree">
             <field name="model">sales.forecast.distribution</field>
             <field name="type">tree</field>
             <field name="name">distribution_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_sale_history_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_sale_history_tree">
             <field name="model">sales.forecast.sale_history</field>
             <field name="type">tree</field>
             <field name="name">sale_history_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calculation_form">
+        <record model="ir.ui.view" id="view_sale_forecast_calculation_form">
             <field name="model">sales.forecast.calculation</field>
             <field name="type">form</field>
             <field name="name">calculation_form</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calculation_category_increase_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calculation_category_increase_tree">
             <field name="model">sales.forecast.calculation.category_increase</field>
             <field name="type">tree</field>
             <field name="name">calculation_category_increase_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_calculation_product_increase_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_calculation_product_increase_tree">
             <field name="model">sales.forecast.calculation.product_increase</field>
             <field name="type">tree</field>
             <field name="name">calculation_product_increase_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_tree">
             <field name="model">sales.forecast</field>
             <field name="type">tree</field>
             <field name="name">forecast_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_form">
+        <record model="ir.ui.view" id="view_sale_forecast_form">
             <field name="model">sales.forecast</field>
             <field name="type">form</field>
             <field name="name">forecast_form</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_line_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_line_tree">
             <field name="model">sales.forecast.line</field>
             <field name="type">tree</field>
             <field name="name">forecast_line_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_line_graph">
+        <record model="ir.ui.view" id="view_sale_forecast_line_graph">
             <field name="model">sales.forecast.line</field>
             <field name="type">graph</field>
             <field name="name">forecast_line_graph</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_daily_line_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_daily_line_tree">
             <field name="model">sales.forecast.daily_line</field>
             <field name="type">tree</field>
             <field name="name">forecast_daily_line_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_daily_line_graph">
+        <record model="ir.ui.view" id="view_sale_forecast_daily_line_graph">
             <field name="model">sales.forecast.daily_line</field>
             <field name="type">graph</field>
             <field name="name">forecast_daily_line_graph</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_monthly_line_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_monthly_line_tree">
             <field name="model">sales.forecast.monthly_line</field>
             <field name="type">tree</field>
             <field name="name">forecast_monthly_line_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_monthly_line_graph">
+        <record model="ir.ui.view" id="view_sale_forecast_monthly_line_graph">
             <field name="model">sales.forecast.monthly_line</field>
             <field name="type">graph</field>
             <field name="name">forecast_monthly_line_graph</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_category_increase_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_category_increase_tree">
             <field name="model">sales.forecast.category_increase</field>
             <field name="type">tree</field>
             <field name="name">forecast_category_increase_tree</field>
         </record>
-        <record model="ir.ui.view" id="view_sales_forecast_product_increase_tree">
+        <record model="ir.ui.view" id="view_sale_forecast_product_increase_tree">
             <field name="model">sales.forecast.product_increase</field>
             <field name="type">tree</field>
             <field name="name">forecast_product_increase_tree</field>
@@ -743,117 +743,117 @@
             <field name="name">sale_history_update_start_form</field>
         </record>
 
-        <record model="ir.action.act_window" id="act_sales_forecast">
+        <record model="ir.action.act_window" id="act_sale_forecast">
             <field name="name">Sales Forecasts</field>
             <field name="res_model">sales.forecast</field>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_calculation">
+        <record model="ir.action.act_window" id="act_sale_forecast_calculation">
             <field name="name">Calculate Sales Forecasts</field>
             <field name="res_model">sales.forecast.calculation</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calculation_form">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calculation_form">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_calculation_form"/>
-            <field name="act_window" ref="act_sales_forecast_calculation"/>
+            <field name="view" ref="view_sale_forecast_calculation_form"/>
+            <field name="act_window" ref="act_sale_forecast_calculation"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_manual_line">
+        <record model="ir.action.act_window" id="act_sale_forecast_manual_line">
             <field name="name">Manual Weekly Forecasts</field>
             <field name="res_model">sales.forecast.manual_line</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_manual_line_list_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_manual_line_list_action">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_manual_line_list"/>
-            <field name="act_window" ref="act_sales_forecast_manual_line"/>
+            <field name="view" ref="view_sale_forecast_manual_line_list"/>
+            <field name="act_window" ref="act_sale_forecast_manual_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_tree"/>
-            <field name="act_window" ref="act_sales_forecast"/>
+            <field name="view" ref="view_sale_forecast_tree"/>
+            <field name="act_window" ref="act_sale_forecast"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_form">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_form">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_form"/>
-            <field name="act_window" ref="act_sales_forecast"/>
+            <field name="view" ref="view_sale_forecast_form"/>
+            <field name="act_window" ref="act_sale_forecast"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_daily_line">
+        <record model="ir.action.act_window" id="act_sale_forecast_daily_line">
             <field name="name">Daily Forecast Lines</field>
             <field name="res_model">sales.forecast.daily_line</field>
             <field name="domain" eval="[('forecast', '=', Eval('active_id'))]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_line">
+        <record model="ir.action.act_window" id="act_sale_forecast_line">
             <field name="name">Weekly Forecast Lines</field>
             <field name="res_model">sales.forecast.line</field>
             <field name="domain" eval="[('forecast', '=', Eval('active_id'))]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_monthly_line">
+        <record model="ir.action.act_window" id="act_sale_forecast_monthly_line">
             <field name="name">Monthly Forecast Lines</field>
             <field name="res_model">sales.forecast.monthly_line</field>
             <field name="domain" eval="[('forecast', '=', Eval('active_id'))]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_monthly_line_tree_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_monthly_line_tree_action">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_monthly_line_tree"/>
-            <field name="act_window" ref="act_sales_forecast_monthly_line"/>
+            <field name="view" ref="view_sale_forecast_monthly_line_tree"/>
+            <field name="act_window" ref="act_sale_forecast_monthly_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_monthly_line_graph_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_monthly_line_graph_action">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_monthly_line_graph"/>
-            <field name="act_window" ref="act_sales_forecast_monthly_line"/>
+            <field name="view" ref="view_sale_forecast_monthly_line_graph"/>
+            <field name="act_window" ref="act_sale_forecast_monthly_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_line_tree_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_line_tree_action">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_line_tree"/>
-            <field name="act_window" ref="act_sales_forecast_line"/>
+            <field name="view" ref="view_sale_forecast_line_tree"/>
+            <field name="act_window" ref="act_sale_forecast_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_line_graph_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_line_graph_action">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_line_graph"/>
-            <field name="act_window" ref="act_sales_forecast_line"/>
+            <field name="view" ref="view_sale_forecast_line_graph"/>
+            <field name="act_window" ref="act_sale_forecast_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_daily_line_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_daily_line_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_daily_line_tree"/>
-            <field name="act_window" ref="act_sales_forecast_daily_line"/>
+            <field name="view" ref="view_sale_forecast_daily_line_tree"/>
+            <field name="act_window" ref="act_sale_forecast_daily_line"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_daily_line_graph">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_daily_line_graph">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_daily_line_graph"/>
-            <field name="act_window" ref="act_sales_forecast_daily_line"/>
+            <field name="view" ref="view_sale_forecast_daily_line_graph"/>
+            <field name="act_window" ref="act_sale_forecast_daily_line"/>
         </record>
 
-        <record model="ir.action.act_window" id="act_sales_forecast_calendar">
+        <record model="ir.action.act_window" id="act_sale_forecast_calendar">
             <field name="name">Forecast Calendars</field>
             <field name="res_model">sales.forecast.calendar</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calendar_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calendar_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_calendar_tree"/>
-            <field name="act_window" ref="act_sales_forecast_calendar"/>
+            <field name="view" ref="view_sale_forecast_calendar_tree"/>
+            <field name="act_window" ref="act_sale_forecast_calendar"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calendar_form">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calendar_form">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_calendar_form"/>
-            <field name="act_window" ref="act_sales_forecast_calendar"/>
+            <field name="view" ref="view_sale_forecast_calendar_form"/>
+            <field name="act_window" ref="act_sale_forecast_calendar"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_calendar_day">
+        <record model="ir.action.act_window" id="act_sale_forecast_calendar_day">
             <field name="name">Forecast Calendars</field>
             <field name="res_model">sales.forecast.calendar.day</field>
             <field name="domain" eval="[('calendar.active', '=', True)]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calendar_day_tree_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calendar_day_tree_action">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_calendar_day_tree"/>
-            <field name="act_window" ref="act_sales_forecast_calendar_day"/>
+            <field name="view" ref="view_sale_forecast_calendar_day_tree"/>
+            <field name="act_window" ref="act_sale_forecast_calendar_day"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calendar_day_calendar_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calendar_day_calendar_action">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="view_sales_forecast_calendar_day_calendar"/>
-            <field name="act_window" ref="act_sales_forecast_calendar_day"/>
+            <field name="view" ref="view_sale_forecast_calendar_day_calendar"/>
+            <field name="act_window" ref="act_sale_forecast_calendar_day"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_calendar_day_form_action">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_calendar_day_form_action">
             <field name="sequence" eval="30"/>
-            <field name="view" ref="view_sales_forecast_calendar_day_form"/>
-            <field name="act_window" ref="act_sales_forecast_calendar_day"/>
+            <field name="view" ref="view_sale_forecast_calendar_day_form"/>
+            <field name="act_window" ref="act_sale_forecast_calendar_day"/>
         </record>
         <record model="ir.action.wizard" id="wiz_sale_history_update">
             <field name="name">Update Sale History</field>
@@ -865,7 +865,7 @@
             <field name="type">form</field>
             <field name="name">calendar_calculate_distributions_start_form</field>
         </record>
-        <record model="ir.action.wizard" id="wiz_sales_forecast_calendar_calculate_distributions">
+        <record model="ir.action.wizard" id="wiz_sale_forecast_calendar_calculate_distributions">
             <field name="name">Calculate Distributions</field>
             <field name="wiz_name">sales.forecast.calendar.calculate_distributions</field>
         </record>
@@ -875,56 +875,56 @@
             <field name="type">form</field>
             <field name="name">calendar_calculate_event_results_start_form</field>
         </record>
-        <record model="ir.action.wizard" id="wiz_sales_forecast_calendar_calculate_event_results">
+        <record model="ir.action.wizard" id="wiz_sale_forecast_calendar_calculate_event_results">
             <field name="name">Calcular Previsión Ventas Especiales</field>
             <field name="wiz_name">sales.forecast.calendar.calculate_event_results</field>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_sale_history">
+        <record model="ir.action.act_window" id="act_sale_forecast_sale_history">
             <field name="name">Historical Sales</field>
             <field name="res_model">sales.forecast.sale_history</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_sale_history_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_sale_history_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_sale_history_tree"/>
-            <field name="act_window" ref="act_sales_forecast_sale_history"/>
+            <field name="view" ref="view_sale_forecast_sale_history_tree"/>
+            <field name="act_window" ref="act_sale_forecast_sale_history"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_distribution">
+        <record model="ir.action.act_window" id="act_sale_forecast_distribution">
             <field name="name">Sale Distribution by Day</field>
             <field name="res_model">sales.forecast.distribution</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_distribution_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_distribution_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_distribution_tree"/>
-            <field name="act_window" ref="act_sales_forecast_distribution"/>
+            <field name="view" ref="view_sale_forecast_distribution_tree"/>
+            <field name="act_window" ref="act_sale_forecast_distribution"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_event_result">
+        <record model="ir.action.act_window" id="act_sale_forecast_event_result">
             <field name="name">Todos los Resultados del Cálculo</field>
             <field name="res_model">sales.forecast.event_result</field>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_event_result_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_event_result_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_event_result_tree"/>
-            <field name="act_window" ref="act_sales_forecast_event_result"/>
+            <field name="view" ref="view_sale_forecast_event_result_tree"/>
+            <field name="act_window" ref="act_sale_forecast_event_result"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_event_result_product_day">
+        <record model="ir.action.act_window" id="act_sale_forecast_event_result_product_day">
             <field name="name">Resultados Diadas</field>
             <field name="res_model">sales.forecast.event_result</field>
             <field name="domain" eval="[('origin', '=', 'product_day')]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_event_result_product_day_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_event_result_product_day_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_event_result_tree"/>
-            <field name="act_window" ref="act_sales_forecast_event_result_product_day"/>
+            <field name="view" ref="view_sale_forecast_event_result_tree"/>
+            <field name="act_window" ref="act_sale_forecast_event_result_product_day"/>
         </record>
-        <record model="ir.action.act_window" id="act_sales_forecast_event_result_special_sale">
+        <record model="ir.action.act_window" id="act_sale_forecast_event_result_special_sale">
             <field name="name">Resultados Venta Especial</field>
             <field name="res_model">sales.forecast.event_result</field>
             <field name="domain" eval="[('origin', '=', 'special_sale')]" pyson="1"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_sales_forecast_event_result_special_sale_tree">
+        <record model="ir.action.act_window.view" id="act_sale_forecast_event_result_special_sale_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="view_sales_forecast_event_result_tree"/>
-            <field name="act_window" ref="act_sales_forecast_event_result_special_sale"/>
+            <field name="view" ref="view_sale_forecast_event_result_tree"/>
+            <field name="act_window" ref="act_sale_forecast_event_result_special_sale"/>
         </record>
 
         <record model="ir.model.button" id="calculate_button">
@@ -1018,78 +1018,78 @@
             <field name="model">sales.forecast</field>
         </record>
 
-        <menuitem id="menu_sales_forecast_root"
+        <menuitem id="menu_sale_forecast_root"
             name="Sales Forecasts"
             sequence="35"
             icon="tryton-graph"/>
-        <record model="ir.ui.menu" id="menu_sales_forecast_root">
+        <record model="ir.ui.menu" id="menu_sale_forecast_root">
             <field name="parent" eval="None"/>
         </record>
-        <menuitem id="menu_sales_forecast"
+        <menuitem id="menu_sale_forecast"
             name="Calcular Previsiones"
-            parent="menu_sales_forecast_root"
+            parent="menu_sale_forecast_root"
             sequence="5"
-            action="act_sales_forecast_calculation"/>
-        <menuitem id="menu_sales_forecast_results"
+            action="act_sale_forecast_calculation"/>
+        <menuitem id="menu_sale_forecast_results"
             name="Calculated Forecasts"
-            parent="menu_sales_forecast_root"
+            parent="menu_sale_forecast_root"
             sequence="10"
-            action="act_sales_forecast"/>
-        <menuitem id="menu_sales_forecast_configuration"
+            action="act_sale_forecast"/>
+        <menuitem id="menu_sale_forecast_configuration"
             name="Configuration"
-            parent="menu_sales_forecast_root"
+            parent="menu_sale_forecast_root"
             sequence="20"
             icon="tryton-settings"/>
-        <menuitem id="menu_sales_forecast_temp_tables"
+        <menuitem id="menu_sale_forecast_temp_tables"
             name="Temporary Tables"
-            parent="menu_sales_forecast_configuration"
+            parent="menu_sale_forecast_configuration"
             sequence="4"/>
-        <menuitem id="menu_sales_forecast_sale_history_update"
+        <menuitem id="menu_sale_forecast_sale_history_update"
             name="Update Sale History"
-            parent="menu_sales_forecast_configuration"
+            parent="menu_sale_forecast_configuration"
             sequence="5"
             action="wiz_sale_history_update"/>
-        <menuitem id="menu_sales_forecast_sale_history"
+        <menuitem id="menu_sale_forecast_sale_history"
             name="Historical Sales"
-            parent="menu_sales_forecast_temp_tables"
+            parent="menu_sale_forecast_temp_tables"
             sequence="10"
-            action="act_sales_forecast_sale_history"/>
-        <menuitem id="menu_sales_forecast_distribution"
+            action="act_sale_forecast_sale_history"/>
+        <menuitem id="menu_sale_forecast_distribution"
             name="Sale Distribution by Day"
-            parent="menu_sales_forecast_temp_tables"
+            parent="menu_sale_forecast_temp_tables"
             sequence="20"
-            action="act_sales_forecast_distribution"/>
-        <menuitem id="menu_sales_forecast_event_result"
+            action="act_sale_forecast_distribution"/>
+        <menuitem id="menu_sale_forecast_event_result"
             name="Todos los Resultados del Cálculo"
-            parent="menu_sales_forecast_temp_tables"
+            parent="menu_sale_forecast_temp_tables"
             sequence="30"
-            action="act_sales_forecast_event_result"/>
-        <menuitem id="menu_sales_forecast_event_result_product_day"
+            action="act_sale_forecast_event_result"/>
+        <menuitem id="menu_sale_forecast_event_result_product_day"
             name="Resultados Diadas"
-            parent="menu_sales_forecast_temp_tables"
+            parent="menu_sale_forecast_temp_tables"
             sequence="40"
-            action="act_sales_forecast_event_result_product_day"/>
-        <menuitem id="menu_sales_forecast_event_result_special_sale"
+            action="act_sale_forecast_event_result_product_day"/>
+        <menuitem id="menu_sale_forecast_event_result_special_sale"
             name="Resultados Venta Especial"
-            parent="menu_sales_forecast_temp_tables"
+            parent="menu_sale_forecast_temp_tables"
             sequence="50"
-            action="act_sales_forecast_event_result_special_sale"/>
-        <menuitem id="menu_sales_forecast_calendar"
+            action="act_sale_forecast_event_result_special_sale"/>
+        <menuitem id="menu_sale_forecast_calendar"
             name="Forecast Calendars"
-            parent="menu_sales_forecast_configuration"
+            parent="menu_sale_forecast_configuration"
             sequence="10"
             icon="tryton-calendar"
-            action="act_sales_forecast_calendar_day"/>
-        <menuitem id="menu_sales_forecast_calendar_calculate_distributions"
+            action="act_sale_forecast_calendar_day"/>
+        <menuitem id="menu_sale_forecast_calendar_calculate_distributions"
             name="Calculate Distributions"
-            parent="menu_sales_forecast_configuration"
+            parent="menu_sale_forecast_configuration"
             sequence="11"
-            action="wiz_sales_forecast_calendar_calculate_distributions"/>
-        <menuitem id="menu_sales_forecast_calendar_calculate_event_results"
+            action="wiz_sale_forecast_calendar_calculate_distributions"/>
+        <menuitem id="menu_sale_forecast_calendar_calculate_event_results"
             name="Calcular Previsión Ventas Especiales"
-            parent="menu_sales_forecast_configuration"
+            parent="menu_sale_forecast_configuration"
             sequence="12"
-            action="wiz_sales_forecast_calendar_calculate_event_results"/>
+            action="wiz_sale_forecast_calendar_calculate_event_results"/>
         <record model="ir.message" id="msg_conflicting_category_increases">
             <field name="text">Product "%(product)s" has conflicting category increases. Set a product increase or use consistent category percentages.</field>
         </record>

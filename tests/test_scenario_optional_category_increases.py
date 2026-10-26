@@ -18,7 +18,7 @@ class TestOptionalCategoryIncreases(unittest.TestCase):
         super().tearDown()
 
     def test(self):
-        activate_modules('sales_forecast')
+        activate_modules('sale_forecast')
         create_company()
         Category = Model.get('product.category')
         Template = Model.get('product.template')
