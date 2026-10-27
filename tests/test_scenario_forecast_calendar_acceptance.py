@@ -64,9 +64,12 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
         template.save()
         self.assertTrue(package.active)
 
-        # Pick a full week crossing a month boundary in the near future.
-        month = (date.today().replace(day=28) + timedelta(days=4)).replace(day=1)
-        if month.weekday() == 0:
+        # Leave two weeks of margin before choosing a month boundary: ISO
+        # years can span 53 weeks, and the crossing week starts before the
+        # boundary. All historical days must remain within the rolling year.
+        reference = date.today() + timedelta(days=14)
+        month = (reference.replace(day=28) + timedelta(days=4)).replace(day=1)
+        while month.weekday() == 0:
             month = (month.replace(day=28) + timedelta(days=4)).replace(day=1)
         week = month - timedelta(days=month.weekday())
         history_year = week.isocalendar().year - 1
