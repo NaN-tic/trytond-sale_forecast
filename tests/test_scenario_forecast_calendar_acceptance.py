@@ -65,7 +65,10 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
         self.assertTrue(package.active)
 
         # Pick a full week crossing a month boundary in the near future.
-        month = (date.today().replace(day=28) + timedelta(days=4)).replace(day=1)
+        # Leave enough margin for the corresponding ISO week of last year
+        # to fall entirely within the rolling one-year distribution window.
+        reference = date.today() + timedelta(weeks=2)
+        month = (reference.replace(day=28) + timedelta(days=4)).replace(day=1)
         if month.weekday() == 0:
             month = (month.replace(day=28) + timedelta(days=4)).replace(day=1)
         week = month - timedelta(days=month.weekday())
