@@ -13,6 +13,7 @@ def register():
         comparison.ComparisonLine,
         product.Package,
         product.Template,
+        product.Product,
         forecast.SalesForecastSaleHistory,
         forecast.SalesForecastSaleHistoryUpdateStart,
         forecast.SalesForecastCalendarCalculateDistributionsStart,

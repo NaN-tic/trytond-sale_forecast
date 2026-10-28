@@ -217,3 +217,25 @@ class Template(metaclass=PoolMeta):
                         'week_start': previous.week_start + timedelta(days=7),
                         'units': previous.units,
                         }])
+
+
+class Product(metaclass=PoolMeta):
+    __name__ = 'product.product'
+
+    @classmethod
+    def __setup__(cls):
+        super().__setup__()
+        Template = Pool().get('product.template')
+        cls.sale_forecast_lines.setter = '_set_template_function'
+        cls._buttons.update({
+                'duplicate_last_manual_forecast': dict(
+                    Template._buttons['duplicate_last_manual_forecast']),
+                })
+
+    @classmethod
+    @ModelView.button
+    def duplicate_last_manual_forecast(cls, products):
+        Template = Pool().get('product.template')
+        templates = list({product.template.id: product.template
+                for product in products}.values())
+        Template.duplicate_last_manual_forecast(templates)
