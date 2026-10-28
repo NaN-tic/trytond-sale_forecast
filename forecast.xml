@@ -972,6 +972,11 @@
             <field name="string">Duplicate Last Manual Forecast</field>
             <field name="model">product.template</field>
         </record>
+        <record model="ir.model.button" id="product_duplicate_last_manual_forecast_button">
+            <field name="name">duplicate_last_manual_forecast</field>
+            <field name="string">Duplicate Last Manual Forecast</field>
+            <field name="model">product.product</field>
+        </record>
         <record model="ir.model.button" id="calculation_calculate_general_button">
             <field name="name">calculate_general</field>
             <field name="string">Calculate General</field>
