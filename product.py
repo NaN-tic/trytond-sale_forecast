@@ -36,6 +36,30 @@ class Package(metaclass=PoolMeta):
         return True
 
 
+class Product(metaclass=PoolMeta):
+    __name__ = 'product.product'
+
+    @classmethod
+    def __setup__(cls):
+        super().__setup__()
+        # TemplateFunction does not preserve the setter of Function fields.
+        cls.sale_forecast_lines.setter = '_set_template_function'
+        cls._buttons.update({
+                'duplicate_last_manual_forecast': {
+                    'icon': 'tryton-copy',
+                    'invisible': Eval('sale_forecast_method') != 'manual',
+                    'depends': ['sale_forecast_method'],
+                    },
+                })
+
+    @classmethod
+    @ModelView.button
+    def duplicate_last_manual_forecast(cls, products):
+        Template = Pool().get('product.template')
+        templates = list({p.template.id: p.template for p in products}.values())
+        Template.duplicate_last_manual_forecast(templates)
+
+
 class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
 
