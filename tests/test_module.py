@@ -1,6 +1,7 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-from datetime import date, timedelta
+from datetime import timedelta
+from unittest.mock import patch
 
 from trytond.modules.company.tests import CompanyTestMixin
 from trytond.pool import Pool
@@ -29,7 +30,10 @@ class SalesForecastTestCase(ModuleTestCase, CompanyTestMixin):
                     'sale_forecast_method': 'manual',
                     }])
         products = Product.create([{'template': template.id}] * 2)
-        week = date(2026, 10, 26)
+        today = pool.get('ir.date').today()
+        week = today - timedelta(days=today.weekday())
+        self.enterContext(patch.object(
+            pool.get('ir.date'), 'today', return_value=today))
         ManualLine.create([{
                     'product_template': template.id,
                     'week_start': week,
