@@ -32,6 +32,8 @@
             <field name="product_templates" colspan="4"/>
         </page>
         <page string="General Method" id="general_method">
+            <label name="family_category"/>
+            <field name="family_category"/>
             <label name="last_general_calculated_at"/>
             <field name="last_general_calculated_at"/>
             <field name="category_increase_lines" colspan="4"

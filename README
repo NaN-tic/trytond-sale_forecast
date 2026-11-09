@@ -1,10 +1,17 @@
 Sales Forecast
 ==============
 
-Sales forecasts for salable goods only, excluding services, based on confirmed,
-processing and completed sales. Quantities are converted to the product's default
-unit; sale lines with incompatible unit categories are omitted and reported to
-the user.
+Sales forecasts for salable goods only, excluding services, based on all sales
+except cancelled sales, regardless of shipment state. Quantities are converted
+to the product's default unit; sale lines with incompatible unit categories are
+omitted and reported to the user.
+
+History updates recalculate from the last historical date through today,
+including the entire last day, and preserve earlier dates. Select "Recalculate
+Entire History" in the update wizard to rebuild all dates, including backdated
+changes or cancellations. The first update always builds the entire history.
+The wizard also shows the calculation timestamp of the latest stored history,
+separately from the last sales date, to identify when it was calculated.
 
 Calculate forecasts from the main calculation screen. Choose the company,
 calendar, date range and optional products, then calculate the desired method.
@@ -32,10 +39,18 @@ incompatible units are omitted and reported in these calculations too.
 
 Key-account orders and customer truck/pallet quantities retain their weekly
 total when distributed over holidays; those explicit quantities take precedence
-over calendar event forecasts. Mixed forecasts without orders use General
+over calendar event forecasts. Orders include every non-cancelled sale in the forecast week,
+using the shipping date or, if absent, the sale date. Confirmation does not
+remove an order from the forecast. Mixed forecasts without orders use General
 parameters, including family increases, and calendar events. New Product uses
 only months closed both at calculation time and before the forecast period. A
 missing closed month with sales raises an error instead of producing a zero.
+New Product offers a Reference Product source on the product's Planning tab.
+This source requires a reference product and uses its average closed months
+with history and weekday distribution, applying the new product's increase
+percentage. The other sources use the product's own history.
+Reference products must have compatible
+units; quantities are converted to the new product's default unit.
 
 Manual forecasts preserve their weekly quantity when distributing it over
 weekdays and holidays. Partial weeks include only the selected days. Daily
@@ -56,3 +71,36 @@ recalculating one week keeps the latest results for the other weeks visible.
 The customer integration initializes the family root from Familia/Família and
 builds calendar product days from sales of products in Diadas/Diades. Dates with
 manual edits are preserved when regenerating automatic calendar entries.
+
+Planning displays year-to-date growth versus the same dates last year, through
+yesterday, and previous-month growth versus the same full month last year, from
+company-specific sales history: (latest - previous) / previous. Current partial
+periods are excluded. A zero or negative comparison base leaves the trend empty;
+a positive base with no subsequent sales gives -100%. These indicators do not
+change forecast increase percentages. Refresh sales history to update the data.
+
+The calculation form also displays aggregate annual and monthly growth for the
+selected products (all eligible products when empty), plus percentage change in average daily units for the selected
+date range shifted back one year versus January 1 of that year through the day
+before the shifted period starts. Each total is divided by its inclusive number
+of calendar days, including days without sales. A period starting
+on January 1 has no preceding accumulation and leaves this indicator empty.
+The dates are inclusive; changing dates, company or products refreshes the
+indicators from cached sales history. The same positive-base rule applies.
+
+Category and product increase lists show the same three historical growth
+indicators, scoped to each line and the calculation product selection. Category
+figures include descendant categories and products using the general method or
+mixed key-account source. These read-only indicators leave entered increases
+unchanged. Save and reload after changing calculation dates or line selections.
+
+Annual trends compare January 1 through yesterday with the same dates last year.
+On January 1 they are empty because no complete day is available yet.
+
+General-method increases resolve product overrides first, then category overrides,
+then the general increase. When no percentage is specified, use 0% and keep
+the historical base quantity unchanged before calendar adjustments.
+
+Export Latest Forecasts to Excel downloads weekly lines from the latest calculated
+forecast per method for the current calculation and company, matching Open Latest
+Forecasts. Includes product, variant, dates, units, boxes and pallets.

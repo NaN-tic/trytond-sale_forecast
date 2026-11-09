@@ -13,6 +13,17 @@
     <button name="calculate_all" colspan="2"/>
     <label name="last_calculated_at"/>
     <field name="last_calculated_at"/>
+    <button name="open_latest_forecasts" colspan="2"/>
+    <label name="previous_year_growth"/>
+    <field name="previous_year_growth" factor="100"/>
+    <label name="previous_month_growth"/>
+    <field name="previous_month_growth" factor="100"/>
+    <label name="selected_period_growth"/>
+    <field name="selected_period_growth" factor="100"/>
+    <newline/>
+    <label name="general_increase_percentage"/>
+    <field name="general_increase_percentage" factor="100"/>
+    <button name="export_latest_forecasts" colspan="2"/>
     <notebook colspan="4">
         <page name="product_templates" col="1">
             <field name="product_templates"/>
@@ -20,13 +31,11 @@
         <page string="General Method" id="general_method">
             <label name="family_category"/>
             <field name="family_category"/>
-            <label name="general_increase_percentage"/>
-            <field name="general_increase_percentage" factor="100"/>
+            <button name="load_general_categories" colspan="2"/>
             <field name="category_increase_lines" colspan="2"
                 view_ids="sale_forecast.view_sale_forecast_calculation_category_increase_tree"/>
             <field name="product_increase_lines" colspan="2"
                 view_ids="sale_forecast.view_sale_forecast_calculation_product_increase_tree"/>
-            <button name="load_general_categories" colspan="4"/>
             <label name="last_general_calculated_at"/>
             <field name="last_general_calculated_at"/>
             <button name="calculate_general"/>

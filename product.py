@@ -2,11 +2,15 @@
 # this repository contains the full copyright notices and license terms.
 from datetime import timedelta
 
+from dateutil.relativedelta import relativedelta
+from sql.aggregate import Sum
+
 from trytond.exceptions import UserError
 from trytond.i18n import gettext
 from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval, If
+from trytond.tools import grouped_slice
 from trytond.transaction import Transaction
 
 FORECAST_METHODS = [
@@ -23,6 +27,7 @@ KEY_ACCOUNT_SOURCES = [
 NEW_PRODUCT_SOURCES = [
     ('average_months', 'Average Months with History'),
     ('last_month', 'Last Closed Month'),
+    ('reference_product', 'Reference Product'),
 ]
 
 
@@ -64,7 +69,12 @@ class Template(metaclass=PoolMeta):
     __name__ = 'product.template'
 
     sale_forecast_method = fields.Selection(
-        FORECAST_METHODS, 'Forecast Method', required=True)
+        FORECAST_METHODS, 'Forecast Method', required=True,
+        help='General: use the corresponding week last year and apply the '
+            'product, category or general increase. Key accounts: use '
+            'orders or customer volumes. New product: extrapolate '
+            'historical months or a reference product. Manual: use the '
+            'quantities entered for each week.')
     sale_forecast_package = fields.Many2One(
         'product.package', 'Forecast Package', ondelete='RESTRICT',
         domain=[
@@ -82,7 +92,31 @@ class Template(metaclass=PoolMeta):
         states={
             'invisible': Eval('sale_forecast_method') != 'new_product',
             'required': Eval('sale_forecast_method') == 'new_product',
-            })
+            },
+        help='Average months: average corresponding weeks in closed months '
+            'with sales history. Last closed month: use the most recent '
+            'closed month with history. Reference product: use its '
+            'historical months and weekday distribution, even when this '
+            'product has no sales. The new-product increase is applied '
+            'afterwards.')
+    sale_forecast_reference_product = fields.Many2One(
+        'product.template', 'Reference Product', ondelete='RESTRICT',
+        domain=[
+            ('id', '!=', Eval('id', -1)),
+            ('active', '=', True),
+            ('salable', '=', True),
+            ('type', '=', 'goods'),
+            ('default_uom.category', '=', Eval('default_uom_category', -1)),
+            ],
+        context={'company': Eval('context', {}).get('company', -1)},
+        states={
+            'invisible': (Eval('sale_forecast_method') != 'new_product')
+                | (Eval('sale_forecast_new_product_source') != 'reference_product'),
+            'required': (Eval('sale_forecast_method') == 'new_product')
+                & (Eval('sale_forecast_new_product_source') == 'reference_product'),
+            },
+        help='Use this product sales history and weekday distribution. '
+            'Average closed months with history from the reference product.')
     sale_forecast_new_product_increase_percentage = fields.Float(
         'New Product Increase %',
         states={
@@ -95,7 +129,12 @@ class Template(metaclass=PoolMeta):
         states={
             'invisible': Eval('sale_forecast_method') != 'key_accounts',
             'required': Eval('sale_forecast_method') == 'key_accounts',
-            })
+            },
+        help='Orders: positive quantities from all non-cancelled sales, '
+            'using shipping date or sale date when shipping date is '
+            'missing. Customer forecast: trucks per week multiplied by '
+            'pallets per truck and package capacity. Mixed: use orders when '
+            'present; otherwise fall back to the general method.')
     sale_forecast_customer_trucks_per_week = fields.Float(
         'Customer Trucks per Week',
         domain=[
@@ -143,7 +182,11 @@ class Template(metaclass=PoolMeta):
         'Manual Weekly Forecasts',
         states={
             'invisible': Eval('sale_forecast_method') != 'manual',
-            }, context={'default_product_template': Eval('id', -1)})
+            }, context={'default_product_template': Eval('id', -1)},
+        help='Enter the forecast quantity for each Monday-based week. Every '
+            'week in the requested period must have a line. Units, boxes '
+            'and pallets are converted using the product packaging. Manual '
+            'quantities are not adjusted by calendar events.')
     sale_forecast_manual_updated_at = fields.DateTime(
         'Last Manual Forecast Update', readonly=True,
         states={'invisible': Eval('sale_forecast_method') != 'manual'})
@@ -155,6 +198,63 @@ class Template(metaclass=PoolMeta):
     sale_forecast_last_calculated_at = fields.Function(
         fields.DateTime('Last Sales Forecast Calculation', readonly=True),
         'get_latest_sale_forecast_date')
+
+    sale_forecast_previous_year_growth = fields.Function(fields.Float(
+            'Year-to-Date Growth %', readonly=True,
+            help='Change in units sold this year through yesterday compared with '
+            'the same period last year. Empty when the comparison quantity '
+            'is zero or negative.'), 'get_sale_history_growth')
+    sale_forecast_previous_month_growth = fields.Function(fields.Float(
+            'Previous Month Year-over-Year Growth %', readonly=True,
+            help='Change in units sold in the previous closed month compared '
+            'with the same month last year. Empty when the comparison '
+            'quantity is zero or negative.'), 'get_sale_history_growth')
+
+    @classmethod
+    def get_sale_history_growth(cls, templates, names):
+        pool = Pool()
+        history = pool.get('sales.forecast.sale_history').__table__()
+        company = Transaction().context.get('company')
+        result = {name: {t.id: None for t in templates} for name in names}
+        if not company:
+            return result
+        today = pool.get('ir.date').today()
+        month_start = today.replace(day=1)
+        year_start = today.replace(month=1, day=1)
+        periods = {
+            'sale_forecast_previous_year_growth': (
+                year_start - relativedelta(years=1),
+                (today - timedelta(days=1) - relativedelta(years=1)
+                    + timedelta(days=1)), year_start, today),
+            'sale_forecast_previous_month_growth': (
+                month_start - relativedelta(years=1, months=1),
+                month_start - relativedelta(years=1),
+                month_start - relativedelta(months=1), month_start),
+            }
+        cursor = Transaction().connection.cursor()
+        for name in names:
+            start, previous_end, current_start, end = periods[name]
+            if current_start >= end:
+                continue
+            for batch in grouped_slice(templates):
+                ids = [t.id for t in batch]
+                totals = []
+                for lower, upper in ((start, previous_end), (current_start, end)):
+                    cursor.execute(*history.select(
+                            history.product_template, Sum(history.quantity),
+                            where=(history.company == company)
+                                & history.product_template.in_(ids)
+                                & (history.date >= lower)
+                                & (history.date < upper),
+                            group_by=history.product_template))
+                    totals.append(dict(cursor.fetchall()))
+                previous, current = totals
+                for template_id in ids:
+                    base = previous.get(template_id, 0)
+                    if base > 0:
+                        result[name][template_id] = (
+                            current.get(template_id, 0) - base) / base
+        return result
 
     @classmethod
     def __setup__(cls):
