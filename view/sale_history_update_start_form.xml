@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
-<form>
+<form col="2">
     <label name="last_date"/>
     <field name="last_date"/>
-    <label string="Refresh all confirmed, processing and completed sales for the current company." id="refresh_history" colspan="2"/>
+    <label name="last_calculated_at"/>
+    <field name="last_calculated_at"/>
+    <label name="full_history"/>
+    <field name="full_history"/>
+    <label string="Recalculate from the last date, including that day." id="refresh_history" colspan="2"/>
+    <label string="Select the option above to recalculate all dates." id="replace_history" colspan="2"/>
+    <label string="Include all sales except cancelled sales." id="history_sales" colspan="2"/>
 </form>

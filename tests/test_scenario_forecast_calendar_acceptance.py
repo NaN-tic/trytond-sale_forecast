@@ -2,7 +2,7 @@ import unittest
 from datetime import date, timedelta
 from decimal import Decimal
 
-from proteus import Model
+from proteus import Model, Wizard
 from proteus.config import get_config
 from trytond.exceptions import UserError
 from trytond.model.exceptions import SQLConstraintError
@@ -116,6 +116,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
 
         calculation = Calculation(1)
         calculation.company = company
+        calculation.family_category = category
         calculation.calendar = calendar
         calculation.start_date = week
         calculation.end_date = week + timedelta(days=6)
@@ -134,6 +135,11 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
                 for record in Forecast.find([])])
         forecast = calculation.generated_forecasts[0]
         forecast.reload()
+        self.assertEqual(forecast.family_category, category)
+        calculation.family_category = None
+        calculation.save()
+        forecast.reload()
+        self.assertEqual(forecast.family_category, category)
         ForecastLine = Model.get('sales.forecast.line')
         tree_view = ForecastLine._proxy.fields_view_get(
             None, 'tree', None, config.context)
@@ -148,7 +154,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
                 self.assertTrue(linked_template.sale_forecast_lines)
                 self.assertIsNotNone(
                     linked_template.sale_forecast_last_calculated_at)
-        expected = [10, 200, 70, 45, 50, 60, 70]
+        expected = [310, 200, 70, 135, 50, 60, 70]
         daily = Daily.find([('forecast', '=', forecast.id)], order=[('date', 'ASC')])
         self.assertEqual([line.quantity for line in daily], expected)
         self.assertEqual(forecast.lines[0].quantity, sum(expected))
@@ -169,7 +175,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
             special_day.click('calculate_special_sale')
             special_day.reload()
             self.assertEqual(len(special_day.result_lines), 1)
-            self.assertEqual(special_day.result_lines[0].units, 45)
+            self.assertEqual(special_day.result_lines[0].units, 135)
             product_day.reload()
             self.assertEqual(
                 [line.id for line in product_day.result_lines], other_result_ids)
@@ -196,14 +202,14 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
         special.save()
         forecast.click('calculate')
         forecast.reload()
-        self.assertEqual(forecast.lines[0].quantity, 605)
+        self.assertEqual(forecast.lines[0].quantity, 995)
         special.scope = 'party_category'
         special.party_category = segment
         special.increase_percentage = 1
         special.save()
         forecast.click('calculate')
         forecast.reload()
-        self.assertEqual(forecast.lines[0].quantity, 620)
+        self.assertEqual(forecast.lines[0].quantity, 1040)
 
         with self.assertRaises(UserError):
             Special(calendar_day=special_day, scope='all_products',
@@ -266,7 +272,7 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
                     for line in other_template.sale_forecast_lines}, {second.id})
         with config.set_context(company=first_company.id):
             history = History.find([('company', '=', first_company.id)])
-            self.assertEqual(sum(line.quantity for line in history), 280)
+            self.assertEqual(sum(line.quantity for line in history), 580)
             template = Template(template.id)
             self.assertEqual({line.forecast.id
                     for line in template.sale_forecast_lines}, {forecast.id})
@@ -274,6 +280,9 @@ class TestForecastCalendarAcceptance(unittest.TestCase):
             # Net returns remain in history but cannot become forecast sales.
             company = first_company
             create_sale(history_week, -1000)
+            wizard = Wizard('sales.forecast.sale_history.update')
+            wizard.form.full_history = True
+            wizard.execute('update')
             special_day.click('calculate_special_sale')
             special_day.reload()
             result, = [line for line in special_day.result_lines

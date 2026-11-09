@@ -139,11 +139,11 @@ class TestFunctionalForecastMethods(unittest.TestCase):
             company=company,
             calendar=calendar,
             calculation_method='general',
-            general_increase_percentage=0,
             start_date=week_start,
             end_date=week_start + timedelta(days=6))
         general_forecast.product_templates.append(general)
         general_forecast.save()
+        self.assertIsNone(general_forecast.general_increase_percentage)
         with patch(
                 'trytond.modules.sale_forecast.forecast.'
                 'SalesForecast._previous_year_week_quantity',

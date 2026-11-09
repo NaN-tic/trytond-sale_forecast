@@ -1,9 +1,12 @@
 import unittest
+from io import BytesIO
+
+from openpyxl import load_workbook
 from datetime import date
 from decimal import Decimal
 from unittest.mock import patch
 
-from proteus import Model, Wizard
+from proteus import Model, Wizard, Report
 from proteus.config import get_config
 from trytond.exceptions import UserError
 from trytond.modules.company.tests.tools import create_company, get_company
@@ -128,11 +131,13 @@ class TestForecastRemainingRules(unittest.TestCase):
         self.assertEqual(len(calculation.category_increase_lines), 1)
         calculation.category_increase_lines[0].percentage = 0.2
         calculation.save()
+        self.assertEqual(calculation.click('open_latest_forecasts'), [])
         with patch.object(config.pool.get('ir.date'), 'today',
                 return_value=date(2024, 3, 20)):
             calculation.click('calculate_key_accounts')
         calculation.reload()
         forecast = calculation.generated_forecasts[0]
+        self.assertEqual(calculation.click('open_latest_forecasts'), [forecast])
         self.assertEqual([line.units for line in forecast.lines], [700, 120])
         self.assertAlmostEqual(sum(line.units for line in Daily.find([
             ('forecast', '=', forecast.id), ('date', '<=', date(2024, 3, 10))])), 700)
@@ -143,6 +148,10 @@ class TestForecastRemainingRules(unittest.TestCase):
         calculation.end_date = date(2024, 3, 10)
         calculation.save()
         calculation.click('calculate_key_accounts')
+        calculation.reload()
+        latest = calculation.generated_forecasts[0]
+        self.assertNotEqual(latest, forecast)
+        self.assertEqual(calculation.click('open_latest_forecasts'), [latest])
         mixed.reload()
         self.assertEqual([line.units for line in mixed.sale_forecast_lines], [800, 120])
         report = Comparison(name='Latest by week', company=company,
@@ -169,6 +178,25 @@ class TestForecastRemainingRules(unittest.TestCase):
             calculation.click('calculate_new_product')
         calculation.reload()
         self.assertEqual(calculation.generated_forecasts[0].lines[0].base_quantity, 70)
+        latest_forecasts = calculation.click('open_latest_forecasts')
+        self.assertEqual({item.calculation_method for item in latest_forecasts},
+            {'key_accounts', 'new_product'})
+        self.assertEqual(len(latest_forecasts), 2)
+        self.assertNotIn(forecast, latest_forecasts)
+        extension, content, _, _ = Report(
+            'sales.forecast.latest_excel').execute([calculation])
+        self.assertEqual(extension, 'xlsx')
+        workbook = load_workbook(BytesIO(content))
+        sheet = workbook.active
+        rows = list(sheet.values)[1:]
+        self.assertEqual(len(rows), sum(len(f.lines) for f in latest_forecasts))
+        self.assertEqual({row[1] for row in rows},
+            {f.name for f in latest_forecasts})
+        self.assertAlmostEqual(sum(row[10] for row in rows),
+            sum(line.units for f in latest_forecasts for line in f.lines))
+        self.assertEqual(sheet.freeze_panes, 'A2')
+        self.assertEqual(sheet['H2'].number_format, 'dd/mm/yyyy')
+
         sell(new, date(2024, 1, 8), 30)
         new.sale_forecast_new_product_source = 'average_months'
         new.save()
@@ -176,12 +204,42 @@ class TestForecastRemainingRules(unittest.TestCase):
         calculation.save()
         with patch.object(config.pool.get('ir.date'), 'today',
                 return_value=date(2024, 3, 20)):
+            wizard = Wizard('sales.forecast.sale_history.update')
+            wizard.form.full_history = True
+            wizard.execute('update')
             calculation.click('calculate_new_product')
         calculation.reload()
         self.assertEqual(calculation.generated_forecasts[0].lines[0].base_quantity, 50)
         calculation.product_templates.pop()
         calculation.product_templates.append(Template(empty.id))
         calculation.save()
+        with patch.object(config.pool.get('ir.date'), 'today',
+                return_value=date(2024, 3, 20)), self.assertRaises(UserError):
+            calculation.click('calculate_new_product')
+        # A new product without sales follows a reference product's history.
+        launch = product('New Launch', 'new_product')
+        launch.sale_forecast_new_product_source = 'reference_product'
+        launch.sale_forecast_reference_product = new
+        launch.sale_forecast_new_product_increase_percentage = 0.2
+        launch.save()
+        calculation.product_templates.pop()
+        calculation.product_templates.append(launch)
+        calculation.save()
+        with patch.object(config.pool.get('ir.date'), 'today',
+                return_value=date(2024, 3, 20)):
+            calculation.click('calculate_new_product')
+        calculation.reload()
+        launch_forecast = calculation.generated_forecasts[0]
+        self.assertEqual(launch_forecast.lines[0].product_template, launch)
+        self.assertEqual(launch_forecast.lines[0].base_quantity, 60)
+        self.assertFalse(Model.get('sales.forecast.sale_history').find([
+                ('product_template', '=', launch.id)]))
+        daily = Daily.find([('forecast', '=', launch_forecast.id)])
+        self.assertEqual(sum(line.quantity for line in daily), 60)
+        self.assertTrue(all(line.date.weekday() == 0
+                for line in daily if line.quantity))
+        launch.sale_forecast_new_product_source = 'average_months'
+        launch.save()
         with patch.object(config.pool.get('ir.date'), 'today',
                 return_value=date(2024, 3, 20)), self.assertRaises(UserError):
             calculation.click('calculate_new_product')
@@ -209,7 +267,9 @@ class TestForecastRemainingRules(unittest.TestCase):
         sell(new, date(2024, 2, 6), 30)
         with patch.object(config.pool.get('ir.date'), 'today',
                 return_value=date(2024, 3, 1)):
-            Wizard('sales.forecast.sale_history.update').execute('update')
+            wizard = Wizard('sales.forecast.sale_history.update')
+            wizard.form.full_history = True
+            wizard.execute('update')
             exclusion.click('calculate_distributions')
         monday, = Distribution.find([('product_template', '=', new.id), ('weekday', '=', '0')])
         tuesday, = Distribution.find([('product_template', '=', new.id), ('weekday', '=', '1')])
