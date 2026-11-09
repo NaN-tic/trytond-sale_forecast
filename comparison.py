@@ -40,7 +40,12 @@ class Comparison(ModelSQL, ModelView):
         help='Select any date in the first week to include.')
     end_date = fields.Date('Last Week', required=True,
         help='Select any date in the last week to include.')
-    weekly = fields.Boolean('Weekly Detail')
+    weekly = fields.Boolean('Weekly Detail',
+        help='Show one row per product and week when enabled; otherwise '
+            'aggregate the full interval. Compare the latest complete '
+            'calculated forecast for each product and week with '
+            'non-cancelled sales. Missing forecasts or packaging '
+            'conversions are shown as N/A.')
     products = fields.Many2Many('sales.forecast.comparison-product.template',
         'comparison', 'product', 'Products',
         domain=[('salable', '=', True), ('type', '=', 'goods')],

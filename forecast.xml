@@ -987,6 +987,23 @@
             <field name="string">Calculate All</field>
             <field name="model">sales.forecast.calculation</field>
         </record>
+        <record model="ir.action.report" id="report_latest_forecasts">
+            <field name="name">Latest Forecasts Excel</field>
+            <field name="model">sales.forecast.calculation</field>
+            <field name="report_name">sales.forecast.latest_excel</field>
+            <field name="template_extension">ods</field>
+            <field name="extension">xlsx</field>
+        </record>
+        <record model="ir.model.button" id="calculation_export_latest_forecasts_button">
+            <field name="name">export_latest_forecasts</field>
+            <field name="string">Export Latest Forecasts to Excel</field>
+            <field name="model">sales.forecast.calculation</field>
+        </record>
+        <record model="ir.model.button" id="calculation_open_latest_forecasts_button">
+            <field name="name">open_latest_forecasts</field>
+            <field name="string">Open Latest Forecasts</field>
+            <field name="model">sales.forecast.calculation</field>
+        </record>
         <record model="ir.model.button" id="calculation_calculate_key_accounts_button">
             <field name="name">calculate_key_accounts</field>
             <field name="string">Calculate Key Accounts</field>

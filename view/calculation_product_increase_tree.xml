@@ -2,4 +2,7 @@
 <tree editable="1">
     <field name="product_template"/>
     <field name="percentage" factor="100"/>
+    <field name="previous_year_growth" factor="100"/>
+    <field name="previous_month_growth" factor="100"/>
+    <field name="selected_period_growth" factor="100"/>
 </tree>

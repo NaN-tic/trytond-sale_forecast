@@ -39,7 +39,6 @@ SPECIAL_SCOPES = [
     ('product_category', 'Categoría de Producto'),
     ('party_category', 'Categoría de Cliente'),
 ]
-FORECAST_METHOD_LABELS = dict(FORECAST_METHODS)
 
 
 def _context_company():
@@ -162,10 +161,13 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
                 Max(table.date),
                 where=table.company == company.id))
         row = cursor.fetchone()
-        return row[0] if row else None
+        last_date = row[0] if row else None
+        if isinstance(last_date, str):
+            last_date = date.fromisoformat(last_date)
+        return last_date
 
     @classmethod
-    def update_history(cls, company=None):
+    def update_history(cls, company=None, full_history=False):
         cursor = Transaction().connection.cursor()
         table = cls.__table__()
         today = Pool().get('ir.date').today()
@@ -177,12 +179,15 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
             raise UserError(gettext(
                 'sale_forecast.msg_missing_history_company'))
 
-        # A sale may be confirmed, cancelled or re-dated before the last cached
-        # date. Refresh the whole company history, including removed quantities.
         cls.lock()
+        start_date = None if full_history else cls.last_date(company)
+        # Include the last cached day: it may have been only partly computed.
+        where = table.company == company.id
+        if start_date:
+            where &= table.date >= start_date
         rows = cls._aggregated_sale_rows(
-            company, end_date=today)
-        cursor.execute(*table.delete(where=table.company == company.id))
+            company, start_date=start_date, end_date=today)
+        cursor.execute(*table.delete(where=where))
         if not rows:
             return
 
@@ -222,7 +227,7 @@ class SalesForecastSaleHistory(ModelSQL, ModelView):
         where = (
             (sale_line.type == 'line')
             & (sale_line.product != Null)
-            & sale.state.in_(['confirmed', 'processing', 'done'])
+            & (sale.state != 'cancelled')
             & (sale.company == company.id)
             & (sale_day != Null)
             & (template.salable == True)
@@ -400,12 +405,37 @@ class SalesForecastSaleHistoryUpdateStart(ModelView):
     __name__ = 'sales.forecast.sale_history.update.start'
 
     last_date = fields.Date('Current Last Date', readonly=True)
+    last_calculated_at = fields.DateTime('Last History Calculation',
+        readonly=True,
+        help='Date and time of the latest history refresh stored for this '
+            'company. A day refreshed before it ends is partial; the next '
+            'incremental refresh rebuilds the last recorded day.')
+    full_history = fields.Boolean('Recalculate Entire History',
+        help='Unchecked: delete and rebuild history from the last recorded '
+            'date, including that entire day. Checked: rebuild all history '
+            'for the current company through today. Includes all sales '
+            'except cancelled sales. Use a full rebuild to include changes '
+            'to older sales.')
+
+    @staticmethod
+    def default_full_history():
+        return False
 
     @staticmethod
     def default_last_date():
         company = _context_company()
         if company:
             return Pool().get('sales.forecast.sale_history').last_date(company)
+
+    @staticmethod
+    def default_last_calculated_at():
+        company = _context_company()
+        if company:
+            history = Pool().get('sales.forecast.sale_history').search([
+                    ('company', '=', company.id),
+                    ], order=[('computed_at', 'DESC')], limit=1)
+            if history:
+                return history[0].computed_at
 
 
 class SalesForecastSaleHistoryUpdate(Wizard):
@@ -421,7 +451,7 @@ class SalesForecastSaleHistoryUpdate(Wizard):
 
     def transition_update(self):
         Pool().get('sales.forecast.sale_history').update_history(
-            company=_context_company())
+            company=_context_company(), full_history=self.start.full_history)
         return 'end'
 
 
@@ -799,7 +829,7 @@ class SalesForecastCalendarDay(ModelSQL, ModelView):
         'sales.forecast.calendar.day.special', 'calendar_day',
         'Alcances Venta Especial',
         help='Add one line for each scope. If there are several product or '
-        'customer categories, create one line per category.',
+            'customer categories, create one line per category.',
         states={
             'invisible': Eval('day_type') != 'special_sale',
             })
@@ -1451,7 +1481,70 @@ class SalesForecastSelectedProduct(ModelSQL):
         required=True, ondelete='CASCADE')
 
 
-class SalesForecastCalculationCategoryIncrease(ModelSQL, ModelView):
+class CalculationIncreaseGrowthMixin:
+    __slots__ = ()
+
+    previous_year_growth = fields.Function(fields.Float(
+            'Year-to-Date Growth %', readonly=True,
+        help='Percentage change in units from January 1 through yesterday '
+            'versus the same dates last year: (current / previous - 1) x '
+            '100. Excludes the incomplete current day. Empty when the '
+            'comparison base is not positive. Informational only; does not '
+            'set an increase.'), 'get_history_growth')
+    previous_month_growth = fields.Function(fields.Float(
+            'Previous Month Year-over-Year Growth %', readonly=True,
+        help='Percentage change in total units in the last complete month '
+            'versus the same month last year. For example, in November 2026 '
+            'compare October 2026 with October 2025. Empty when the '
+            'comparison base is not positive. Does not modify forecast '
+            'increases.'), 'get_history_growth')
+    selected_period_growth = fields.Function(fields.Float(
+            'Previous Year Daily Average Growth %', readonly=True,
+        help='Shift the selected period back one year. Compare its average '
+            'units per calendar day with the average from January 1 through '
+            'the day before that period: (period average / accumulated '
+            'average - 1) x 100. Include days without sales. Empty if the '
+            'period starts January 1 or the comparison base is not '
+            'positive.'),
+        'get_history_growth')
+
+    def get_history_growth(self, name):
+        if not self.calculation or not self.calculation.company:
+            return None
+        pool = Pool()
+        templates = pool.get('sales.forecast').filtered_templates(
+            product_templates=self.calculation.product_templates)
+        templates = [t for t in templates
+            if t.sale_forecast_method == 'general'
+            or (t.sale_forecast_method == 'key_accounts'
+                and t.sale_forecast_key_account_source == 'mixed')]
+        if hasattr(self, 'category'):
+            if not self.category:
+                return None
+            categories = set(pool.get('product.category').search([
+                ('parent', 'child_of', [self.category.id]),
+                ]))
+            templates = [t for t in templates
+                if categories.intersection(t.categories_all)]
+        else:
+            templates = [t for t in templates if t == self.product_template]
+        if not templates:
+            return None
+        calculation = pool.get('sales.forecast.calculation')(
+            company=self.calculation.company,
+            start_date=self.calculation.start_date,
+            end_date=self.calculation.end_date,
+            product_templates=templates)
+        getters = {
+            'previous_year_growth': calculation.on_change_with_previous_year_growth,
+            'previous_month_growth': calculation.on_change_with_previous_month_growth,
+            'selected_period_growth': calculation.on_change_with_selected_period_growth,
+            }
+        return getters[name]()
+
+
+class SalesForecastCalculationCategoryIncrease(
+        CalculationIncreaseGrowthMixin, ModelSQL, ModelView):
     'Sales Forecast Calculation Category Increase'
     __name__ = 'sales.forecast.calculation.category_increase'
 
@@ -1460,7 +1553,11 @@ class SalesForecastCalculationCategoryIncrease(ModelSQL, ModelView):
     category = fields.Many2One('product.category', 'Category',
         required=True, ondelete='RESTRICT')
     percentage = fields.Float('Increase %',
-        help='Enter a percentage, for example 20 for 20%%.')
+        help='Increase for products in this category or its descendants. A '
+            'product override takes priority. Empty falls back to another '
+            'applicable category or the general increase. Explicit zero '
+            'means no increase. Different non-empty increases from '
+            'overlapping categories cause a conflict.')
 
     @classmethod
     def __setup__(cls):
@@ -1473,7 +1570,8 @@ class SalesForecastCalculationCategoryIncrease(ModelSQL, ModelView):
         ]
 
 
-class SalesForecastCalculationProductIncrease(ModelSQL, ModelView):
+class SalesForecastCalculationProductIncrease(
+        CalculationIncreaseGrowthMixin, ModelSQL, ModelView):
     'Sales Forecast Calculation Product Increase'
     __name__ = 'sales.forecast.calculation.product_increase'
 
@@ -1488,7 +1586,10 @@ class SalesForecastCalculationProductIncrease(ModelSQL, ModelView):
             ('active', '=', True),
         ])
     percentage = fields.Float('Increase %', required=True,
-        help='Enter a percentage, for example 20 for 20%%.')
+        help='Override for this product, with priority over category and '
+            'general increases. Enter a percentage, such as 5 for +5% or -5 '
+            'for -5%. Enter 0 to keep the historical base without an '
+            'increase.')
 
 
 class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
@@ -1499,10 +1600,25 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
     calendar = fields.Many2One('sales.forecast.calendar', 'Calendar')
     family_category = fields.Many2One('product.category', 'Product Family Root',
         context={'company': Eval('company', -1)},
-        help='Only categories under this root are used as product families.')
-    general_increase_percentage = fields.Float('General Increase %')
-    start_date = fields.Date('Start Date')
-    end_date = fields.Date('End Date')
+        help='Root used to load product families for category increases. '
+            'Descendant categories are considered. This does not replace '
+            'the product selection and does not automatically apply an '
+            'increase.')
+    general_increase_percentage = fields.Float('General Increase %',
+        help='Fallback increase for the general method. Product overrides '
+            'take priority over category overrides, which take priority '
+            'over this value. Empty means 0% when no override applies. '
+            'Enter 10 for a 10% increase or -10 for a 10% decrease.')
+    start_date = fields.Date('Start Date',
+        help='Inclusive forecast date range. Quantities are calculated by '
+            'week and distributed by day; only days inside this range '
+            'contribute to the result. The selected-period trend shifts '
+            'both dates back one year.')
+    end_date = fields.Date('End Date',
+        help='Inclusive forecast date range. Quantities are calculated by '
+            'week and distributed by day; only days inside this range '
+            'contribute to the result. The selected-period trend shifts '
+            'both dates back one year.')
     product_templates = fields.Many2Many(
         'sales.forecast.calculation-product.template', 'calculation',
         'product_template', 'Products',
@@ -1513,7 +1629,11 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
         ],
         context={
             'company': Eval('company', -1),
-        })
+        },
+        help='Limit calculation to these active salable goods. Leave empty '
+            'to include all eligible products. Each product uses its '
+            'configured forecast method. This selection also limits the '
+            'calculation trends.')
     category_increase_lines = fields.One2Many(
         'sales.forecast.calculation.category_increase', 'calculation',
         'Category Increases')
@@ -1534,9 +1654,89 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
     last_calculated_at = fields.Function(
         fields.DateTime('Last Calculation'), 'get_last_calculated_at')
 
+    previous_year_growth = fields.Function(fields.Float(
+            'Year-to-Date Growth %', readonly=True,
+        help='Percentage change in units from January 1 through yesterday '
+            'versus the same dates last year: (current / previous - 1) x '
+            '100. Excludes the incomplete current day. Empty when the '
+            'comparison base is not positive. Informational only; does not '
+            'set an increase.'),
+        'on_change_with_previous_year_growth')
+    previous_month_growth = fields.Function(fields.Float(
+            'Previous Month Year-over-Year Growth %', readonly=True,
+        help='Percentage change in total units in the last complete month '
+            'versus the same month last year. For example, in November 2026 '
+            'compare October 2026 with October 2025. Empty when the '
+            'comparison base is not positive. Does not modify forecast '
+            'increases.'),
+        'on_change_with_previous_month_growth')
+    selected_period_growth = fields.Function(fields.Float(
+            'Previous Year Daily Average Growth %', readonly=True,
+            help='Shift the selected period back one year. Compare its average '
+            'units per calendar day with the average from January 1 through '
+            'the day before that period: (period average / accumulated '
+            'average - 1) x 100. Include days without sales. Empty if the '
+            'period starts January 1 or the comparison base is not '
+            'positive.'),
+        'on_change_with_selected_period_growth')
+
+    @fields.depends('company', 'product_templates')
+    def on_change_with_previous_year_growth(self, name=None):
+        today = Pool().get('ir.date').today()
+        start = today.replace(month=1, day=1)
+        if today == start:
+            return None
+        end = today - timedelta(days=1)
+        return self._history_growth(start, end,
+            start - relativedelta(years=1), end - relativedelta(years=1))
+
+    @fields.depends('company', 'product_templates')
+    def on_change_with_previous_month_growth(self, name=None):
+        end = Pool().get('ir.date').today().replace(day=1)
+        return self._history_growth(
+            end - relativedelta(months=1), end - timedelta(days=1),
+            end - relativedelta(years=1, months=1),
+            end - relativedelta(years=1) - timedelta(days=1))
+
+    @fields.depends('company', 'product_templates', 'start_date', 'end_date')
+    def on_change_with_selected_period_growth(self, name=None):
+        if (not self.start_date or not self.end_date
+                or self.start_date > self.end_date):
+            return None
+        start = self.start_date - relativedelta(years=1)
+        if start.month == 1 and start.day == 1:
+            return None
+        return self._history_growth(
+            start, self.end_date - relativedelta(years=1),
+            start.replace(month=1, day=1), start - timedelta(days=1),
+            daily_average=True)
+
+    def _history_growth(self, start, end, previous_start, previous_end,
+            daily_average=False):
+        if not self.company:
+            return None
+        pool = Pool()
+        History = pool.get('sales.forecast.sale_history')
+        templates = pool.get('sales.forecast').filtered_templates(
+            product_templates=self.product_templates)
+        ids = [template.id for template in templates]
+        previous = sum(History.range_quantity_map(
+            self.company, ids, previous_start, previous_end).values())
+        if previous <= 0:
+            return None
+        current = sum(History.range_quantity_map(
+            self.company, ids, start, end).values())
+        if daily_average:
+            current /= (end - start).days + 1
+            previous /= (previous_end - previous_start).days + 1
+        return (current - previous) / previous
+
     refresh_parameters = fields.Boolean('Refresh Forecast Parameters',
-        help='Refresh sales history, weekday distributions and calendar results. '
-            'Otherwise reuse the existing parameters.')
+        help='Refresh sales history, weekday distributions and calendar '
+            'results before forecasting. Otherwise reuse existing '
+            'parameters. History includes non-cancelled sales and rebuilds '
+            'the last recorded day. Use the history wizard for a full '
+            'rebuild of older dates.')
 
     def get_last_calculated_at(self, name):
         return max((value for value in (
@@ -1567,6 +1767,8 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
                 'calculate_manual': {'icon': 'tryton-refresh'},
                 'load_general_categories': {'icon': 'tryton-refresh'},
                 'open_manual_lines': {'icon': 'tryton-launch'},
+                'open_latest_forecasts': {'icon': 'tryton-launch'},
+                'export_latest_forecasts': {'icon': 'tryton-print'},
                 })
 
     @classmethod
@@ -1687,6 +1889,41 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
         return action
 
     @classmethod
+    @ModelView.button
+    def open_latest_forecasts(cls, records):
+        pool = Pool()
+        Action = pool.get('ir.action')
+        ModelData = pool.get('ir.model.data')
+        forecast_ids = [f.id for f in cls.latest_forecasts()] if records else []
+        action = Action(ModelData.get_id(
+            'sale_forecast', 'act_sale_forecast')).get_action_value()
+        action['pyson_domain'] = PYSONEncoder().encode([
+                ('id', 'in', forecast_ids),
+                ])
+        return action
+
+    @classmethod
+    def latest_forecasts(cls):
+        Forecast = Pool().get('sales.forecast')
+        record = cls.get_singleton()
+        forecasts = []
+        if record:
+            for method, _label in FORECAST_METHODS:
+                forecasts.extend(Forecast.search([
+                    ('calculation', '=', record.id),
+                    ('company', '=', record.company.id),
+                    ('calculation_method', '=', method),
+                    ('state', '=', 'calculated'),
+                    ], order=[('computed_at', 'DESC NULLS LAST'),
+                        ('id', 'DESC')], limit=1))
+        return forecasts
+
+    @classmethod
+    @ModelView.button_action('sale_forecast.report_latest_forecasts')
+    def export_latest_forecasts(cls, records):
+        pass
+
+    @classmethod
     @without_check_access
     def _run_method(cls, records, method):
         Forecast = Pool().get('sales.forecast')
@@ -1706,7 +1943,8 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
                 cls._validate_general_method(record)
             values = {
                 'name': '%s %s - %s' % (
-                    FORECAST_METHOD_LABELS.get(method, method),
+                    dict(Forecast.fields_get(['calculation_method'])
+                        ['calculation_method']['selection']).get(method, method),
                     record.start_date,
                     record.end_date),
                 'calculation': record.id,
@@ -1714,6 +1952,8 @@ class SalesForecastCalculation(ModelSingleton, ModelSQL, ModelView):
                 'calendar': record.calendar.id if record.calendar else None,
                 'general_increase_percentage':
                     record.general_increase_percentage,
+                'family_category': (record.family_category.id
+                    if record.family_category else None),
                 'start_date': record.start_date,
                 'end_date': record.end_date,
                 'calculation_method': method,
@@ -1797,7 +2037,12 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         FORECAST_METHODS, 'Calculation Method', required=True,
         states={
             'readonly': Eval('state') != 'draft',
-            })
+            },
+        help='General: use the corresponding week last year and apply the '
+            'product, category or general increase. Key accounts: use '
+            'orders or customer volumes. New product: extrapolate '
+            'historical months or a reference product. Manual: use the '
+            'quantities entered for each week.')
     calculation = fields.Many2One(
         'sales.forecast.calculation', 'Calculation Source', readonly=True,
         ondelete='SET NULL')
@@ -1812,18 +2057,36 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             'readonly': Eval('state') != 'draft',
             })
     general_increase_percentage = fields.Float('General Increase %',
-        help='Percentage applied to products using the General Method.',
+        help='Fallback increase for the general method. Product overrides '
+            'take priority over category overrides, which take priority '
+            'over this value. Empty means 0% when no override applies. '
+            'Enter 10 for a 10% increase or -10 for a 10% decrease.',
         states={
             'readonly': Eval('state') != 'draft',
             })
+    family_category = fields.Many2One('product.category',
+        'Product Family Root', readonly=True, ondelete='RESTRICT',
+        context={'company': Eval('company', -1)},
+        help='Root used to load product families for category increases. '
+            'Descendant categories are considered. This does not replace '
+            'the product selection and does not automatically apply an '
+            'increase.')
     start_date = fields.Date('Start Date', required=True,
         states={
             'readonly': Eval('state') != 'draft',
-            })
+            },
+        help='Inclusive forecast date range. Quantities are calculated by '
+            'week and distributed by day; only days inside this range '
+            'contribute to the result. The selected-period trend shifts '
+            'both dates back one year.')
     end_date = fields.Date('End Date', required=True,
         states={
             'readonly': Eval('state') != 'draft',
-            })
+            },
+        help='Inclusive forecast date range. Quantities are calculated by '
+            'week and distributed by day; only days inside this range '
+            'contribute to the result. The selected-period trend shifts '
+            'both dates back one year.')
     product_templates = fields.Many2Many(
         'sales.forecast-product.template', 'forecast', 'product_template',
         'Products',
@@ -1837,7 +2100,11 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         },
         states={
             'readonly': Eval('state') != 'draft',
-            })
+            },
+        help='Limit calculation to these active salable goods. Leave empty '
+            'to include all eligible products. Each product uses its '
+            'configured forecast method. This selection also limits the '
+            'calculation trends.')
     computed_at = fields.DateTime('Computed At', readonly=True)
     last_general_calculated_at = fields.DateTime(
         'Last General Calculation', readonly=True)
@@ -1872,8 +2139,11 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
 
     refresh_parameters = fields.Boolean('Refresh Forecast Parameters',
         states={'readonly': Eval('state') != 'draft'},
-        help='Refresh sales history, weekday distributions and calendar results. '
-            'Otherwise reuse the existing parameters.')
+        help='Refresh sales history, weekday distributions and calendar '
+            'results before forecasting. Otherwise reuse existing '
+            'parameters. History includes non-cancelled sales and rebuilds '
+            'the last recorded day. Use the history wizard for a full '
+            'rebuild of older dates.')
 
     @classmethod
     def __setup__(cls):
@@ -2014,6 +2284,11 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         templates = cls.filtered_templates(
             method=forecast.calculation_method,
             product_templates=list(forecast.product_templates))
+        templates += [template.sale_forecast_reference_product
+            for template in templates
+            if template.sale_forecast_method == 'new_product'
+            and template.sale_forecast_new_product_source == 'reference_product'
+            and template.sale_forecast_reference_product]
         distributions = Distribution.search([
                 ('company', '=', forecast.company.id),
                 ('product_template', 'in', [t.id for t in templates]),
@@ -2518,6 +2793,10 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
     @classmethod
     def _weekday_percentages(cls, company, template):
         Distribution = Pool().get('sales.forecast.distribution')
+        if (template.sale_forecast_method == 'new_product'
+                and template.sale_forecast_new_product_source == 'reference_product'
+                and template.sale_forecast_reference_product):
+            template = template.sale_forecast_reference_product
         lines = Distribution.search([
                 ('company', '=', company.id),
                 ('product_template', '=', template.id),
@@ -2545,7 +2824,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         if apply_events and template.sale_forecast_method == 'key_accounts':
             apply_events = (
                 template.sale_forecast_key_account_source == 'mixed'
-                and not cls._draft_orders_quantity(
+                and not cls._orders_quantity(
                     forecast.company, template, week_start))
         percentages = cls._weekday_percentages(forecast.company, template)
         days = {}
@@ -2627,11 +2906,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
                 product=template.rec_name))
         if percentages:
             return percentages.pop()
-        if forecast.general_increase_percentage is None:
-            raise UserError(gettext(
-                'sale_forecast.msg_missing_general_percentage',
-                product=template.rec_name))
-        return forecast.general_increase_percentage
+        return forecast.general_increase_percentage or 0.0
 
     @classmethod
     def _previous_year_week_quantity(cls, company, template, week_start):
@@ -2662,7 +2937,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             return _convert_packaging_quantities(
                 template, pallets=pallets)['units']
 
-        orders_quantity = cls._draft_orders_quantity(
+        orders_quantity = cls._orders_quantity(
             forecast.company, template, week_start)
         if source == 'orders':
             return orders_quantity
@@ -2674,19 +2949,23 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
     @classmethod
     def _compute_new_product_quantity(cls, forecast, template, week_start):
         source = template.sale_forecast_new_product_source or 'average_months'
+        reference = (template.sale_forecast_reference_product
+            if source == 'reference_product' else template)
         reference_months = cls._new_product_reference_months(
-            forecast.company, template, forecast.start_date, source)
+            forecast.company, reference, forecast.start_date, source)
         if not reference_months:
             raise UserError(gettext(
                 'sale_forecast.msg_missing_new_product_history',
-                product=template.rec_name))
+                product=reference.rec_name))
         week_index = cls._month_week_index(week_start)
         quantities = [
             cls._month_week_quantity(
-                forecast.company, template, month, week_index)
+                forecast.company, reference, month, week_index)
             for month in reference_months
             ]
         base = sum(quantities) / len(quantities)
+        base = Pool().get('product.uom').compute_qty(
+            reference.default_uom, base, template.default_uom, round=False)
         percentage = (
             template.sale_forecast_new_product_increase_percentage or 0.0)
         return base * (1 + percentage)
@@ -2731,7 +3010,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
         return SaleHistory.quantity_sum(company, template, start, end)
 
     @classmethod
-    def _draft_orders_quantity(cls, company, template, week_start):
+    def _orders_quantity(cls, company, template, week_start):
         pool = Pool()
         SaleLine = pool.get('sale.line')
         Uom = pool.get('product.uom')
@@ -2741,7 +3020,7 @@ class SalesForecast(Workflow, ModelSQL, ModelView):
             ('type', '=', 'line'),
             ('product.template', '=', template.id),
             ('sale.company', '=', company.id),
-            ('sale.state', 'in', ['draft', 'quotation']),
+            ('sale.state', '!=', 'cancelled'),
             ['OR',
                 [('sale.shipping_date', '>=', week_start),
                     ('sale.shipping_date', '<=', week_end)],
@@ -2765,7 +3044,12 @@ class SalesForecastCategoryIncrease(ModelSQL, ModelView):
         required=True, ondelete='CASCADE')
     category = fields.Many2One('product.category', 'Category',
         required=True, ondelete='RESTRICT')
-    percentage = fields.Float('Increase %', required=True)
+    percentage = fields.Float('Increase %', required=True,
+        help='Increase for products in this category or its descendants. A '
+            'product override takes priority. Empty falls back to another '
+            'applicable category or the general increase. Explicit zero '
+            'means no increase. Different non-empty increases from '
+            'overlapping categories cause a conflict.')
 
     @classmethod
     def __setup__(cls):
@@ -2789,7 +3073,11 @@ class SalesForecastProductIncrease(ModelSQL, ModelView):
         required=True, ondelete='CASCADE')
     product_template = fields.Many2One('product.template', 'Product',
         required=True, ondelete='RESTRICT')
-    percentage = fields.Float('Increase %', required=True)
+    percentage = fields.Float('Increase %', required=True,
+        help='Override for this product, with priority over category and '
+            'general increases. Enter a percentage, such as 5 for +5% or -5 '
+            'for -5%. Enter 0 to keep the historical base without an '
+            'increase.')
 
     @classmethod
     def __setup__(cls):
