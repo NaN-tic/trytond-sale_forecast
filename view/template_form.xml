@@ -10,6 +10,8 @@
             <field name="sale_forecast_boxes_per_pallet"/>
             <label name="sale_forecast_new_product_source"/>
             <field name="sale_forecast_new_product_source"/>
+            <label name="sale_forecast_reference_product"/>
+            <field name="sale_forecast_reference_product"/>
             <label name="sale_forecast_new_product_increase_percentage"/>
             <field name="sale_forecast_new_product_increase_percentage" factor="100"/>
             <label name="sale_forecast_key_account_source"/>
@@ -19,6 +21,10 @@
             <label name="sale_forecast_customer_pallets_per_truck"/>
             <field name="sale_forecast_customer_pallets_per_truck"/>
             <newline/>
+            <label name="sale_forecast_previous_year_growth"/>
+            <field name="sale_forecast_previous_year_growth" factor="100"/>
+            <label name="sale_forecast_previous_month_growth"/>
+            <field name="sale_forecast_previous_month_growth" factor="100"/>
             <field name="sale_forecast_distribution_lines" colspan="4"
                 view_ids="sale_forecast.view_sale_forecast_distribution_tree"/>
             <newline/>

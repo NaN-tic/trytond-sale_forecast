@@ -2,7 +2,7 @@
 # this repository contains the full copyright notices and license terms.
 from trytond.pool import Pool
 
-from . import comparison, forecast, product
+from . import comparison, forecast, product, forecast_export
 
 
 def register():
@@ -42,3 +42,7 @@ def register():
         forecast.SalesForecastCalendarCalculateDistributions,
         forecast.SalesForecastCalendarCalculateEventResults,
         module='sale_forecast', type_='wizard')
+
+    Pool.register(
+        forecast_export.LatestForecastsExcel,
+        module='sale_forecast', type_='report')
