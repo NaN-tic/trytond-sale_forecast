@@ -128,6 +128,8 @@ class TestForecastRemainingRules(unittest.TestCase):
         calculation.end_date = date(2024, 3, 17)
         calculation.product_templates.append(Template(mixed.id))
         calculation.save()
+        # Reports check record rules against the persisted singleton ID.
+        calculation, = Calculation.find()
         self.assertEqual(len(calculation.category_increase_lines), 1)
         calculation.category_increase_lines[0].percentage = 0.2
         calculation.save()
