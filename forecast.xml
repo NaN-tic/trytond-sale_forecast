@@ -1152,4 +1152,18 @@
             <field name="text">A product can only have one monthly forecast line per month.</field>
         </record>
     </data>
+    <data>
+        <record model="ir.action-res.group" id="calculate_distributions_group_sale_admin">
+            <field name="action" ref="wiz_sale_forecast_calendar_calculate_distributions"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+        </record>
+        <record model="ir.action-res.group" id="calculate_event_results_group_sale_admin">
+            <field name="action" ref="wiz_sale_forecast_calendar_calculate_event_results"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+        </record>
+        <record model="ir.action-res.group" id="sale_history_update_group_sale_admin">
+            <field name="action" ref="wiz_sale_history_update"/>
+            <field name="group" ref="sale.group_sale_admin"/>
+        </record>
+    </data>
 </tryton>
