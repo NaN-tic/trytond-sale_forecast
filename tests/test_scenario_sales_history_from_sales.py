@@ -209,7 +209,8 @@ class TestSalesHistoryFromSales(unittest.TestCase):
         self.assertEqual(history.quantity, 23)
 
         # Future orders count in every non-cancelled state, using delivery date.
-        future_week = date.today() + timedelta(days=7-date.today().weekday())
+        # Skip next week so Sunday's next-day sale cannot enter this period.
+        future_week = date.today() + timedelta(days=14-date.today().weekday())
         future_draft = create_sale(5, future_week)
         future_quote = create_sale(7, future_week)
         future_quote.click('quote')
